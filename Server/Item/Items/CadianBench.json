@@ -1,0 +1,215 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Bench_WorkBench.name",
+    "Description": "server.items.Bench_WorkBench.description"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 4,
+        "ResourceTypeId": "Wood_Trunk"
+      },
+      {
+        "Quantity": 3,
+        "ResourceTypeId": "Rock"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Tools"
+        ],
+        "Id": "Fieldcraft"
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Bench_WorkBench.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Resources/cadianbench1.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/cadianbench1text.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "Bench_Workbench",
+    "VariantRotation": "NESW",
+    "Bench": {
+      "Type": "Crafting",
+      "Categories": [
+        {
+          "Id": "Workbench_Survival",
+          "Icon": "Icons/CraftingCategories/Workbench/WeaponsCrude.png",
+          "Name": "server.benchCategories.workbench.survival"
+        },
+        {
+          "Id": "Workbench_Tools",
+          "Icon": "Icons/CraftingCategories/Workbench/Tools.png",
+          "Name": "server.benchCategories.workbench.tools"
+        },
+        {
+          "Id": "Workbench_Crafting",
+          "Icon": "Icons/CraftingCategories/Workbench/Processing.png",
+          "Name": "server.benchCategories.workbench.crafting"
+        },
+        {
+          "Id": "Workbench_Tinkering",
+          "Icon": "Icons/CraftingCategories/Workbench/Deco_Target.png",
+          "Name": "server.benchCategories.workbench.tinkering"
+        }
+      ],
+      "LocalOpenSoundEventId": "SFX_Workbench_Open",
+      "LocalCloseSoundEventId": "SFX_Workbench_Close",
+      "CompletedSoundEventId": "SFX_Workbench_Craft",
+      "FailedSoundEventId": "SFX_Generic_Crafting_Failed",
+      "BenchUpgradeSoundEventId": "SFX_Workbench_Upgrade_Start_Default",
+      "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default",
+      "Id": "Workbench",
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0.0,
+          "UpgradeRequirement": {
+            "Material": [
+              {
+                "ItemId": "Ingredient_Bar_Copper",
+                "Quantity": 30
+              },
+              {
+                "ItemId": "Ingredient_Bar_Iron",
+                "Quantity": 20
+              },
+              {
+                "ItemId": "Ingredient_Fabric_Scrap_Linen",
+                "Quantity": 20
+              }
+            ],
+            "TimeSeconds": 5.0
+          }
+        },
+        {
+          "UpgradeRequirement": {
+            "Material": [
+              {
+                "ItemId": "Ingredient_Bar_Thorium",
+                "Quantity": 30
+              },
+              {
+                "ItemId": "Ingredient_Bar_Cobalt",
+                "Quantity": 20
+              },
+              {
+                "ItemId": "Ingredient_Leather_Heavy",
+                "Quantity": 30
+              },
+              {
+                "ItemId": "Ingredient_Fabric_Scrap_Shadoweave",
+                "Quantity": 50
+              },
+              {
+                "ItemId": "Ingredient_Fire_Essence",
+                "Quantity": 25
+              }
+            ],
+            "TimeSeconds": 10.0
+          },
+          "CraftingTimeReductionModifier": 0.15
+        },
+        {
+          "CraftingTimeReductionModifier": 0.3
+        }
+      ]
+    },
+    "State": {
+      "Id": "crafting",
+      "Definitions": {
+        "CraftCompleted": {
+          "CustomModelAnimation": "Blocks/Benches/Workbench_Crafting.blockyanim",
+          "Looping": true
+        },
+        "CraftCompletedInstant": {
+          "CustomModelAnimation": "Blocks/Benches/Workbench_Crafting.blockyanim"
+        },
+        "Tier2": {
+          "CustomModel": "Blocks/Benches/Workbench2.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/Benches/Workbench2_Texture.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "Bench_Workbench2",
+          "State": {
+            "Id": "crafting",
+            "Definitions": {
+              "CraftCompleted": {
+                "CustomModelAnimation": "Blocks/Benches/Workbench2_Crafting.blockyanim"
+              }
+            }
+          }
+        },
+        "Tier3": {
+          "CustomModel": "Blocks/Benches/Workbench3.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/Benches/Workbench3_Texture.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "Bench_Workbench3",
+          "State": {
+            "Id": "crafting",
+            "Definitions": {
+              "CraftCompleted": {
+                "CustomModelAnimation": "Blocks/Benches/Workbench3_Crafting.blockyanim"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockParticleSetId": "Wood",
+    "ParticleColor": "#6e4a2f",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "Wood"
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.42,
+    "Rotation": [
+      22.5,
+      45.0,
+      22.5
+    ],
+    "Translation": [
+      12.9,
+      -11.7
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Bench"
+    ]
+  },
+  "MaxStack": 1,
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Model": "Resources/Benchtest.blockymodel",
+  "Texture": "Resources/texturebenchtest1.png"
+}

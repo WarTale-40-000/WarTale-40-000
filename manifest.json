@@ -1,0 +1,14 @@
+{
+  "Group": "wh40kbolters",
+  "Name": "Bolter_Gun",
+  "Version": "1.0.0",
+  "Description": "wh40k basic bolter",
+  "Authors": [],
+  "Website": "",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "SubPlugins": []
+}

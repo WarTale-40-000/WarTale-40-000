@@ -1,0 +1,290 @@
+{
+  "Type": "Simple",
+  "RunTime": 0,
+  "Next": {
+    "Type": "Repeat",
+    "Failed": {
+      "Type": "ChangeActiveSlot"
+    },
+    "ForkInteractions": {
+      "Interactions": [
+        {
+          "Type": "StatsCondition",
+          "Costs": {
+            "Ammo": 30
+          },
+          "Next": {
+            "Type": "Parallel",
+            "Interactions": [
+              {
+                "Interactions": [
+                  {
+                    "Type": "ChangeStat",
+                    "StatModifiers": {
+                      "Ammo": 30
+                    }
+                  }
+                ]
+              },
+              {
+                "Interactions": [
+                  {
+                    "Type": "ModifyInventory",
+                    "ItemToAdd": {
+                      "Id": "Autogun_Magazine",
+                      "Quantity": -30
+                    },
+                    "AdjustHeldItemDurability": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "Failed": {
+            "Type": "StatsCondition",
+            "Costs": {
+              "Ammo": 25
+            },
+            "Next": {
+              "Type": "Parallel",
+              "Interactions": [
+                {
+                  "Interactions": [
+                    {
+                      "Type": "ChangeStat",
+                      "StatModifiers": {
+                        "Ammo": -25
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Interactions": [
+                    {
+                      "Type": "ModifyInventory",
+                      "ItemToAdd": {
+                        "Id": "Autogun_Magazine",
+                        "Quantity": 25
+                      },
+                      "AdjustHeldItemDurability": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            "Failed": {
+              "Type": "StatsCondition",
+              "Costs": {
+                "Ammo": 20
+              },
+              "Next": {
+                "Type": "Parallel",
+                "Interactions": [
+                  {
+                    "Interactions": [
+                      {
+                        "Type": "ChangeStat",
+                        "StatModifiers": {
+                          "Ammo": -20
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "Interactions": [
+                      {
+                        "Type": "ModifyInventory",
+                        "ItemToAdd": {
+                          "Id": "Autogun_Magazine",
+                          "Quantity": 20
+                        },
+                        "AdjustHeldItemDurability": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              "Failed": {
+                "Type": "StatsCondition",
+                "Costs": {
+                  "Ammo": 15
+                },
+                "Next": {
+                  "Type": "Parallel",
+                  "Interactions": [
+                    {
+                      "Interactions": [
+                        {
+                          "Type": "ChangeStat",
+                          "StatModifiers": {
+                            "Ammo": -15
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "Interactions": [
+                        {
+                          "Type": "ModifyInventory",
+                          "ItemToAdd": {
+                            "Id": "Autogun_Magazine",
+                            "Quantity": 15
+                          },
+                          "AdjustHeldItemDurability": 0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "Failed": {
+                  "Type": "StatsCondition",
+                  "Costs": {
+                    "Ammo": 10
+                  },
+                  "Next": {
+                    "Type": "Parallel",
+                    "Interactions": [
+                      {
+                        "Interactions": [
+                          {
+                            "Type": "ChangeStat",
+                            "StatModifiers": {
+                              "Ammo": -10
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "Interactions": [
+                          {
+                            "Type": "ModifyInventory",
+                            "ItemToAdd": {
+                              "Id": "Autogun_Magazine",
+                              "Quantity": 10
+                            },
+                            "AdjustHeldItemDurability": 0
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "Failed": {
+                    "Type": "StatsCondition",
+                    "Costs": {
+                      "Ammo": 5
+                    },
+                    "Next": {
+                      "Type": "Parallel",
+                      "Interactions": [
+                        {
+                          "Interactions": [
+                            {
+                              "Type": "ChangeStat",
+                              "StatModifiers": {
+                                "Ammo": -5
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "Interactions": [
+                            {
+                              "Type": "ModifyInventory",
+                              "ItemToAdd": {
+                                "Id": "Autogun_Magazine",
+                                "Quantity": 5
+                              },
+                              "AdjustHeldItemDurability": 0
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "Failed": {
+                      "Type": "StatsCondition",
+                      "Costs": {
+                        "Ammo": 2
+                      },
+                      "Next": {
+                        "Type": "Parallel",
+                        "Interactions": [
+                          {
+                            "Interactions": [
+                              {
+                                "Type": "ChangeStat",
+                                "StatModifiers": {
+                                  "Ammo": -2
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "Interactions": [
+                              {
+                                "Type": "ModifyInventory",
+                                "ItemToAdd": {
+                                  "Id": "Autogun_Magazine",
+                                  "Quantity": 2
+                                },
+                                "AdjustHeldItemDurability": 0
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "Failed": {
+                        "Type": "StatsCondition",
+                        "Costs": {
+                          "Ammo": 1
+                        },
+                        "Next": {
+                          "Type": "Parallel",
+                          "Interactions": [
+                            {
+                              "Interactions": [
+                                {
+                                  "Type": "ChangeStat",
+                                  "StatModifiers": {
+                                    "Ammo": -1
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "Interactions": [
+                                {
+                                  "Type": "ModifyInventory",
+                                  "ItemToAdd": {
+                                    "Id": "Autogun_Magazine",
+                                    "Quantity": 1
+                                  },
+                                  "AdjustHeldItemDurability": 0
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Repeat": -1,
+    "Rules": {
+      "InterruptedBy": [
+        "SwapFrom",
+        "SwapTo"
+      ],
+      "BlockedBy": [
+        "SwapFrom",
+        "SwapTo"
+      ]
+    },
+    "CancelOnItemChange": true
+  }
+}

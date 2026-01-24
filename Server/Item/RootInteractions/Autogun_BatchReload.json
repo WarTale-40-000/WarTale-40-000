@@ -1,0 +1,32 @@
+{
+  "RequireNewClick": true,
+  "Interactions": [
+    {
+      "Type": "StatsCondition",
+      "ValueType": "Percent",
+      "LessThan": true,
+      "Costs": {
+        "Ammo": 100
+      },
+      "Next": {
+        "Type": "ModifyInventory",
+        "ItemToRemove": {
+          "Id": "Autogun_Magazine",
+          "Quantity": 1
+        },
+        "ItemToAdd": {
+          "Id": "Autogun_Magazine",
+          "Quantity": 1
+        },
+        "Next": {
+          "Type": "Replace",
+          "Var": "Reload_Batch_Entry"
+        },
+        "Failed": {
+          "Type": "Replace",
+          "Var": "No_Ammo_Effects"
+        }
+      }
+    }
+  ]
+}

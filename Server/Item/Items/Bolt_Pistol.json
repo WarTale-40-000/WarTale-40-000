@@ -1,0 +1,97 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Weapon_Handgun.name"
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Model": "Resources/BoltPistol.blockymodel",
+  "Texture": "Resources/BoltPistol_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Weapon_Handgun.png",
+  "PlayerAnimationsId": "Handgun",
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.2
+      },
+      "Interactions": [
+        {
+          "Type": "ModifyInventory",
+          "ItemToRemove": {
+            "Id": "Weapon_Arrow_Crude",
+            "Quantity": 1
+          },
+          "Next": {
+            "Parent": "Gun_Shoot",
+            "RunTime": 0,
+            "Effects": {
+              "ItemAnimationId": "Shoot",
+              "CameraEffect": "Handgun_Shoot",
+              "Particles": [
+                {
+                  "SystemId": "RifleShooting",
+                  "PositionOffset": {
+                    "Z": 0.35,
+                    "Y": 0.15
+                  },
+                  "RotationOffset": {
+                    "Pitch": 90
+                  }
+                }
+              ],
+              "WorldSoundEventId": "SFX_Handgun_Fire",
+              "LocalSoundEventId": "SFX_Handgun_Fire_Local"
+            },
+            "ProjectileId": "GunPvP_Handgun_Bullet"
+          },
+          "Failed": "Gun_Shoot_Fail"
+        }
+      ]
+    },
+    "Secondary": "Gun_Attack"
+  },
+  "InteractionVars": {
+    "Gun_Swing_Left_Effect": "Gun_Swing_Left_Effect",
+    "Gun_Swing_Left_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Gun_Swing_Left_Damage",
+          "DamageCalculator": {
+            "Type": "Dps",
+            "BaseDamage": {
+              "Physical": 5
+            },
+            "RandomPercentageModifier": 0.1
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Unarmed_Impact"
+          }
+        }
+      ]
+    }
+  },
+  "IconProperties": {
+    "Scale": 0.67,
+    "Translation": [
+      0.69,
+      -10.11
+    ],
+    "Rotation": [
+      315,
+      90,
+      0
+    ]
+  },
+  "Utility": {
+    "Compatible": true
+  },
+  "Quality": "Technical",
+  "Tags": {
+    "Type": [
+      "Weapon"
+    ]
+  },
+  "Weapon": {},
+  "Scale": 1.9
+}
