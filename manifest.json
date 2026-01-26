@@ -1,8 +1,8 @@
 {
-  "Group": "wh40kbolters",
-  "Name": "WarTale 40,000",
+  "Group": "WarTale",
+  "Name": "WarTale 40k",
   "Version": "1.0.0",
-  "Description": "wh40k basic bolter",
+  "Description": "A mod that brings the Warhammer 40k experience to the Hytale universe.",
   "Authors": [],
   "Website": "",
   "Dependencies": {},
