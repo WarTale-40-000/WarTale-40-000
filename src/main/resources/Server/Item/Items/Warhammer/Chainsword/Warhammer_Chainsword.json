@@ -1,0 +1,24 @@
+{
+  "Parent": "Template_Weapon_Sword",
+  "TranslationProperties": {
+    "Name": "Chainsword"
+  },
+  "Model": "Resources/Items/Warhammer/Chainsword/chainsword_model.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Chainsword/chainsword_texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/chainsword.png",
+  "Quality": "Rare",
+  "ItemLevel": 30,
+  "UsePlayerAnimations": true,
+  "PlayerAnimationsId": "Sword",
+  "Categories": [
+    "Items.Weapons",
+    ""
+  ],
+  "RotationOffset": {},
+  "Tags": {
+    "Warhammer": [
+      "Weapon"
+    ]
+  },
+  "Animation": "Resources/Items/Warhammer/Chainsword/Animations/Chainsword_spin.blockyanim"
+}

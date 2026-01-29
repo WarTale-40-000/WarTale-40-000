@@ -1,0 +1,19 @@
+{
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/Warhammer/Guns/BoltgunFire01.ogg"
+      ],
+      "RandomSettings": {
+        "MinPitch": 0,
+        "MaxPitch": 0,
+        "MinVolume": 0
+      },
+      "Volume": 10
+    }
+  ],
+  "Volume": -2.32,
+  "MaxDistance": 45,
+  "StartAttenuationDistance": 2,
+  "Pitch": 0
+}

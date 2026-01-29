@@ -1,0 +1,73 @@
+{
+  "TranslationProperties": {
+    "Name": "Bolter Pistol Custom Interaction"
+  },
+  "Categories": [
+    "Items.Weapons"
+  ],
+  "Model": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Weapon_Handgun.png",
+  "PlayerAnimationsId": "Handgun",
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.2
+      },
+      "Interactions": [
+        {
+          "Type": "Warhammer_Weapon_Interaction_Shoot",
+
+          "Failed": "Gun_Shoot_Fail"
+        }
+      ]
+    },
+    "Secondary": "Gun_Attack"
+  },
+  "InteractionVars": {
+    "Gun_Swing_Left_Effect": "Gun_Swing_Left_Effect",
+    "Gun_Swing_Left_Damage": {
+      "Interactions": [
+        {
+          "Parent": "Gun_Swing_Left_Damage",
+          "DamageCalculator": {
+            "Type": "Dps",
+            "BaseDamage": {
+              "Physical": 5
+            },
+            "RandomPercentageModifier": 0.1
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Unarmed_Impact"
+          }
+        }
+      ]
+    }
+  },
+  "IconProperties": {
+    "Scale": 0.67,
+    "Translation": [
+      0.69,
+      -10.11
+    ],
+    "Rotation": [
+      315,
+      90,
+      0
+    ]
+  },
+  "Utility": {
+    "Compatible": true
+  },
+  "Quality": "Technical",
+  "Tags": {
+    "Type": [
+      "Weapon"
+    ]
+  },
+  "Weapon": {},
+  "SoundEventId": "SFX_Bow_T2_Signature_Nock",
+  "Parent": "Weapon_Handgun",
+  "Scale": 2
+}
