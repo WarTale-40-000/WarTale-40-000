@@ -12,38 +12,37 @@
   "Interactions": {
     "Primary": {
       "Cooldown": {
-        "Id": "Shoot",
-        "Cooldown": 0.2
+        "Id": "Warhammer_Weapon_Interaction_Shoot",
+        "Cooldown": 0.4
       },
       "Interactions": [
         {
           "Type": "Warhammer_Weapon_Interaction_Shoot",
-
+          "CancelOnItemChange": true,
+          "Rules": {
+            "InterruptedBy": [
+              "Primary"
+            ]
+          },
+          "Next": {
+            "Parent": "Gun_Shoot"
+          },
           "Failed": "Gun_Shoot_Fail"
         }
       ]
     },
-    "Secondary": "Gun_Attack"
-  },
-  "InteractionVars": {
-    "Gun_Swing_Left_Effect": "Gun_Swing_Left_Effect",
-    "Gun_Swing_Left_Damage": {
+    "Secondary": {
       "Interactions": [
         {
-          "Parent": "Gun_Swing_Left_Damage",
-          "DamageCalculator": {
-            "Type": "Dps",
-            "BaseDamage": {
-              "Physical": 5
-            },
-            "RandomPercentageModifier": 0.1
+          "Type": "Warhammer_Weapon_Interaction_Reload",
+          "Effects": {
+            "Particles": []
           },
-          "DamageEffects": {
-            "WorldSoundEventId": "SFX_Unarmed_Impact"
-          }
+          "Failed": "Block_Secondary"
         }
       ]
-    }
+    },
+    "SwapTo": ""
   },
   "IconProperties": {
     "Scale": 0.67,

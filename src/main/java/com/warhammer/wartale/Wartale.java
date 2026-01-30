@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.components.Weapon_Data;
+import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Reload;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Shoot;
 
 public class Wartale extends JavaPlugin {
@@ -32,5 +33,8 @@ public class Wartale extends JavaPlugin {
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Shoot",
                 Weapon_Interaction_Shoot.class,
                 Weapon_Interaction_Shoot.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Reload",
+                Weapon_Interaction_Reload.class,
+                Weapon_Interaction_Reload.CODEC);
     }
 }
