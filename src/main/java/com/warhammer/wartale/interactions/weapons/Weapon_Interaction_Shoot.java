@@ -41,15 +41,15 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
         Ref<EntityStore> ref = interactionContext.getEntity();
         Player player = commandBuffer.getComponent(ref, Player.getComponentType());
         if (player == null) {
-            interactionContext.getState().state = InteractionState.Failed;
             LOGGER.atInfo().log("Player is null");
+            interactionContext.getState().state = InteractionState.Failed;
             return;
         }
 
         ItemStack itemStack = interactionContext.getHeldItem();
         if (itemStack == null) {
-            interactionContext.getState().state = InteractionState.Failed;
             LOGGER.atInfo().log("ItemStack is null");
+            interactionContext.getState().state = InteractionState.Failed;
             return;
         }
 
@@ -71,30 +71,27 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
         Map<String, WarhammerWeaponMetadata> metadata = WarhammerMetadataCollection.WEAPON_METADATA_MAP;
         WarhammerWeaponMetadata weaponMetadata = metadata.get(weaponID);
         if (weaponMetadata == null) {
-            interactionContext.getState().state = InteractionState.Failed;
             player.sendMessage(Message.raw("The weapon " + weaponID + " is not a registered weapon."));
             LOGGER.atInfo().log("The weapon " + weaponID + " is not a registered weapon.");
-            return;
-        }
-        Integer currentAmmoValue = currentAmmoMap.get(weaponID);
-
-        if (currentAmmoValue == null || currentAmmoValue <= 0) {
-            player.sendMessage(Message.raw("Mag Empty! Reloading weapon."));
-            LOGGER.atInfo().log("Mag Empty for weapon: " + weaponID);
             interactionContext.getState().state = InteractionState.Failed;
-            return;
+        } else {
+            Integer currentAmmoValue = currentAmmoMap.get(weaponID);
+
+            if (currentAmmoValue == null || currentAmmoValue <= 0) {
+                player.sendMessage(Message.raw("Mag Empty! Reloading weapon."));
+                LOGGER.atInfo().log("Mag Empty for weapon: " + weaponID);
+                interactionContext.getState().state = InteractionState.Failed;
+            } else {
+                // Decrease ammunition count
+                currentAmmoMap.put(weaponID, currentAmmoValue - 1);
+                commandBuffer.putComponent(ref, Wartale.WEAPON_DATA, weaponData);
+                // weaponData.setCurrentAmmo(currentAmmo);
+                String message = "Fired weapon: " + weaponID + ". Magazine: " + (currentAmmoValue - 1) + "/"
+                        + weaponMetadata.getMaxAmmo();
+                player.sendMessage(Message.raw(message));
+                LOGGER.atInfo().log(message);
+            }
         }
-
-        // Decrease ammunition count
-        currentAmmoMap.put(weaponID, currentAmmoValue - 1);
-        commandBuffer.putComponent(ref, Wartale.WEAPON_DATA, weaponData);
-        // weaponData.setCurrentAmmo(currentAmmo);
-        String message = "Fired weapon: " + weaponID + ". Magazine: " + (currentAmmoValue - 1) + "/"
-                + weaponMetadata.getMaxAmmo();
-        player.sendMessage(Message.raw(message));
-        LOGGER.atInfo().log(message);
-
-        // TODO: Animation and sound logic would go here
     }
 
 }

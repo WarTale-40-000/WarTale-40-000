@@ -1,72 +1,127 @@
 {
-  "TranslationProperties": {
-    "Name": "Bolter Pistol Custom Interaction"
-  },
-  "Categories": [
-    "Items.Weapons"
-  ],
-  "Model": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Weapon_Handgun.png",
-  "PlayerAnimationsId": "Handgun",
-  "Interactions": {
-    "Primary": {
-      "Cooldown": {
-        "Id": "Warhammer_Weapon_Interaction_Shoot",
-        "Cooldown": 0.4
-      },
-      "Interactions": [
-        {
-          "Type": "Warhammer_Weapon_Interaction_Shoot",
-          "CancelOnItemChange": true,
-          "Rules": {
-            "InterruptedBy": [
-              "Primary"
-            ]
-          },
-          "Next": {
-            "Parent": "Gun_Shoot"
-          },
-          "Failed": "Gun_Shoot_Fail"
-        }
-      ]
+    "TranslationProperties": {
+        "Name": "Bolter Pistol Custom Interaction"
     },
-    "Secondary": {
-      "Interactions": [
-        {
-          "Type": "Warhammer_Weapon_Interaction_Reload",
-          "Effects": {
-            "Particles": []
-          },
-          "Failed": "Block_Secondary"
-        }
-      ]
-    },
-    "SwapTo": ""
-  },
-  "IconProperties": {
-    "Scale": 0.67,
-    "Translation": [
-      0.69,
-      -10.11
+    "Categories": [
+        "Items.Weapons"
     ],
-    "Rotation": [
-      315,
-      90,
-      0
-    ]
-  },
-  "Utility": {
-    "Compatible": true
-  },
-  "Quality": "Technical",
-  "Tags": {
-    "Type": [
-      "Weapon"
-    ]
-  },
-  "Weapon": {},
-  "SoundEventId": "SFX_Bow_T2_Signature_Nock",
-  "Parent": "Weapon_Handgun",
-  "Scale": 2
+    "Model": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Weapon_Handgun.png",
+    "PlayerAnimationsId": {
+        "Parent": "Handgun",
+        "Animations": {
+            "Shoot": {
+                "ThirdPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot.blockyanim",
+                "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_Moving.blockyanim",
+                "FirstPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_FPS.blockyanim",
+                "Speed": 1,
+                "BlendingDuration": 0,
+                "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+            },
+            "Reload": {
+                "ThirdPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+                "FirstPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload_FPS.blockyanim",
+                "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+                "Speed": 3.34,
+                "Looping": true,
+                "BlendingDuration": 0.1,
+                "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+            }
+        }
+    },
+    "Interactions": {
+        "Primary": {
+            "Cooldown": {
+                "Id": "Shoot",
+                "Cooldown": 0.4
+            },
+            "Interactions": [
+                {
+                    "Type": "Warhammer_Weapon_Interaction_Shoot",
+                    "CancelOnItemChange": false,
+                    "Rules": {},
+                    "Failed": {
+                        "Type": "Warhammer_Weapon_Interaction_Reload",
+                        "Failed": {
+                            "Parent": "Gun_Shoot_Fail"
+                        }
+                    },
+                    "Next": {
+                        "Type": "LaunchProjectile",
+                        "RunTime": 0.25,
+                        "Effects": {
+                            "ItemAnimationId": "Shoot",
+                            "CameraEffect": "Handgun_Shoot",
+                            "Particles": [
+                                {
+                                    "SystemId": "RifleShooting",
+                                    "PositionOffset": {
+                                        "Z": 0.85,
+                                        "Y": 0.15
+                                    },
+                                    "RotationOffset": {
+                                        "Pitch": 90
+                                    }
+                                }
+                            ]
+                        },
+                        "ProjectileId": "GunPvP_Assault_Rifle_Bullet",
+                        "Failed": {
+                            "Parent": "Gun_Shoot_Fail"
+                        }
+                    }
+                },
+                {
+                    "Type": "Condition"
+                }
+            ]
+        },
+        "Secondary": {
+            "Interactions": [
+                {
+                    "Type": "Simple",
+                    "Effects": {
+                        "ClearAnimationOnFinish": true,
+                        "ItemAnimationId": "Reload",
+                        "LocalSoundEventId": "SFX_Hand_Crossbow_T2_Reload_Start_Local",
+                        "WorldSoundEventId": "SFX_Hand_Crossbow_T2_Reload_Start",
+                        "ClearSoundEventOnFinish": true
+                    },
+                    "RunTime": 1.45,
+                    "HorizontalSpeedMultiplier": 0.7,
+                    "Next": {
+                        "Type": "Warhammer_Weapon_Interaction_Reload",
+                        "Failed": "Gun_Shoot_Fail"
+                    },
+                    "Failed": "Gun_Shoot_Fail"
+                }
+            ]
+        }
+    },
+    "IconProperties": {
+        "Scale": 0.67,
+        "Translation": [
+            0.69,
+            -10.11
+        ],
+        "Rotation": [
+            315,
+            90,
+            0
+        ]
+    },
+    "Utility": {
+        "Compatible": true
+    },
+    "Quality": "Technical",
+    "Tags": {
+        "Type": [
+            "Weapon"
+        ]
+    },
+    "Weapon": {},
+    "SoundEventId": "SFX_Bow_T2_Signature_Nock",
+    "Parent": "Weapon_Handgun",
+    "Scale": 2
 }

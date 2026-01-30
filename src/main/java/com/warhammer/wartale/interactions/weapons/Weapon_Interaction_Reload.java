@@ -99,19 +99,18 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             player.sendMessage(Message.raw("Out of ammunition! Cannot reload weapon without ammunition."));
             LOGGER.atInfo().log("No ammunition left in inventory for weapon: " + weaponID);
             interactionContext.getState().state = InteractionState.Failed;
-            return;
+        } else {
+            // Reload weapon if enough ammunition is available
+            int minStacksToUse = Math.min(countAmmoStacks, requiredAmmoStacks);
+
+            currentAmmoMap.put(weaponID, currentAmmoValue != null ? currentAmmoValue + minStacksToUse : minStacksToUse);
+            weaponData.setCurrentAmmo(currentAmmoMap);
+            playerStorage
+                    .removeItemStack(new ItemStack("Weapon_Arrow_Iron", minStacksToUse));
+
+            String message = "Reloaded weapon: " + weaponID + " with " + minStacksToUse + " Bullets";
+            player.sendMessage(Message.raw(message));
+            LOGGER.atInfo().log(message);
         }
-
-        // Reload weapon if enough ammunition is available
-        int minStacksToUse = Math.min(countAmmoStacks, requiredAmmoStacks);
-        currentAmmoMap.put(weaponID, currentAmmoValue != null ? currentAmmoValue + minStacksToUse : minStacksToUse);
-        weaponData.setCurrentAmmo(currentAmmoMap);
-        playerStorage
-                .removeItemStack(new ItemStack("Weapon_Arrow_Iron", minStacksToUse));
-
-        String message = "Reloaded weapon: " + weaponID + " with " + minStacksToUse + " Bullets";
-        player.sendMessage(Message.raw(message));
-        LOGGER.atInfo().log(message);
     }
-
 }
