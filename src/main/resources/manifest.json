@@ -1,13 +1,20 @@
 {
-  "Group": "com.warhammer.wartale",
-  "Name": "Wartale",
-  "Version": "1.0.0",
-  "Description": "Wartale 40k mod adds Warhammer 40k themed content to Hytale.",
-  "Authors": [],
-  "ServerVersion": "*",
-  "Dependencies": {},
-  "OptionalDependencies": {},
-  "DisabledByDefault": false,
-  "IncludesAssetPack": true,
-  "Main": "com.warhammer.wartale.Wartale"
+    "Group": "Wartale",
+    "Name": "Wartale",
+    "Version": "1.0.0",
+    "Description": "Wartale 40k mod adds Warhammer 40k themed content to Hytale.",
+    "Authors": [
+        {
+            "Name": "Wartale-Team"
+        },
+        {
+            "Name": "Marcel-TO"
+        }
+    ],
+    "DisabledByDefault": false,
+    "IncludesAssetPack": true,
+    "Dependencies": {},
+    "OptionalDependencies": {},
+    "ServerVersion": "*",
+    "Main": "com.warhammer.wartale.Wartale"
 }
