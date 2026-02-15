@@ -1,7 +1,7 @@
 plugins {
     id("java")
     // See documentation on https://scaffoldit.dev
-    id("dev.scaffoldit") version "0.2.2"
+    id("dev.scaffoldit") version "0.2.9"
 }
 
 group = "Wartale"
@@ -16,5 +16,9 @@ hytale {
         Name = "Wartale"
         Main = "com.warhammer.wartale.Wartale"
         Version = version as String
+    }
+    devserver {
+        Enabled = (System.getenv("DEV_SERVER_ENABLED") ?: "false").toBoolean()
+        AllowOp = (System.getenv("DEV_SERVER_ALLOW_OP") ?: "false").toBoolean()
     }
 }

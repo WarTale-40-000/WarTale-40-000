@@ -16,6 +16,15 @@
    ```properties
    hytale.home_path=<YOUR_HYTALE_PATH> # Example: C:/Games/Hytale
    ```
+3. Add the other environment variables to `gradle.properties` to enable/disable compilation of sources and docs:
+   ```properties
+   env.java.compileSources=false
+   env.java.compileDocs=false
+   ```
+4. Create a `.env` file in the project root and follow the template `.env.example` to set the path to your Hytale mods folder:
+   ```env
+   HYTALE_MODS_PATH=<YOUR_HYTALE_MODS_PATH> # Example: C:/Games/Hytale/mods
+   ```
 
 ### Building the Mod
 

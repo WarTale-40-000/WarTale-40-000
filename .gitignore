@@ -36,3 +36,4 @@ build/
 !**/src/test/**/build/
 devserver
 gradle.properties
+.env
