@@ -3,7 +3,8 @@ package com.warhammer.wartale.interactions.weapons;
 import java.util.Map;
 
 import com.hypixel.hytale.protocol.*;
-import com.warhammer.wartale.metadata.WarhammerMetadataCollection;
+import com.warhammer.wartale.config.WeaponConfig;
+import com.warhammer.wartale.core.ServiceRegistry;
 import com.warhammer.wartale.types.WarhammerWeaponMetadata;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.hypixel.hytale.component.CommandBuffer;
@@ -17,9 +18,11 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.Wartale;
+import com.warhammer.wartale.WartalePlugin;
 
 import com.warhammer.wartale.components.Weapon_Data;
+
+import javax.annotation.Nonnull;
 
 public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
     public static final BuilderCodec<Weapon_Interaction_Reload> CODEC = BuilderCodec.builder(
@@ -28,8 +31,9 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     @Override
-    protected void firstRun(InteractionType interactionType, InteractionContext interactionContext,
-            CooldownHandler cooldownHandler) {
+    protected void firstRun(@Nonnull InteractionType interactionType,
+                            @Nonnull InteractionContext interactionContext,
+                            @Nonnull CooldownHandler cooldownHandler) {
         CommandBuffer<EntityStore> commandBuffer = interactionContext.getCommandBuffer();
         if (commandBuffer == null) {
             interactionContext.getState().state = InteractionState.Failed;
@@ -54,21 +58,22 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
         }
 
         Item item = itemStack.getItem();
-        String weaponID = item.getId().toString();
+        String weaponID = item.getId();
 
         // Initialize ammunition component
         Weapon_Data weaponData = new Weapon_Data();
-        if (commandBuffer.getComponent(ref, Wartale.WEAPON_DATA) != null) {
+        if (commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA) != null) {
             // here we implement logic that updates the component
-            weaponData = commandBuffer.getComponent(ref, Wartale.WEAPON_DATA);
+            weaponData = commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA);
         } else {
             // putComponent allows you to insert declared objects
-            commandBuffer.putComponent(ref, Wartale.WEAPON_DATA, weaponData);
+            commandBuffer.putComponent(ref, WartalePlugin.WEAPON_DATA, weaponData);
         }
 
         assert weaponData != null;
         Map<String, Integer> currentAmmoMap = weaponData.getCurrentAmmo();
-        Map<String, WarhammerWeaponMetadata> metadata = WarhammerMetadataCollection.WEAPON_METADATA_MAP;
+        WeaponConfig weaponConfig = ServiceRegistry.get(WeaponConfig.class);
+        Map<String, WarhammerWeaponMetadata> metadata = weaponConfig.getWeapons();
         WarhammerWeaponMetadata weaponMetadata = metadata.get(weaponID);
         if (weaponMetadata == null) {
             interactionContext.getState().state = InteractionState.Failed;
@@ -91,7 +96,7 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
         var playerStorage = playerInventory.getStorage();
 
         // Check for available ammunition
-        int countAmmoStacks = playerStorage.countItemStacks(stack -> "Weapon_Arrow_Iron".equals(stack.getItemId()));
+        int countAmmoStacks = playerStorage.countItemStacks(stack -> weaponMetadata.getAmmoId().equals(stack.getItemId()));
         int requiredAmmoStacks = weaponMetadata.getMaxAmmo() - (currentAmmoValue != null ? currentAmmoValue : 0);
 
         // Check if there is enough ammunition to reload
@@ -106,7 +111,7 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             currentAmmoMap.put(weaponID, currentAmmoValue != null ? currentAmmoValue + minStacksToUse : minStacksToUse);
             weaponData.setCurrentAmmo(currentAmmoMap);
             playerStorage
-                    .removeItemStack(new ItemStack("Weapon_Arrow_Iron", minStacksToUse));
+                    .removeItemStack(new ItemStack(weaponMetadata.getAmmoId(), minStacksToUse));
 
             String message = "Reloaded weapon: " + weaponID + " with " + minStacksToUse + " Bullets";
             player.sendMessage(Message.raw(message));

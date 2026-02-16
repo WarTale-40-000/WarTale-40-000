@@ -1,7 +1,7 @@
 {
     "Group": "Wartale",
     "Name": "Wartale",
-    "Version": "+",
+    "Version": "1.0.2",
     "Description": "Wartale 40k mod adds Warhammer 40k themed content to Hytale.",
     "Authors": [
         {
@@ -16,5 +16,5 @@
     "Dependencies": {},
     "OptionalDependencies": {},
     "ServerVersion": "*",
-    "Main": "com.warhammer.wartale.Wartale"
+    "Main": "com.warhammer.wartale.WartalePlugin"
 }

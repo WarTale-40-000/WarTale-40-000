@@ -5,7 +5,8 @@ plugins {
 }
 
 group = "Wartale"
-version = "1.0.0"
+version = "1.0.2"
+var manifestVersion = version as String
 
 //
 // Automatically configures the builds, but you can switch scripts if you wish!
@@ -14,8 +15,8 @@ hytale {
     manifest {
         Group = group as String
         Name = "Wartale"
-        Main = "com.warhammer.wartale.Wartale"
-        Version = version as String
+        Main = "com.warhammer.wartale.WartalePlugin"
+        Version = manifestVersion
     }
     devserver {
         Enabled = (System.getenv("DEV_SERVER_ENABLED") ?: "false").toBoolean()

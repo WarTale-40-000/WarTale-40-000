@@ -23,9 +23,9 @@ import com.warhammer.wartale.types.WarhammerWeaponMetadata;
 import javax.annotation.Nonnull;
 import java.util.Map;
 
-public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
-    public static final BuilderCodec<Weapon_Interaction_Shoot> CODEC = BuilderCodec.builder(
-            Weapon_Interaction_Shoot.class, Weapon_Interaction_Shoot::new, SimpleInstantInteraction.CODEC).build();
+public class Weapon_Interaction_Check_Ammo extends SimpleInstantInteraction {
+    public static final BuilderCodec<Weapon_Interaction_Check_Ammo> CODEC = BuilderCodec.builder(
+            Weapon_Interaction_Check_Ammo.class, Weapon_Interaction_Check_Ammo::new, SimpleInstantInteraction.CODEC).build();
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
@@ -80,24 +80,15 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
             player.sendMessage(Message.raw("The weapon " + weaponID + " is not a registered weapon."));
             LOGGER.atInfo().log("The weapon " + weaponID + " is not a registered weapon.");
             interactionContext.getState().state = InteractionState.Failed;
-        } else {
-            Integer currentAmmoValue = currentAmmoMap.get(weaponID);
+            return;
+        }
+        Integer currentAmmoValue = currentAmmoMap.get(weaponID);
 
-            if (currentAmmoValue == null || currentAmmoValue <= 0) {
-                player.sendMessage(Message.raw("Mag Empty! Reloading weapon."));
-                LOGGER.atInfo().log("Mag Empty for weapon: " + weaponID);
-                interactionContext.getState().state = InteractionState.Failed;
-            } else {
-                // Decrease ammunition count
-                currentAmmoMap.put(weaponID, currentAmmoValue - 1);
-                commandBuffer.putComponent(ref, WartalePlugin.WEAPON_DATA, weaponData);
-                // weaponData.setCurrentAmmo(currentAmmo);
-                String message = "Fired weapon: " + weaponID + ". Magazine: " + (currentAmmoValue - 1) + "/"
-                        + weaponMetadata.getMaxAmmo();
-                player.sendMessage(Message.raw(message));
-                LOGGER.atInfo().log(message);
-            }
+        // If current ammo is already full, do not reload
+        if (currentAmmoValue != null && currentAmmoValue <= 0) {
+            player.sendMessage(Message.raw("Magazine is empty!"));
+            LOGGER.atInfo().log("Magazine is empty sfor weapon: " + weaponID);
+            interactionContext.getState().state = InteractionState.Failed;
         }
     }
-
 }

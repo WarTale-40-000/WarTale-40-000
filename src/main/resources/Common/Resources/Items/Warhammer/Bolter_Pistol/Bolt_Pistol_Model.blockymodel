@@ -3,12 +3,12 @@
     {
       "id": "1",
       "name": "R-Attachment",
-      "position": {"x": 0, "y": 24, "z": -10},
+      "position": {"x": -1, "y": 35, "z": -14},
       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
       "shape": {
         "type": "none",
         "offset": {"x": 0, "y": 0, "z": 0},
-        "stretch": {"x": 0, "y": 0, "z": 0},
+        "stretch": {"x": 1, "y": 1, "z": 1},
         "settings": {
           "isPiece": false
         },
@@ -22,7 +22,7 @@
         {
           "id": "2",
           "name": "Front",
-          "position": {"x": 0, "y": 1, "z": 12},
+          "position": {"x": 1, "y": -10, "z": 16},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
@@ -803,7 +803,7 @@
         {
           "id": "17",
           "name": "Middle",
-          "position": {"x": 0, "y": -1, "z": 5},
+          "position": {"x": 1, "y": -12, "z": 9},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
@@ -1376,7 +1376,7 @@
         {
           "id": "28",
           "name": "Back",
-          "position": {"x": 0, "y": -9.045, "z": -8},
+          "position": {"x": 1, "y": -20.045, "z": -4},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
@@ -1741,7 +1741,7 @@
         {
           "id": "35",
           "name": "handle",
-          "position": {"x": 0, "y": -24, "z": 10},
+          "position": {"x": 1, "y": -35, "z": 14},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
@@ -2210,12 +2210,12 @@
         {
           "id": "44",
           "name": "Magazine",
-          "position": {"x": 0, "y": -14, "z": 10},
+          "position": {"x": 1, "y": -25, "z": 14},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "none",
             "offset": {"x": 0, "y": 0, "z": 0},
-            "stretch": {"x": 0, "y": 0, "z": 0},
+            "stretch": {"x": 1, "y": 1, "z": 1},
             "settings": {
               "isPiece": false
             },
@@ -2387,7 +2387,7 @@
         {
           "id": "48",
           "name": "Scope",
-          "position": {"x": -2, "y": 3, "z": 11},
+          "position": {"x": -1, "y": -8, "z": 15},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
