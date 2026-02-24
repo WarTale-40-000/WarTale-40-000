@@ -1,0 +1,23 @@
+{
+  "TranslationProperties": {
+    "Name": "Bolter Pistol"
+  },
+  "Parent": "Warhammer_Gun_Template",
+  "Model": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Bolter_Pistol.png",
+  "IconProperties": {
+    "Scale": 1.2,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      18,
+      -12
+    ]
+  },
+  "Quality": "Uncommon",
+  "Scale": 2
+}

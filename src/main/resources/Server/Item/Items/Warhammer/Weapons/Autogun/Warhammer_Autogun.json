@@ -1,0 +1,23 @@
+{
+  "TranslationProperties": {
+    "Name": "Autogun"
+  },
+  "Parent": "Warhammer_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Autogun/Autogun_Agripina.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Autogun/AutogunAgripina_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
+  "IconProperties": {
+    "Scale": 1.2,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      18,
+      -12
+    ]
+  },
+  "Quality": "Uncommon",
+  "Scale": 1
+}

@@ -9,13 +9,15 @@ import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.warhammer.wartale.components.WeaponHudTickingSystem;
 import com.warhammer.wartale.components.Weapon_Data;
 import com.warhammer.wartale.config.PluginConfig;
 import com.warhammer.wartale.config.WeaponConfig;
 import com.warhammer.wartale.core.ServiceRegistry;
-import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Check_Ammo;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Reload;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Shoot;
+import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_SwapFrom;
+import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_SwapTo;
 
 import java.nio.file.Path;
 
@@ -65,12 +67,17 @@ public class WartalePlugin extends JavaPlugin {
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Reload",
                 Weapon_Interaction_Reload.class,
                 Weapon_Interaction_Reload.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Check_Ammo",
-                Weapon_Interaction_Check_Ammo.class,
-                Weapon_Interaction_Check_Ammo.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapTo",
+                Weapon_Interaction_SwapTo.class,
+                Weapon_Interaction_SwapTo.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapFrom",
+                Weapon_Interaction_SwapFrom.class,
+                Weapon_Interaction_SwapFrom.CODEC);
 
         WEAPON_DATA = this.getEntityStoreRegistry().registerComponent(Weapon_Data.class, "Weapon_Data_Component",
                 Weapon_Data.CODEC);
         ServiceRegistry.register(WeaponConfig.class, weaponConfig);
+
+//        this.getEntityStoreRegistry().registerSystem(new WeaponHudTickingSystem());
     }
 }

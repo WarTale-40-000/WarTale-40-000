@@ -1,0 +1,33 @@
+{
+  "Categories": [
+    "Items.Weapons",
+    "Warhammer"
+  ],
+  "Quality": "Template",
+  "PlayerAnimationsId": "Item",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      45.0,
+      90.0,
+      0.0
+    ],
+    "Translation": [
+      -25.0,
+      -25.0
+    ]
+  },
+  "MaxStack": 999,
+  "DroppedItemAnimation": "Items/Animations/Dropped/Dropped_Diagonal_Left.blockyanim",
+  "Tags": {
+    "Type": [
+      "Weapon",
+      "Warhammer"
+    ],
+    "Family": [
+      "Ammo"
+    ]
+  },
+  "Weapon": {},
+  "ItemSoundSetId": "ISS_Weapons_Arrows"
+}

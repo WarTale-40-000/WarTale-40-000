@@ -15,6 +15,6 @@
     "IncludesAssetPack": true,
     "Dependencies": {},
     "OptionalDependencies": {},
-    "ServerVersion": "*",
+    "ServerVersion": "2026.02.19-1a311a592",
     "Main": "com.warhammer.wartale.WartalePlugin"
 }

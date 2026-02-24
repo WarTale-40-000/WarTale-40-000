@@ -11,8 +11,8 @@ import java.util.Map;
 public class WeaponConfig {
     private Map<String, WarhammerWeaponMetadata> weapons = new HashMap<String, WarhammerWeaponMetadata>() {
         {
-            put("Warhammer_Bolter_Pistol_custom", new WarhammerWeaponMetadata("Warhammer_Bolter_Pistol_custom", "Weapon_Arrow_Iron", 13, 3));
-            put("Warhammer_Bolter_Pistol_Demo", new WarhammerWeaponMetadata("Warhammer_Bolter_Pistol_Demo", "Weapon_Arrow_Iron", 13, 3));
+            put("Warhammer_Bolter_Pistol", new WarhammerWeaponMetadata("Warhammer_Bolter_Pistol", "Warhammer_Ammo_Bolter_Pistol", 13, 1));
+            put("Warhammer_Autogun", new WarhammerWeaponMetadata("Warhammer_Autogun", "Warhammer_Ammo_Autogun", 35, 3));
         }
     };
 

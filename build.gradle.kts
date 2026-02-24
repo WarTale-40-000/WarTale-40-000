@@ -17,6 +17,7 @@ hytale {
         Name = "Wartale"
         Main = "com.warhammer.wartale.WartalePlugin"
         Version = manifestVersion
+        ServerVersion = "2026.02.19-1a311a592"
     }
     devserver {
         Enabled = (System.getenv("DEV_SERVER_ENABLED") ?: "false").toBoolean()

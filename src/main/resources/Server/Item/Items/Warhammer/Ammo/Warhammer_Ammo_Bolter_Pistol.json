@@ -1,0 +1,22 @@
+{
+  "TranslationProperties": {
+    "Name": "Bolter Pistol Ammo"
+  },
+  "Parent": "Warhammer_Ammo_Template",
+  "Model": "Resources/Items/Warhammer/BoltAmmo/BoltMagazine.blockymodel",
+  "Texture": "Resources/Items/Warhammer/BoltAmmo/BoltMagazine_Texture.png",
+  "Quality": "Uncommon",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      45.0,
+      90.0,
+      0.0
+    ],
+    "Translation": [
+      -25.0,
+      -25.0
+    ]
+  },
+  "MaxStack": 130
+}

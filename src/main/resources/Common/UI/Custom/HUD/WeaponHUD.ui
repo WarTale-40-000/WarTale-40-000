@@ -1,0 +1,26 @@
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: MiddleCenter;
+  Group #Content {
+    LayoutMode: MiddleCenter;
+    Anchor: (Top: 200);
+    Padding: (Full: 12);
+    Label #CurrentAmmo {
+      Padding: (Full: 10);
+      Style: (FontSize: 20, RenderBold: true, TextColor: #ffffff);
+      Text: "Currrent";
+    }
+    Label {
+      Anchor: (Top: 4);
+      Padding: (Full: 10);
+      Style: (FontSize: 14, TextColor: #aaaaaa);
+      Text: "/";
+    }
+    Label #MaxAmmo {
+      Anchor: (Top: 4);
+      Style: (FontSize: 14, TextColor: #aaaaaa);
+      Text: "Max";
+    }
+  }
+}

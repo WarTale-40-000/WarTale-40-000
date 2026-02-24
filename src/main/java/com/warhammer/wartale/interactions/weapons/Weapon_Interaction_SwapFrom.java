@@ -23,9 +23,9 @@ import com.warhammer.wartale.types.WarhammerWeaponMetadata;
 import javax.annotation.Nonnull;
 import java.util.Map;
 
-public class Weapon_Interaction_Check_Ammo extends SimpleInstantInteraction {
-    public static final BuilderCodec<Weapon_Interaction_Check_Ammo> CODEC = BuilderCodec.builder(
-            Weapon_Interaction_Check_Ammo.class, Weapon_Interaction_Check_Ammo::new, SimpleInstantInteraction.CODEC).build();
+public class Weapon_Interaction_SwapFrom extends SimpleInstantInteraction {
+    public static final BuilderCodec<Weapon_Interaction_SwapFrom> CODEC = BuilderCodec.builder(
+            Weapon_Interaction_SwapFrom.class, Weapon_Interaction_SwapFrom::new, SimpleInstantInteraction.CODEC).build();
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
@@ -80,15 +80,11 @@ public class Weapon_Interaction_Check_Ammo extends SimpleInstantInteraction {
             player.sendMessage(Message.raw("The weapon " + weaponID + " is not a registered weapon."));
             LOGGER.atInfo().log("The weapon " + weaponID + " is not a registered weapon.");
             interactionContext.getState().state = InteractionState.Failed;
-            return;
-        }
-        Integer currentAmmoValue = currentAmmoMap.get(weaponID);
-
-        // If current ammo is already full, do not reload
-        if (currentAmmoValue != null && currentAmmoValue <= 0) {
-            player.sendMessage(Message.raw("Magazine is empty!"));
-            LOGGER.atInfo().log("Magazine is empty sfor weapon: " + weaponID);
-            interactionContext.getState().state = InteractionState.Failed;
+        } else {
+            Integer currentAmmoValue = currentAmmoMap.get(weaponID);
+            weaponData.setCurrentWeaponId(weaponID);
+            weaponData.setHudVisible(false);
         }
     }
+
 }

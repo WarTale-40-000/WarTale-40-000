@@ -1,12 +1,8 @@
 {
-  "TranslationProperties": {
-    "Name": "Bolter Pistol Custom Interaction"
-  },
   "Categories": [
-    "Items.Weapons"
+    "Items.Weapons",
+    "Warhammer"
   ],
-  "Model": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Bolter_Pistol/Bolt_Pistol_Texture.png",
   "Icon": "Icons/ItemsGenerated/Weapon_Handgun.png",
   "PlayerAnimationsId": {
     "Parent": "Handgun",
@@ -32,24 +28,37 @@
   },
   "Interactions": {
     "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.2
+      },
       "Interactions": [
         {
-          "Type": "Warhammer_Weapon_Interaction_Check_Ammo",
+          "Type": "Warhammer_Weapon_Interaction_Shoot",
           "Next": {
-            "Type": "Warhammer_Weapon_Interaction_Shoot",
+            "Type": "ModifyInventory",
+            "NotifyOnBreak": true,
             "Next": {
-              "Type": "LaunchProjectile",
-              "ProjectileId": "GunPvP_Assault_Rifle_Bullet",
-              "Next": {
-                "Type": "Simple",
-                "Effects": {
-                  "ClearAnimationOnFinish": true,
-                  "ClearSoundEventOnFinish": true,
-                  "LocalSoundEventId": "SFX_Bolter_Pistol",
-                  "ItemAnimationId": "Shoot"
-                },
-                "RunTime": 0.5
-              }
+              "Parent": "Gun_Shoot",
+              "RunTime": 0,
+              "Effects": {
+                "ItemAnimationId": "Shoot",
+                "CameraEffect": "Handgun_Shoot",
+                "Particles": [
+                  {
+                    "SystemId": "RifleShooting",
+                    "PositionOffset": {
+                      "Z": 0.3,
+                      "Y": -0.2
+                    },
+                    "RotationOffset": {
+                      "Pitch": 90
+                    }
+                  }
+                ],
+                "LocalSoundEventId": "SFX_Bolter_Pistol"
+              },
+              "ProjectileId": "GunPvP_Handgun_Bullet"
             },
             "Failed": "Gun_Shoot_Fail"
           },
@@ -79,28 +88,26 @@
     }
   },
   "IconProperties": {
-    "Scale": 1.2,
+    "Scale": 0.67,
+    "Translation": [
+      0.69,
+      -10.11
+    ],
     "Rotation": [
       315,
       90,
       0
-    ],
-    "Translation": [
-      18,
-      -12
     ]
   },
   "Utility": {
     "Compatible": true
   },
-  "Quality": "Uncommon",
+  "Quality": "Template",
   "Tags": {
     "Type": [
-      "Weapon"
+      "Weapon",
+      "Warhammer"
     ]
   },
-  "Weapon": {},
-  "SoundEventId": "SFX_Bow_T2_Signature_Nock",
-  "Parent": "Weapon_Handgun",
-  "Scale": 2
+  "Weapon": {}
 }

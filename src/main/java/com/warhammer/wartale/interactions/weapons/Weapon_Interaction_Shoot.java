@@ -82,6 +82,7 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
             interactionContext.getState().state = InteractionState.Failed;
         } else {
             Integer currentAmmoValue = currentAmmoMap.get(weaponID);
+            weaponData.setCurrentWeaponId(weaponID);
 
             if (currentAmmoValue == null || currentAmmoValue <= 0) {
                 player.sendMessage(Message.raw("Mag Empty! Reloading weapon."));
