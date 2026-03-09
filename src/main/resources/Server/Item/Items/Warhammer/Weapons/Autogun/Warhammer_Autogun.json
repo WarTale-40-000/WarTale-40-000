@@ -3,8 +3,8 @@
     "Name": "Autogun"
   },
   "Parent": "Warhammer_Rifle_Template",
-  "Model": "Resources/Items/Warhammer/Autogun/Autogun_Agripina.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Autogun/AutogunAgripina_Texture.png",
+  "Model": "Resources/Items/Warhammer/Autogun/Autogun.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Autogun/Autogun.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
   "IconProperties": {
     "Scale": 1.2,

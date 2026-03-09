@@ -1,11 +1,8 @@
 package com.warhammer.wartale.interactions.weapons;
 
-import java.util.Map;
-
+import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.protocol.*;
-import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.warhammer.wartale.config.WeaponConfig;
-import com.warhammer.wartale.core.ServiceRegistry;
 import com.warhammer.wartale.types.WarhammerWeaponMetadata;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.hypixel.hytale.component.CommandBuffer;
@@ -20,8 +17,6 @@ import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHa
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.WartalePlugin;
-
-import com.warhammer.wartale.components.Weapon_Data;
 
 import javax.annotation.Nonnull;
 
@@ -58,65 +53,9 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             return;
         }
 
-        Item item = itemStack.getItem();
-        String weaponID = item.getId();
+        String weaponID = itemStack.getItem().getId();
+        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull("ammo", Codec.INTEGER);
 
-        // Initialize ammunition component
-        Weapon_Data weaponData = new Weapon_Data();
-        if (commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA) != null) {
-            // here we implement logic that updates the component
-            weaponData = commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA);
-        } else {
-            // putComponent allows you to insert declared objects
-            commandBuffer.putComponent(ref, WartalePlugin.WEAPON_DATA, weaponData);
-        }
 
-        assert weaponData != null;
-        Map<String, Integer> currentAmmoMap = weaponData.getCurrentAmmo();
-        WeaponConfig weaponConfig = ServiceRegistry.get(WeaponConfig.class);
-        Map<String, WarhammerWeaponMetadata> metadata = weaponConfig.getWeapons();
-        WarhammerWeaponMetadata weaponMetadata = metadata.get(weaponID);
-        if (weaponMetadata == null) {
-            interactionContext.getState().state = InteractionState.Failed;
-            player.sendMessage(Message.raw("The weapon " + weaponID + " is not a registered weapon."));
-            LOGGER.atInfo().log("The weapon " + weaponID + " is not a registered weapon.");
-            return;
-        }
-        Integer currentAmmoValue = currentAmmoMap.get(weaponID);
-
-        // If current ammo is already full, do not reload
-        if (currentAmmoValue != null && currentAmmoValue >= weaponMetadata.getMaxAmmo()) {
-            player.sendMessage(Message.raw("Magazine is already full!"));
-            LOGGER.atInfo().log("Magazine is already full for weapon: " + weaponID);
-            interactionContext.getState().state = InteractionState.Failed;
-            return;
-        }
-
-        // Initialize inventory
-        var playerInventory = player.getInventory();
-        var playerStorage = playerInventory.getStorage();
-
-        // Check for available ammunition
-        int countAmmoStacks = playerStorage.countItemStacks(stack -> weaponMetadata.getAmmoId().equals(stack.getItemId()));
-        int requiredAmmoStacks = weaponMetadata.getMaxAmmo() - (currentAmmoValue != null ? currentAmmoValue : 0);
-
-        // Check if there is enough ammunition to reload
-        if (countAmmoStacks <= 0) {
-            player.sendMessage(Message.raw("Out of ammunition! Cannot reload weapon without ammunition."));
-            LOGGER.atInfo().log("No ammunition left in inventory for weapon: " + weaponID);
-            interactionContext.getState().state = InteractionState.Failed;
-        } else {
-            // Reload weapon if enough ammunition is available
-            int minStacksToUse = Math.min(countAmmoStacks, requiredAmmoStacks);
-
-            currentAmmoMap.put(weaponID, currentAmmoValue != null ? currentAmmoValue + minStacksToUse : minStacksToUse);
-            weaponData.setCurrentAmmo(currentAmmoMap);
-            playerStorage
-                    .removeItemStack(new ItemStack(weaponMetadata.getAmmoId(), minStacksToUse));
-
-            String message = "Reloaded weapon: " + weaponID + " with " + minStacksToUse + " Bullets";
-            player.sendMessage(Message.raw(message));
-            LOGGER.atInfo().log(message);
-        }
     }
 }

@@ -17,7 +17,6 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.WartalePlugin;
 import com.warhammer.wartale.components.Weapon_Data;
 import com.warhammer.wartale.config.WeaponConfig;
-import com.warhammer.wartale.core.ServiceRegistry;
 import com.warhammer.wartale.types.WarhammerWeaponMetadata;
 
 import javax.annotation.Nonnull;
@@ -73,7 +72,7 @@ public class Weapon_Interaction_SwapFrom extends SimpleInstantInteraction {
 
         assert weaponData != null;
         Map<String, Integer> currentAmmoMap = weaponData.getCurrentAmmo();
-        WeaponConfig weaponConfig = ServiceRegistry.get(WeaponConfig.class);
+        WeaponConfig weaponConfig = WartalePlugin.get().getWeaponConfig().get();
         Map<String, WarhammerWeaponMetadata> metadata = weaponConfig.getWeapons();
         WarhammerWeaponMetadata weaponMetadata = metadata.get(weaponID);
         if (weaponMetadata == null) {

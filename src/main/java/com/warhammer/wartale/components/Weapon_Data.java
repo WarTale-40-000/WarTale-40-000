@@ -7,8 +7,6 @@ import com.hypixel.hytale.codec.codecs.map.MapCodec;
 import com.hypixel.hytale.codec.validation.Validators;
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.config.WeaponConfig;
-import com.warhammer.wartale.core.ServiceRegistry;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
 import java.util.HashMap;
@@ -49,10 +47,6 @@ public class Weapon_Data implements Component<EntityStore> {
     }
 
     public void setCurrentWeaponId(String id) {
-        WeaponConfig weaponConfig = ServiceRegistry.get(WeaponConfig.class);
-        if (!weaponConfig.getWeapons().containsKey(id)) {
-            throw new IllegalArgumentException("The given weapon Id does not exist in the config files.");
-        }
         this.currentWeaponId = id;
     }
 
