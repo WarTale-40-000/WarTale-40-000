@@ -17,17 +17,12 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import javax.annotation.Nonnull;
 
 public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
-    public static final BuilderCodec<Weapon_Interaction_Shoot> CODEC = BuilderCodec.builder(
-            Weapon_Interaction_Shoot.class, Weapon_Interaction_Shoot::new, SimpleInstantInteraction.CODEC).build();
+    public static final BuilderCodec<Weapon_Interaction_Shoot> CODEC = BuilderCodec.builder(Weapon_Interaction_Shoot.class, Weapon_Interaction_Shoot::new, SimpleInstantInteraction.CODEC).build();
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     @Override
-    protected void firstRun(
-            @Nonnull InteractionType interactionType,
-            @Nonnull InteractionContext interactionContext,
-            @Nonnull CooldownHandler cooldownHandler
-    ) {
+    protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
         CommandBuffer<EntityStore> commandBuffer = interactionContext.getCommandBuffer();
         if (commandBuffer == null) {
             interactionContext.getState().state = InteractionState.Failed;
