@@ -15,7 +15,6 @@ import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.WartalePlugin;
 
 import javax.annotation.Nonnull;
 
@@ -23,16 +22,7 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
     private String ammoItemId;
     private int maxMagSize;
 
-    public static final BuilderCodec<Weapon_Interaction_Reload> CODEC = BuilderCodec.builder(Weapon_Interaction_Reload.class, Weapon_Interaction_Reload::new, SimpleInstantInteraction.CODEC)
-            .append(new KeyedCodec<>("AmmoItemId", Codec.STRING, true),
-                    (obj, val) -> obj.ammoItemId = val,
-                    obj -> obj.ammoItemId)
-            .add()
-            .append(new KeyedCodec<>("MaxMagSize", Codec.INTEGER, true),
-                    (obj, val) -> obj.maxMagSize = val,
-                    obj -> obj.maxMagSize)
-            .add()
-            .build();
+    public static final BuilderCodec<Weapon_Interaction_Reload> CODEC = BuilderCodec.builder(Weapon_Interaction_Reload.class, Weapon_Interaction_Reload::new, SimpleInstantInteraction.CODEC).append(new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId).add().append(new KeyedCodec<>("MaxMagSize", Codec.INTEGER, true), (obj, val) -> obj.maxMagSize = val, obj -> obj.maxMagSize).add().build();
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
@@ -88,7 +78,7 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
 
         inventory.removeItemStack(new ItemStack(ammoItemId, ammoToConsume));
 
-        ItemStack newItemStack = itemStack.withMetadata("current_ammo", Codec.INTEGER, currentAmmo + ammoToConsume);
+        ItemStack newItemStack = itemStack.withMetadata("current_ammo", Codec.INTEGER, currentAmmo + ammoToConsume).withMetadata("max_ammo", Codec.INTEGER, maxMagSize);
         interactionContext.getHeldItemContainer().setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
         interactionContext.setHeldItem(newItemStack);
     }

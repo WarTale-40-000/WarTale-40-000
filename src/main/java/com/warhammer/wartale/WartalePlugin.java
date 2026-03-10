@@ -33,6 +33,8 @@ public class WartalePlugin extends JavaPlugin {
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Reload", Weapon_Interaction_Reload.class, Weapon_Interaction_Reload.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapTo", Weapon_Interaction_SwapTo.class, Weapon_Interaction_SwapTo.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapFrom", Weapon_Interaction_SwapFrom.class, Weapon_Interaction_SwapFrom.CODEC);
+        //When this is uncommented it produce an error in the console, need to investigate
+        //this.getEntityStoreRegistry().registerSystem(new WeaponHudTickingSystem());
     }
 
     @Override

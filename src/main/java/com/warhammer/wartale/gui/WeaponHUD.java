@@ -11,7 +11,6 @@ import javax.annotation.Nonnull;
 public class WeaponHUD extends CustomUIHud {
     // HUD data fields - update these to change what's displayed
     private String currentAmmo = "";
-    private String maxAmmo = "";
     private boolean visible = true;
 
     public WeaponHUD(@Nonnull PlayerRef playerRef) {
@@ -21,9 +20,8 @@ public class WeaponHUD extends CustomUIHud {
     /**
      * Update the HUD content
      */
-    public void updateData(String currentAmmo, String maxAmmo, boolean visible) {
+    public void updateData(String currentAmmo, boolean visible) {
         this.currentAmmo = currentAmmo;
-        this.maxAmmo = maxAmmo;
         this.visible = visible;
     }
 
@@ -45,6 +43,5 @@ public class WeaponHUD extends CustomUIHud {
 
         // Set HUD content
         ui.set("#CurrentAmmo.Text", this.currentAmmo);
-        ui.set("#MaxAmmo.Text", this.maxAmmo);
     }
 }
