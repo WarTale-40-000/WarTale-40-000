@@ -35,31 +35,26 @@
         {
           "Type": "Warhammer_Weapon_Interaction_Shoot",
           "Next": {
-            "Type": "ModifyInventory",
-            "NotifyOnBreak": true,
-            "Next": {
-              "Parent": "Gun_Shoot",
-              "RunTime": 0,
-              "Effects": {
-                "ItemAnimationId": "Shoot",
-                "CameraEffect": "Handgun_Shoot",
-                "Particles": [
-                  {
-                    "SystemId": "RifleShooting",
-                    "PositionOffset": {
-                      "Z": 1,
-                      "Y": 0
-                    },
-                    "RotationOffset": {
-                      "Pitch": 90
-                    }
+            "Parent": "Gun_Shoot",
+            "RunTime": 0,
+            "Effects": {
+              "ItemAnimationId": "Shoot",
+              "CameraEffect": "Handgun_Shoot",
+              "Particles": [
+                {
+                  "SystemId": "RifleShooting",
+                  "PositionOffset": {
+                    "Z": 1,
+                    "Y": 0
+                  },
+                  "RotationOffset": {
+                    "Pitch": 90
                   }
-                ],
-                "LocalSoundEventId": "SFX_Rifle_Fire_Local"
-              },
-              "ProjectileId": "GunPvP_Assault_Rifle_Bullet"
+                }
+              ],
+              "LocalSoundEventId": "SFX_Rifle_Fire_Local"
             },
-            "Failed": "Gun_Shoot_Fail"
+            "ProjectileId": "GunPvP_Assault_Rifle_Bullet"
           },
           "Failed": "Gun_Shoot_Fail"
         }
@@ -69,6 +64,8 @@
       "Interactions": [
         {
           "Type": "Warhammer_Weapon_Interaction_Reload",
+          "AmmoItemId": "Warhammer_Ammo_Autogun",
+          "MaxMagSize": 35,
           "Next": {
             "Type": "Simple",
             "Effects": {

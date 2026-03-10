@@ -37,3 +37,4 @@ build/
 devserver
 gradle.properties
 .env
+.cache/
