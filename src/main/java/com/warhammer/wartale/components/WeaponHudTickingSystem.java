@@ -41,12 +41,12 @@ public class WeaponHudTickingSystem extends EntityTickingSystem<EntityStore> {
 
         // Initialize ammunition component
         Weapon_Data weaponData = new Weapon_Data();
-        if (commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA) != null) {
+        if (commandBuffer.getComponent(ref, WartalePlugin.get().getWeaponData()) != null) {
             // here we implement logic that updates the component
-            weaponData = commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA);
+            weaponData = commandBuffer.getComponent(ref, WartalePlugin.get().getWeaponData());
         } else {
             // putComponent allows you to insert declared objects
-            commandBuffer.putComponent(ref, WartalePlugin.WEAPON_DATA, weaponData);
+            commandBuffer.putComponent(ref, WartalePlugin.get().getWeaponData(), weaponData);
         }
 
         assert weaponData != null;

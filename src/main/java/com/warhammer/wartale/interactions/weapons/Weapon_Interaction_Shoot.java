@@ -7,12 +7,16 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.InteractionState;
 import com.hypixel.hytale.protocol.InteractionType;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.InteractionContext;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.warhammer.wartale.WartalePlugin;
+import com.warhammer.wartale.config.WeaponConfig;
+import com.warhammer.wartale.types.WarhammerWeaponMetadata;
 
 import javax.annotation.Nonnull;
 
@@ -30,7 +34,6 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
             return;
         }
 
-        // World world = commandBuffer.getExternalData().getWorld();
         Ref<EntityStore> ref = interactionContext.getEntity();
         Player player = commandBuffer.getComponent(ref, Player.getComponentType());
         if (player == null) {
@@ -46,9 +49,19 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
             return;
         }
 
-        String weaponID = itemStack.getItem().getId();
-        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull("ammo", Codec.INTEGER);
+        WeaponConfig weaponConfig = WartalePlugin.get().getWeaponConfig().get();
 
+        String weaponID = itemStack.getItem().getId();
+        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull(weaponConfig.getMetadataKey(), Codec.INTEGER);
+
+        WarhammerWeaponMetadata weaponMetadata = weaponConfig.getWeapons().get(weaponID);
+        if (weaponMetadata == null) {
+            interactionContext.getState().state = InteractionState.Failed;
+            LOGGER.atInfo().log("The weapon " + weaponID + " is not a registered weapon.");
+            return;
+        }
+
+        // Check if weapon contains Ammo
         if (currentAmmoAmount == null || currentAmmoAmount <= 0) {
             interactionContext.getState().state = InteractionState.Failed;
             LOGGER.atInfo().log("Mag empty for weapon: " + weaponID);
@@ -56,7 +69,6 @@ public class Weapon_Interaction_Shoot extends SimpleInstantInteraction {
         }
 
         byte slot = player.getInventory().getActiveHotbarSlot();
-        player.getInventory().getHotbar().setItemStackForSlot(slot, itemStack.withMetadata("ammo", Codec.INTEGER, currentAmmoAmount - 1));
+        player.getInventory().getHotbar().setItemStackForSlot(slot, itemStack.withMetadata(weaponConfig.getMetadataKey(), Codec.INTEGER, currentAmmoAmount - 1));
     }
-
 }

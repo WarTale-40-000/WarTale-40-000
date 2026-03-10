@@ -7,6 +7,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.InteractionState;
 import com.hypixel.hytale.protocol.InteractionType;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.InteractionContext;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
@@ -34,7 +35,6 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             return;
         }
 
-        // World world = commandBuffer.getExternalData().getWorld();
         Ref<EntityStore> ref = interactionContext.getEntity();
         Player player = commandBuffer.getComponent(ref, Player.getComponentType());
         if (player == null) {
@@ -50,10 +50,12 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             return;
         }
 
-        String weaponID = itemStack.getItem().getId();
-        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull("ammo", Codec.INTEGER);
-
         WeaponConfig weaponConfig = WartalePlugin.get().getWeaponConfig().get();
+
+        String weaponID = itemStack.getItem().getId();
+        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull(weaponConfig.getMetadataKey(), Codec.INTEGER);
+
+
         WarhammerWeaponMetadata weaponMetadata = weaponConfig.getWeapons().get(weaponID);
         if (weaponMetadata == null) {
             interactionContext.getState().state = InteractionState.Failed;
@@ -72,9 +74,6 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
         int ammoNeeded = weaponMetadata.getMaxAmmo();
         CombinedItemContainer inventory = player.getInventory().getCombinedHotbarFirst();
 
-        LOGGER.atInfo().log("Inventory contents:");
-        inventory.forEach((slot, stack) -> LOGGER.atInfo().log("  [" + slot + "] " + stack.getItemId() + " x" + stack.getQuantity()));
-
         int ammoCount = inventory.countItemStacks(stack -> ammoId.equals(stack.getItemId()));
 
         if (ammoCount <= 0) {
@@ -91,6 +90,6 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
         inventory.removeItemStack(new ItemStack(ammoId, ammoToConsume));
 
         byte slot = player.getInventory().getActiveHotbarSlot();
-        player.getInventory().getHotbar().setItemStackForSlot(slot, itemStack.withMetadata("ammo", Codec.INTEGER, currentAmmo + ammoToConsume));
+        player.getInventory().getHotbar().setItemStackForSlot(slot, itemStack.withMetadata(weaponConfig.getMetadataKey(), Codec.INTEGER, currentAmmo + ammoToConsume));
     }
 }

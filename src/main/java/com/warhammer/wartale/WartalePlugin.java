@@ -22,14 +22,14 @@ public class WartalePlugin extends JavaPlugin {
 
     private static WartalePlugin instance;
 
-    public static ComponentType<EntityStore, Weapon_Data> WEAPON_DATA;
+    private ComponentType<EntityStore, Weapon_Data> weaponData;
 
     private final Config<WeaponConfig> weaponConfig;
 
     public WartalePlugin(@Nonnull JavaPluginInit init) {
         super(init);
         instance = this;
-        this.weaponConfig = this.withConfig("config", WeaponConfig.CODEC);
+        this.weaponConfig = this.withConfig("warhammer-config", WeaponConfig.CODEC);
         LOGGER.atInfo().log("Initializing Wartale...");
     }
 
@@ -39,6 +39,10 @@ public class WartalePlugin extends JavaPlugin {
 
     public Config<WeaponConfig> getWeaponConfig() {
         return this.weaponConfig;
+    }
+
+    public ComponentType<EntityStore, Weapon_Data> getWeaponData() {
+        return this.weaponData;
     }
 
     @Override
@@ -56,10 +60,9 @@ public class WartalePlugin extends JavaPlugin {
                 Weapon_Interaction_SwapFrom.class,
                 Weapon_Interaction_SwapFrom.CODEC);
 
-        WEAPON_DATA = this.getEntityStoreRegistry().registerComponent(Weapon_Data.class, "Weapon_Data_Component",
+        this.weaponData = this.getEntityStoreRegistry().registerComponent(Weapon_Data.class, "Weapon_Data_Component",
                 Weapon_Data.CODEC);
-
-        //this.getEntityStoreRegistry().registerSystem(new WeaponHudTickingSystem());
+        this.weaponConfig.save();
     }
 
     @Override
