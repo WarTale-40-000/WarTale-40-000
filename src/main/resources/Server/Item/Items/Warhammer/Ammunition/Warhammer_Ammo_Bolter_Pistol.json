@@ -3,8 +3,9 @@
     "Name": "Bolter Pistol Ammo"
   },
   "Parent": "Warhammer_Ammo_Template",
-  "Model": "Resources/Items/Warhammer/BoltAmmo/BoltMagazine.blockymodel",
-  "Texture": "Resources/Items/Warhammer/BoltAmmo/BoltMagazine_Texture.png",
+  "Model": "Resources/Items/Warhammer/Ammunition/BoltAmmo/BoltMagazine.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Ammunition/BoltAmmo/BoltMagazine_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/BoltMagazine.png",
   "Quality": "Uncommon",
   "IconProperties": {
     "Scale": 0.5,

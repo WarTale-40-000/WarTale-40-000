@@ -3,8 +3,9 @@
     "Name": "Autogun Ammo"
   },
   "Parent": "Warhammer_Ammo_Template",
-  "Model": "Resources/Items/Warhammer/AutogunAmmo/AutogunMagazine.blockymodel",
-  "Texture": "Resources/Items/Warhammer/AutogunAmmo/AutogunMagazine_Texture.png",
+  "Model": "Resources/Items/Warhammer/Ammunition/AutogunAmmo/AutogunMagazine.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Ammunition/AutogunAmmo/AutogunMagazine_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/AutogunMagazine.png",
   "Quality": "Uncommon",
   "IconProperties": {
     "Scale": 0.5,
