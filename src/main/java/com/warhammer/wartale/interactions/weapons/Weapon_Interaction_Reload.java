@@ -1,40 +1,33 @@
 package com.warhammer.wartale.interactions.weapons;
 
-import java.util.Map;
-
-import com.hypixel.hytale.protocol.*;
-import com.hypixel.hytale.server.core.universe.PlayerRef;
-import com.warhammer.wartale.config.WeaponConfig;
-import com.warhammer.wartale.core.ServiceRegistry;
-import com.warhammer.wartale.types.WarhammerWeaponMetadata;
+import com.hypixel.hytale.codec.Codec;
+import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.asset.type.item.config.Item;
+import com.hypixel.hytale.protocol.InteractionState;
+import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.entity.InteractionContext;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.WartalePlugin;
-
-import com.warhammer.wartale.components.Weapon_Data;
 
 import javax.annotation.Nonnull;
 
 public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
-    public static final BuilderCodec<Weapon_Interaction_Reload> CODEC = BuilderCodec.builder(
-            Weapon_Interaction_Reload.class, Weapon_Interaction_Reload::new, SimpleInstantInteraction.CODEC).build();
+    private String ammoItemId;
+    private int maxMagSize;
+
+    public static final BuilderCodec<Weapon_Interaction_Reload> CODEC = BuilderCodec.builder(Weapon_Interaction_Reload.class, Weapon_Interaction_Reload::new, SimpleInstantInteraction.CODEC).append(new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId).add().append(new KeyedCodec<>("MaxMagSize", Codec.INTEGER, true), (obj, val) -> obj.maxMagSize = val, obj -> obj.maxMagSize).add().build();
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     @Override
-    protected void firstRun(@Nonnull InteractionType interactionType,
-                            @Nonnull InteractionContext interactionContext,
-                            @Nonnull CooldownHandler cooldownHandler) {
+    protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
         CommandBuffer<EntityStore> commandBuffer = interactionContext.getCommandBuffer();
         if (commandBuffer == null) {
             interactionContext.getState().state = InteractionState.Failed;
@@ -42,7 +35,6 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             return;
         }
 
-        // World world = commandBuffer.getExternalData().getWorld();
         Ref<EntityStore> ref = interactionContext.getEntity();
         Player player = commandBuffer.getComponent(ref, Player.getComponentType());
         if (player == null) {
@@ -58,65 +50,36 @@ public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
             return;
         }
 
-        Item item = itemStack.getItem();
-        String weaponID = item.getId();
+        String weaponID = itemStack.getItem().getId();
+        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull("current_ammo", Codec.INTEGER);
 
-        // Initialize ammunition component
-        Weapon_Data weaponData = new Weapon_Data();
-        if (commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA) != null) {
-            // here we implement logic that updates the component
-            weaponData = commandBuffer.getComponent(ref, WartalePlugin.WEAPON_DATA);
-        } else {
-            // putComponent allows you to insert declared objects
-            commandBuffer.putComponent(ref, WartalePlugin.WEAPON_DATA, weaponData);
-        }
-
-        assert weaponData != null;
-        Map<String, Integer> currentAmmoMap = weaponData.getCurrentAmmo();
-        WeaponConfig weaponConfig = ServiceRegistry.get(WeaponConfig.class);
-        Map<String, WarhammerWeaponMetadata> metadata = weaponConfig.getWeapons();
-        WarhammerWeaponMetadata weaponMetadata = metadata.get(weaponID);
-        if (weaponMetadata == null) {
+        if (currentAmmoAmount != null && currentAmmoAmount >= maxMagSize) {
             interactionContext.getState().state = InteractionState.Failed;
-            player.sendMessage(Message.raw("The weapon " + weaponID + " is not a registered weapon."));
-            LOGGER.atInfo().log("The weapon " + weaponID + " is not a registered weapon.");
-            return;
-        }
-        Integer currentAmmoValue = currentAmmoMap.get(weaponID);
-
-        // If current ammo is already full, do not reload
-        if (currentAmmoValue != null && currentAmmoValue >= weaponMetadata.getMaxAmmo()) {
-            player.sendMessage(Message.raw("Magazine is already full!"));
-            LOGGER.atInfo().log("Magazine is already full for weapon: " + weaponID);
-            interactionContext.getState().state = InteractionState.Failed;
+            LOGGER.atInfo().log("Mag already full for weapon: " + weaponID);
             return;
         }
 
-        // Initialize inventory
-        var playerInventory = player.getInventory();
-        var playerStorage = playerInventory.getStorage();
+        // Check that the player has enough ammo items to fill the magazine
+        int ammoNeeded = maxMagSize;
+        CombinedItemContainer inventory = player.getInventory().getCombinedHotbarFirst();
 
-        // Check for available ammunition
-        int countAmmoStacks = playerStorage.countItemStacks(stack -> weaponMetadata.getAmmoId().equals(stack.getItemId()));
-        int requiredAmmoStacks = weaponMetadata.getMaxAmmo() - (currentAmmoValue != null ? currentAmmoValue : 0);
+        int ammoCount = inventory.countItemStacks(stack -> ammoItemId.equals(stack.getItemId()));
 
-        // Check if there is enough ammunition to reload
-        if (countAmmoStacks <= 0) {
-            player.sendMessage(Message.raw("Out of ammunition! Cannot reload weapon without ammunition."));
-            LOGGER.atInfo().log("No ammunition left in inventory for weapon: " + weaponID);
+        if (ammoCount <= 0) {
             interactionContext.getState().state = InteractionState.Failed;
-        } else {
-            // Reload weapon if enough ammunition is available
-            int minStacksToUse = Math.min(countAmmoStacks, requiredAmmoStacks);
-
-            currentAmmoMap.put(weaponID, currentAmmoValue != null ? currentAmmoValue + minStacksToUse : minStacksToUse);
-            weaponData.setCurrentAmmo(currentAmmoMap);
-            playerStorage
-                    .removeItemStack(new ItemStack(weaponMetadata.getAmmoId(), minStacksToUse));
-
-            String message = "Reloaded weapon: " + weaponID + " with " + minStacksToUse + " Bullets";
-            player.sendMessage(Message.raw(message));
-            LOGGER.atInfo().log(message);
+            LOGGER.atInfo().log("No ammo " + ammoItemId + " available for weapon: " + weaponID);
+            return;
         }
+
+        // Consume as many ammo items as needed to fill the mag, capped by what the player has
+        int currentAmmo = currentAmmoAmount != null ? currentAmmoAmount : 0;
+        int ammoToFill = ammoNeeded - currentAmmo;
+        int ammoToConsume = Math.min(ammoToFill, ammoCount);
+
+        inventory.removeItemStack(new ItemStack(ammoItemId, ammoToConsume));
+
+        ItemStack newItemStack = itemStack.withMetadata("current_ammo", Codec.INTEGER, currentAmmo + ammoToConsume).withMetadata("max_ammo", Codec.INTEGER, maxMagSize);
+        interactionContext.getHeldItemContainer().setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
+        interactionContext.setHeldItem(newItemStack);
     }
 }
