@@ -9,7 +9,6 @@ Group {
     Label #CurrentAmmo {
       Padding: (Full: 10);
       Style: (FontSize: 20, RenderBold: true, TextColor: #ffffff);
-      Text: "Currrent";
     }
   }
 }

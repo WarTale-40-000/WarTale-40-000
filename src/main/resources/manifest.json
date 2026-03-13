@@ -11,10 +11,13 @@
             "Name": "Marcel-TO"
         }
     ],
+    "Website": "",
     "DisabledByDefault": false,
     "IncludesAssetPack": true,
     "Dependencies": {},
     "OptionalDependencies": {},
+    "LoadBefore": {},
     "ServerVersion": "2026.02.19-1a311a592",
-    "Main": "com.warhammer.wartale.WartalePlugin"
+    "Main": "com.warhammer.wartale.WartalePlugin",
+    "SubPlugins": []
 }

@@ -12,9 +12,11 @@ public class WeaponHUD extends CustomUIHud {
     // HUD data fields - update these to change what's displayed
     private String currentAmmo = "";
     private boolean visible = true;
+    private UICommandBuilder builder;
 
     public WeaponHUD(@Nonnull PlayerRef playerRef) {
         super(playerRef);
+        this.builder = new UICommandBuilder();
     }
 
     /**
@@ -23,6 +25,8 @@ public class WeaponHUD extends CustomUIHud {
     public void updateData(String currentAmmo, boolean visible) {
         this.currentAmmo = currentAmmo;
         this.visible = visible;
+        this.builder.append("HUD/WeaponHUD.ui");
+        this.builder.set("#CurrentAmmo.Text", this.currentAmmo);
     }
 
     /**
@@ -34,14 +38,21 @@ public class WeaponHUD extends CustomUIHud {
 
     @Override
     protected void build(@Nonnull UICommandBuilder ui) {
+        this.builder = ui;
+
         if (!this.visible) {
             return;
         }
 
+
         // Load the HUD template
-        ui.append("HUD/WeaponHUD.ui");
+        this.builder.append("HUD/WeaponHUD.ui");
 
         // Set HUD content
-        ui.set("#CurrentAmmo.Text", this.currentAmmo);
+        this.builder.set("#CurrentAmmo.Text", this.currentAmmo);
+    }
+
+    public void updateUI(boolean clear_ui){
+        update(clear_ui, this.builder);
     }
 }

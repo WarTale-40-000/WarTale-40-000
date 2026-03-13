@@ -1,0 +1,32 @@
+{
+  "TranslationProperties": {
+    "Name": "Autogun"
+  },
+  "Parent": "Warhammer_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Lasgun.png",
+  "IconProperties": {
+    "Scale": 1.2,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      18,
+      -12
+    ]
+  },
+  "Quality": "Uncommon",
+  "InteractionVars": {
+    "Warhammer_Weapon_Shoot": {
+      "Interactions": [
+        {
+          "Parent": "Gun_Shoot",
+          "RunTime": 0.2
+        }
+      ]
+    }
+  }
+}

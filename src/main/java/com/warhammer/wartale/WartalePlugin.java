@@ -4,6 +4,7 @@ import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.warhammer.wartale.components.WeaponHudTickingSystem;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Reload;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Shoot;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_SwapFrom;
@@ -34,7 +35,7 @@ public class WartalePlugin extends JavaPlugin {
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapTo", Weapon_Interaction_SwapTo.class, Weapon_Interaction_SwapTo.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapFrom", Weapon_Interaction_SwapFrom.class, Weapon_Interaction_SwapFrom.CODEC);
         //When this is uncommented it produce an error in the console, need to investigate
-        //this.getEntityStoreRegistry().registerSystem(new WeaponHudTickingSystem());
+        this.getEntityStoreRegistry().registerSystem(new WeaponHudTickingSystem());
     }
 
     @Override

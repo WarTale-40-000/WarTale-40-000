@@ -12,9 +12,8 @@
   "PlayerAnimationsId": "Sword",
   "Categories": [
     "Items.Weapons",
-    ""
+    "Warhammer.Melee"
   ],
-  "RotationOffset": {},
   "Tags": {
     "Warhammer": [
       "Weapon"

@@ -1,7 +1,7 @@
 plugins {
     id("java")
     // See documentation on https://scaffoldit.dev
-    id("dev.scaffoldit") version "0.2.9"
+    id("dev.scaffoldit") version "0.2.14"
 }
 
 group = "Wartale"

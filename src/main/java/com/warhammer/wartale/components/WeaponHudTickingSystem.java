@@ -28,6 +28,7 @@ public class WeaponHudTickingSystem extends EntityTickingSystem<EntityStore> {
         if (playerRef == null || player == null) return;
 
         WeaponHUD hud = huds.computeIfAbsent(playerRef.getUuid(), _ -> new WeaponHUD(playerRef));
+        huds.putIfAbsent(playerRef.getUuid(), hud);
 
         ItemStack heldItem = player.getInventory().getActiveHotbarItem();
 
@@ -35,7 +36,7 @@ public class WeaponHudTickingSystem extends EntityTickingSystem<EntityStore> {
 
         boolean hasWeapon = currentAmmo != null;
         hud.updateData(hasWeapon ? currentAmmo.toString() : "", hasWeapon);
-
+        hud.updateUI(true);
         player.getHudManager().setCustomHud(playerRef, hud);
     }
 
