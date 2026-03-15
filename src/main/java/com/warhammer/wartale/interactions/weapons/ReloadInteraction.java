@@ -18,11 +18,21 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
 
-public class Weapon_Interaction_Reload extends SimpleInstantInteraction {
+public class ReloadInteraction extends SimpleInstantInteraction {
     private String ammoItemId;
     private int maxMagSize;
 
-    public static final BuilderCodec<Weapon_Interaction_Reload> CODEC = BuilderCodec.builder(Weapon_Interaction_Reload.class, Weapon_Interaction_Reload::new, SimpleInstantInteraction.CODEC).append(new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId).add().append(new KeyedCodec<>("MaxMagSize", Codec.INTEGER, true), (obj, val) -> obj.maxMagSize = val, obj -> obj.maxMagSize).add().build();
+    public static final BuilderCodec<ReloadInteraction> CODEC = BuilderCodec
+            .builder(ReloadInteraction.class, ReloadInteraction::new, SimpleInstantInteraction.CODEC)
+            .appendInherited(
+                    new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId, (obj, p) -> obj.ammoItemId = p.ammoItemId
+            )
+            .add()
+            .appendInherited(
+                    new KeyedCodec<>("MaxMagSize", Codec.INTEGER, true), (obj, val) -> obj.maxMagSize = val, obj -> obj.maxMagSize, (obj, p) -> obj.maxMagSize = p.maxMagSize
+            )
+            .add()
+            .build();
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 

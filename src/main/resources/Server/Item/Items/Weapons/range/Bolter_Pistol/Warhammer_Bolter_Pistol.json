@@ -1,0 +1,43 @@
+{
+    "TranslationProperties": {
+        "Name": "Bolter Pistol"
+    },
+    "Parent": "Warhammer_Gun_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Bolter_Pistol/Bolt_Pistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Bolter_Pistol.png",
+    "IconProperties": {
+        "Scale": 1.2,
+        "Rotation": [
+            315,
+            90,
+            0
+        ],
+        "Translation": [
+            18,
+            -12
+        ]
+    },
+    "Quality": "Uncommon",
+    "Scale": 2,
+    "Interactions": {
+        "Primary": {
+            "Cooldown": {
+                "Id": "Shoot",
+                "Cooldown": 0.6
+            },
+            "Interactions": [
+                {
+                    "Parent": "Warhammer_Shoot_Bolt"
+                }
+            ]
+        },
+        "Secondary": {
+            "Interactions": [
+                {
+                    "Parent": "Warhammer_Reload_Bolt"
+                }
+            ]
+        }
+    }
+}
