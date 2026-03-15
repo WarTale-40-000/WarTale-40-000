@@ -14,7 +14,9 @@
     "Website": "",
     "DisabledByDefault": false,
     "IncludesAssetPack": true,
-    "Dependencies": {},
+    "Dependencies": {
+        "Hytale:EntityModule": "*"
+    },
     "OptionalDependencies": {},
     "LoadBefore": {},
     "ServerVersion": "2026.02.19-1a311a592",

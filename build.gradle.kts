@@ -18,9 +18,6 @@ hytale {
         Main = "com.warhammer.wartale.WartalePlugin"
         Version = manifestVersion
         ServerVersion = "2026.02.19-1a311a592"
-    }
-    devserver {
-        Enabled = (System.getenv("DEV_SERVER_ENABLED") ?: "false").toBoolean()
-        AllowOp = (System.getenv("DEV_SERVER_ALLOW_OP") ?: "false").toBoolean()
+        Dependencies = mapOf("Hytale:EntityModule" to "*")
     }
 }
