@@ -1,4 +1,4 @@
-# Wartale - Warhammer 40,000 for Hytale
+# WarTale 40,000 - Warhammer 40,000 for Hytale
 
 **Wartale** is a Hytale mod that brings the grimdark universe of Warhammer 40,000 to life in Hytale. Experience the epic warfare of the 41st millennium with iconic weapons, items, and mechanics from the Warhammer 40k universe.
 
