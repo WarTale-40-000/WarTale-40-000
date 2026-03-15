@@ -1,0 +1,22 @@
+{
+    "Parent": "Template_Weapon_Sword",
+    "TranslationProperties": {
+        "Name": "Powersword"
+    },
+    "Model": "Resources/Items/Warhammer/Weapons/Cadian_Powersword/Cadian_Powersword.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Cadian_Powersword/Cadian_Powersword_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/PowerSword.png",
+    "Quality": "Rare",
+    "ItemLevel": 30,
+    "UsePlayerAnimations": true,
+    "PlayerAnimationsId": "Sword",
+    "Categories": [
+        "Items.Weapons",
+        "Warhammer.Melee"
+    ],
+    "Tags": {
+        "Warhammer": [
+            "Weapon"
+        ]
+    }
+}
