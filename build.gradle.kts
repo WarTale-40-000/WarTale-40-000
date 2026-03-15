@@ -12,12 +12,13 @@ var manifestVersion = version as String
 // Automatically configures the builds, but you can switch scripts if you wish!
 //
 hytale {
+    usePatchline("pre-release")
     manifest {
         Group = group as String
         Name = "Wartale"
         Main = "com.warhammer.wartale.WartalePlugin"
         Version = manifestVersion
-        ServerVersion = "2026.02.19-1a311a592"
+        ServerVersion = "pre-release/2026.03.12-b1f856309"
         Dependencies = mapOf("Hytale:EntityModule" to "*")
     }
 }
