@@ -16,7 +16,7 @@
         "Next": {
             "Type": "Warhammer_Weapon_Reload",
             "AmmoItemId": "Warhammer_Ammo_Auto",
-            "MaxMagSize": 35,
+            "MaxMagSize": 13,
             "Failed": "Gun_Shoot_Fail"
         }
     },
