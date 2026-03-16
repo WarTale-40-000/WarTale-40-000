@@ -78,49 +78,59 @@ public class ShootInteraction extends SimpleInstantInteraction {
         }
 
         ItemStack newItemStack = itemStack.withMetadata("current_ammo", Codec.INTEGER, currentAmmoAmount - 1);
+        if (interactionContext.getHeldItemContainer() == null) {
+            interactionContext.getState().state = InteractionState.Failed;
+            LOGGER.atInfo().log("ItemStack is null");
+            return;
+        }
+
         interactionContext.getHeldItemContainer().setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
         interactionContext.setHeldItem(newItemStack);
 
         CommandBuffer<EntityStore> commandBuffer = interactionContext.getCommandBuffer();
         assert commandBuffer != null;
-
         Ref<EntityStore> sourceRef = interactionContext.getEntity();
-        if (EntityUtils.getEntity(sourceRef, commandBuffer) instanceof LivingEntity) {
-            Transform lookVec = TargetUtil.getLook(sourceRef, commandBuffer);
-            Vector3d lookPosition = lookVec.getPosition();
-            Vector3f lookRotation = lookVec.getRotation();
-            UUIDComponent sourceUuidComponent = commandBuffer.getComponent(sourceRef, UUIDComponent.getComponentType());
-            if (sourceUuidComponent != null) {
-                UUID sourceUuid = sourceUuidComponent.getUuid();
-                TimeResource timeResource = commandBuffer.getResource(TimeResource.getResourceType());
-                Holder<EntityStore> holder = ProjectileComponent.assembleDefaultProjectile(timeResource, this.projectileId, lookPosition, lookRotation);
-                ProjectileComponent projectileComponent = holder.getComponent(ProjectileComponent.getComponentType());
 
-                assert projectileComponent != null;
+        if (!(EntityUtils.getEntity(sourceRef, commandBuffer) instanceof LivingEntity)) {
+            interactionContext.getState().state = InteractionState.Failed;
+            LOGGER.atInfo().log("Entity is not living entity");
+            return;
+        }
 
-                holder.ensureComponent(Intangible.getComponentType());
+        Transform lookVec = TargetUtil.getLook(sourceRef, commandBuffer);
+        Vector3d lookPosition = lookVec.getPosition();
+        Vector3f lookRotation = lookVec.getRotation();
+        UUIDComponent sourceUuidComponent = commandBuffer.getComponent(sourceRef, UUIDComponent.getComponentType());
+        if (sourceUuidComponent != null) {
+            UUID sourceUuid = sourceUuidComponent.getUuid();
+            TimeResource timeResource = commandBuffer.getResource(TimeResource.getResourceType());
+            Holder<EntityStore> holder = ProjectileComponent.assembleDefaultProjectile(timeResource, this.projectileId, lookPosition, lookRotation);
+            ProjectileComponent projectileComponent = holder.getComponent(ProjectileComponent.getComponentType());
+
+            assert projectileComponent != null;
+
+            holder.ensureComponent(Intangible.getComponentType());
+            if (projectileComponent.getProjectile() == null) {
+                projectileComponent.initialize();
                 if (projectileComponent.getProjectile() == null) {
-                    projectileComponent.initialize();
-                    if (projectileComponent.getProjectile() == null) {
-                        return;
-                    }
+                    return;
                 }
-
-                float yaw = lookRotation.getYaw();
-                float pitch = lookRotation.getPitch();
-                if (this.maxSpreadAngle > 0) {
-                    ThreadLocalRandom random = ThreadLocalRandom.current();
-                    double spreadRadius = random.nextDouble() * Math.toRadians(this.maxSpreadAngle);
-                    double spreadDirection = random.nextDouble() * 2 * Math.PI;
-                    yaw += (float) (spreadRadius * Math.cos(spreadDirection));
-                    pitch += (float) (spreadRadius * Math.sin(spreadDirection));
-                }
-
-                projectileComponent.shoot(
-                        holder, sourceUuid, lookPosition.getX(), lookPosition.getY(), lookPosition.getZ(), yaw, pitch
-                );
-                commandBuffer.addEntity(holder, AddReason.SPAWN);
             }
+
+            float yaw = lookRotation.getYaw();
+            float pitch = lookRotation.getPitch();
+            if (this.maxSpreadAngle > 0) {
+                ThreadLocalRandom random = ThreadLocalRandom.current();
+                double spreadRadius = random.nextDouble() * Math.toRadians(this.maxSpreadAngle);
+                double spreadDirection = random.nextDouble() * 2 * Math.PI;
+                yaw += (float) (spreadRadius * Math.cos(spreadDirection));
+                pitch += (float) (spreadRadius * Math.sin(spreadDirection));
+            }
+
+            projectileComponent.shoot(
+                    holder, sourceUuid, lookPosition.getX(), lookPosition.getY(), lookPosition.getZ(), yaw, pitch
+            );
+            commandBuffer.addEntity(holder, AddReason.SPAWN);
         }
     }
 }

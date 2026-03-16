@@ -1,5 +1,5 @@
 {
-    "Type": "Warhammer_Weapon_Reload",
+    "Type": "Warhammer_Weapon_ValidateReload",
     "AmmoItemId": "Warhammer_Ammo_Laser",
     "MaxMagSize": 8,
     "Next": {
@@ -12,7 +12,13 @@
             "ClearSoundEventOnFinish": true
         },
         "RunTime": 1.45,
-        "HorizontalSpeedMultiplier": 0.7
+        "HorizontalSpeedMultiplier": 0.7,
+        "Next": {
+            "Type": "Warhammer_Weapon_Reload",
+            "AmmoItemId": "Warhammer_Ammo_Auto",
+            "MaxMagSize": 35,
+            "Failed": "Gun_Shoot_Fail"
+        }
     },
     "Failed": "Gun_Shoot_Fail"
 }
