@@ -9,8 +9,6 @@ import com.warhammer.wartale.systems.HudTickingSystem;
 import com.warhammer.wartale.globalEvents.PlayerEventHandler;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Reload;
 import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Shoot;
-import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_SwapFrom;
-import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_SwapTo;
 
 import javax.annotation.Nonnull;
 
@@ -35,8 +33,6 @@ public class WartalePlugin extends JavaPlugin {
         //Codecs
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Shoot", Weapon_Interaction_Shoot.class, Weapon_Interaction_Shoot.CODEC);
         this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Reload", Weapon_Interaction_Reload.class, Weapon_Interaction_Reload.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapTo", Weapon_Interaction_SwapTo.class, Weapon_Interaction_SwapTo.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_SwapFrom", Weapon_Interaction_SwapFrom.class, Weapon_Interaction_SwapFrom.CODEC);
         //Global events
         this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
         //Systems
