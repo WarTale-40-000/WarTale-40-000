@@ -36,13 +36,19 @@ public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
         ItemStack heldItem = player.getInventory().getItemInHand();
         boolean hasAmmo = false;
         String display = "";
+        String displayName = "";
+        boolean shouldReload = false;
 
         if (heldItem != null) {
+            displayName = heldItem.getItemId();
             Integer maxAmmo = heldItem.getFromMetadataOrNull("max_ammo", Codec.INTEGER);
             if (maxAmmo != null) {
                 hasAmmo = true;
                 Integer currentAmmo = heldItem.getFromMetadataOrNull("current_ammo", Codec.INTEGER);
                 int current = currentAmmo != null ? currentAmmo : 0;
+                if (current == 0) {
+                    shouldReload = true;
+                }
                 display = current + "/" + maxAmmo;
             }
         }
@@ -54,7 +60,7 @@ public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
 
         if (!sameDisplay || hasAmmo != wasVisible) {
             lastAmmoDisplay.put(playerId, hasAmmo ? display : "");
-            hud.setAmmoSection(hasAmmo, display);
+            hud.setAmmoSection(hasAmmo, display, displayName, shouldReload);
         }
     }
 
