@@ -18,12 +18,12 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
 
-public class ReloadInteraction extends SimpleInstantInteraction {
+public class ValidateReloadInteraction extends SimpleInstantInteraction {
     private String ammoItemId;
     private int maxMagSize;
 
-    public static final BuilderCodec<ReloadInteraction> CODEC = BuilderCodec
-            .builder(ReloadInteraction.class, ReloadInteraction::new, SimpleInstantInteraction.CODEC)
+    public static final BuilderCodec<ValidateReloadInteraction> CODEC = BuilderCodec
+            .builder(ValidateReloadInteraction.class, ValidateReloadInteraction::new, SimpleInstantInteraction.CODEC)
             .appendInherited(
                     new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId, (obj, p) -> obj.ammoItemId = p.ammoItemId
             )
@@ -70,7 +70,6 @@ public class ReloadInteraction extends SimpleInstantInteraction {
         }
 
         // Check that the player has enough ammo items to fill the magazine
-        int ammoNeeded = maxMagSize;
         CombinedItemContainer inventory = player.getInventory().getCombinedHotbarFirst();
 
         int ammoCount = inventory.countItemStacks(stack -> ammoItemId.equals(stack.getItemId()));
@@ -78,22 +77,6 @@ public class ReloadInteraction extends SimpleInstantInteraction {
         if (ammoCount <= 0) {
             interactionContext.getState().state = InteractionState.Failed;
             LOGGER.atInfo().log("No ammo " + ammoItemId + " available for weapon: " + weaponID);
-            return;
         }
-
-        // Consume as many ammo items as needed to fill the mag, capped by what the player has
-        int currentAmmo = currentAmmoAmount != null ? currentAmmoAmount : 0;
-        int ammoToFill = ammoNeeded - currentAmmo;
-        int ammoToConsume = Math.min(ammoToFill, ammoCount);
-
-        inventory.removeItemStack(new ItemStack(ammoItemId, ammoToConsume));
-
-        ItemStack newItemStack = itemStack
-                .withMetadata("current_ammo", Codec.INTEGER, currentAmmo + ammoToConsume)
-                .withMetadata("max_ammo", Codec.INTEGER, maxMagSize);
-
-        assert interactionContext.getHeldItemContainer() != null;
-        interactionContext.getHeldItemContainer().setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
-        interactionContext.setHeldItem(newItemStack);
     }
 }

@@ -1,5 +1,5 @@
 {
-    "Type": "Warhammer_Weapon_Reload",
+    "Type": "Warhammer_Weapon_ValidateReload",
     "AmmoItemId": "Warhammer_Ammo_Bolt",
     "MaxMagSize": 13,
     "Next": {
@@ -11,8 +11,14 @@
             "WorldSoundEventId": "SFX_Hand_Crossbow_T2_Reload_Start",
             "ClearSoundEventOnFinish": true
         },
-        "RunTime": 1.45,
-        "HorizontalSpeedMultiplier": 0.7
+        "RunTime": 1,
+        "HorizontalSpeedMultiplier": 0.7,
+        "Next": {
+            "Type": "Warhammer_Weapon_Reload",
+            "AmmoItemId": "Warhammer_Ammo_Auto",
+            "MaxMagSize": 35,
+            "Failed": "Gun_Shoot_Fail"
+        }
     },
     "Failed": "Gun_Shoot_Fail"
 }
