@@ -1,23 +1,52 @@
 {
-    "Parent": "Template_Weapon_Sword",
-    "TranslationProperties": {
-        "Name": "Chainsword"
-    },
-    "Model": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_model.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Chainsword/Chainsword.png",
-    "Quality": "Rare",
-    "ItemLevel": 30,
-    "UsePlayerAnimations": true,
-    "PlayerAnimationsId": "Sword",
-    "Categories": [
-        "Items.Weapons",
-        "Warhammer.Melee"
+  "Parent": "Template_Weapon_Sword",
+  "TranslationProperties": {
+    "Name": "Chainsword"
+  },
+  "Model": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_model.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Chainsword/Chainsword.png",
+  "Quality": "Rare",
+  "ItemLevel": 30,
+  "UsePlayerAnimations": true,
+  "PlayerAnimationsId": "Sword",
+  "Categories": [
+    "Items.Weapons",
+    "Warhammer.Melee"
+  ],
+  "Tags": {
+    "Warhammer": [
+      "Weapon"
+    ]
+  },
+  "Animation": "Resources/Items/Warhammer/Weapons/Chainsword/Animations/Chainsword_spin.blockyanim",
+  "Recipe": {
+    "TimeSeconds": 3.5,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Warhammer_Ceramite_Bar",
+        "Quantity": 6
+      }
     ],
-    "Tags": {
-        "Warhammer": [
-            "Weapon"
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Cadian_Workbench_Melee"
         ]
-    },
-    "Animation": "Resources/Items/Warhammer/Weapons/Chainsword/Animations/Chainsword_spin.blockyanim"
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "BloodPact_Workbench_Melee"
+        ]
+      }
+    ]
+  }
 }

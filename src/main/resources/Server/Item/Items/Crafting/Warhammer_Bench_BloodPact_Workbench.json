@@ -1,0 +1,125 @@
+{
+  "TranslationProperties": {
+    "Name": "BloodPact Workbench",
+    "Description": "Used to craft BloodPact armor and weapons"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 4,
+        "ResourceTypeId": "Wood_Trunk"
+      },
+      {
+        "Quantity": 3,
+        "ResourceTypeId": "Rock"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Tools"
+        ],
+        "Id": "Fieldcraft"
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Bench_WorkBench.png",
+  "Categories": [
+    "Furniture.Benches",
+    "Furniture.Warhammmer"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Resources/Items/Warhammer/Crafting/BloodPact_Workbench/BloodPact_Workbench.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Crafting/BloodPact_Workbench/BloodPact_Workbench_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "Bench_Workbench",
+    "VariantRotation": "NESW",
+    "Bench": {
+      "Type": "Crafting",
+      "Categories": [
+        {
+          "Id": "BloodPact_Workbench_Armor",
+          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
+          "Name": "Armor"
+        },
+        {
+          "Id": "BloodPact_Workbench_Guns",
+          "Icon": "Icons/CraftingCategories/BloodPact_Workbench/BloodPact_Boltpistol.png",
+          "Name": "Guns"
+        },
+        {
+          "Id": "BloodPact_Workbench_Melee",
+          "Icon": "Icons/CraftingCategories/BloodPact_Workbench/BloodPact_Powersword.png",
+          "Name": "Melee"
+        }
+      ],
+      "LocalOpenSoundEventId": "SFX_Workbench_Open",
+      "LocalCloseSoundEventId": "SFX_Workbench_Close",
+      "CompletedSoundEventId": "SFX_Workbench_Craft",
+      "FailedSoundEventId": "SFX_Generic_Crafting_Failed",
+      "BenchUpgradeSoundEventId": "SFX_Workbench_Upgrade_Start_Default",
+      "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default",
+      "Id": "BloodPact_Workbench"
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    },
+    "State": {
+      "Definitions": {
+        "CraftCompleted": {
+          "CustomModelAnimation": "Blocks/Benches/Workbench_Crafting.blockyanim",
+          "Looping": true
+        },
+        "CraftCompletedInstant": {
+          "CustomModelAnimation": "Blocks/Benches/Workbench_Crafting.blockyanim"
+        }
+      }
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockParticleSetId": "Wood",
+    "ParticleColor": "#6e4a2f",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "Wood"
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.42,
+    "Rotation": [
+      22.5,
+      45.0,
+      22.5
+    ],
+    "Translation": [
+      12.9,
+      -11.7
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Bench"
+    ]
+  },
+  "MaxStack": 1,
+  "ItemLevel": 1,
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

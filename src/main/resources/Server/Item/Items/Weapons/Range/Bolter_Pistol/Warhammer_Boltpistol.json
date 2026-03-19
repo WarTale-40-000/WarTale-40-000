@@ -1,11 +1,11 @@
 {
     "TranslationProperties": {
-        "Name": "Bloodpact Bolter Pistol"
+        "Name": "Bolter Pistol"
     },
     "Parent": "Warhammer_Gun_Template",
-    "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Bolter_Pistol.png",
+    "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
     "IconProperties": {
         "Scale": 1.2,
         "Rotation": [
