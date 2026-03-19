@@ -3,7 +3,9 @@
         "Items.Weapons",
         "Warhammer"
     ],
-    "Icon": "Icons/ItemsGenerated/Weapon_Handgun.png",
+    "Model": "Resources/Items/Warhammer/Weapons/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Bolter_Pistol/Bolt_Pistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Bolter_Pistol.png",
     "PlayerAnimationsId": {
         "Parent": "Handgun",
         "Animations": {
