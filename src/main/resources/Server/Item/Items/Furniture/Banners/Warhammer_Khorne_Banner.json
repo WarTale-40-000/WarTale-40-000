@@ -1,0 +1,82 @@
+{
+  "TranslationProperties": {
+    "Name": "Khorne Banner"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco",
+    "Blocks.Warhammer"
+  ],
+  "IconProperties": {
+    "Rotation": [
+      0,
+      0,
+      0
+    ],
+    "Scale": 0.26,
+    "Translation": [
+      0,
+      16.9
+    ]
+  },
+  "Interactions": {
+    "Primary": "Block_Primary",
+    "Secondary": "Block_Secondary"
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Wood",
+    "CustomModel": "Resources/Items/Warhammer/Blocks/Banners/Banner_Khorne.blockymodel",
+    "CustomModelAnimation": "Blocks/Decorative_Sets/Human_Ruins/Banner_Swing.blockyanim",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Blocks/Banners/Banner_Khorne_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Flags": {},
+    "Gathering": {
+      "Soft": {
+        "IsWeaponBreakable": false
+      }
+    },
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#4c4a31",
+    "Support": {
+      "West": [
+        {
+          "AllowSupportPropagation": false,
+          "FaceType": "Full",
+          "Rotate": true
+        }
+      ],
+      "East": [
+        {
+          "FaceType": "Full",
+          "AllowSupportPropagation": false,
+          "Rotate": true
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "BlockSoundSetId": "Cloth",
+    "Looping": true,
+    "HitboxType": "Banner"
+  },
+  "Icon": "Icons/ItemsGenerated/Furniture_Outlander_Banner.png",
+  "ResourceTypes": [
+    {
+      "Id": "Fuel"
+    },
+    {
+      "Id": "Charcoal"
+    }
+  ],
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Items_Cloth"
+}
