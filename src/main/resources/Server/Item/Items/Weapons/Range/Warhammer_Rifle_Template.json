@@ -3,7 +3,9 @@
         "Items.Weapons",
         "Warhammer"
     ],
-    "Icon": "Icons/ItemsGenerated/Weapon_Assault_Rifle.png",
+    "Model": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
     "PlayerAnimationsId": {
         "Parent": "Rifle",
         "Animations": {
