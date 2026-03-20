@@ -50,21 +50,17 @@ The compiled mod will be available in `build/libs/Wartale-1.0.0.jar`
 WarTale-40-000/
 ├── src/main/java/com/warhammer/wartale/
 │   ├── Wartale.java                      # Main plugin class
-│   ├── components/
-│   │   └── Weapon_Data.java              # Weapon ammunition data component
-│   ├── interactions/weapons/
-│   │   ├── Weapon_Interaction_Shoot.java # Shooting interaction handler
-│   │   └── Weapon_Interaction_Reload.java# Reload interaction handler
-│   ├── metadata/
-│   │   └── WarhammerMetadataCollection.java # Weapon metadata registry
-│   └── types/
-│       └── WarhammerWeaponMetadata.java  # Weapon metadata type
+│   ├── globalEvents/                     # events
+│   ├── gui/                              # UI Implementations
+│   ├── interactions/weapons/             # Custom interactions that handle weapon reload
+│   └── systems/                          # HUD Handler System
 ├── src/main/resources/
-│   ├── manifest.json                      # Mod manifest
-│   ├── Server/Item/Items/Warhammer/      # Item definitions
+│   ├── manifest.json                     # Mod manifest
+│   ├── Common/Resources/                 # Custom Assets
 │   ├── Common/Sounds/Warhammer/          # Sound effects
-│   └── WeaponMetadata/                   # Weapon configuration
-└── build.gradle.kts                       # Build configuration
+│   ├── Common/UI/Custom/                 # Custom UI and HUDS
+│   ├── Server/Item/Items/                # Custom Asset definitions
+└── build.gradle.kts                      # Build configuration
 ```
 
 ## 🚀 Installation
@@ -83,23 +79,44 @@ WarTale-40-000/
 
 ### Component System
 The mod uses Hytale's Entity Component System (ECS) to track weapon data:
-- `Weapon_Data` component stores current ammunition per weapon
-- Data persists across player sessions
-- Custom codec for serialization/deserialization
+- The current ammunition count gets tracked inside a custom metafield
+- Data persists across players and player sessions
 
 ### Interaction System
 Custom interactions registered with Hytale's interaction framework:
-- `Warhammer_Weapon_Interaction_Shoot` - Handles weapon firing
-- `Warhammer_Weapon_Interaction_Reload` - Manages ammunition reloading
+- `ShootInteraction` - Handles weapon firing
+- `ReloadInteraction` - Manages ammunition reloading
 
 ### Weapon Metadata
-Weapons are configured via metadata collections:
-```java
-map.put("Warhammer_Bolter_Pistol_custom",
-    new WarhammerWeaponMetadata("Warhammer_Bolter_Pistol_custom", 13, 5));
+Weapons are configured via their json file. For example the reload interaction would look like this:
+```json
+{
+    "Type": "Warhammer_Weapon_ValidateReload",
+    "AmmoItemId": "Warhammer_Ammo_Bolt",
+    "MaxMagSize": 13,
+    "Next": {
+        "Type": "Simple",
+        "Effects": {
+            "ClearAnimationOnFinish": true,
+            "ItemAnimationId": "Reload",
+            "LocalSoundEventId": "SFX_Hand_Crossbow_T2_Reload_Start_Local",
+            "WorldSoundEventId": "SFX_Hand_Crossbow_T2_Reload_Start",
+            "ClearSoundEventOnFinish": true
+        },
+        "RunTime": 1,
+        "HorizontalSpeedMultiplier": 0.7,
+        "Next": {
+            "Type": "Warhammer_Weapon_Reload",
+            "AmmoItemId": "Warhammer_Ammo_Auto",
+            "MaxMagSize": 13,
+            "Failed": "Gun_Shoot_Fail"
+        }
+    },
+    "Failed": "Gun_Shoot_Fail"
+}
 ```
-- **maxAmmo**: Magazine capacity
-- **reload**: Reload time multiplier
+- **AmmoItemId**: The id of the ammunition the weapon uses
+- **MaxMagSize**: The amount of ammunition that is inside one weapon magazine
 
 
 ---

@@ -19,7 +19,7 @@
     },
     "OptionalDependencies": {},
     "LoadBefore": {},
-    "ServerVersion": "2026.02.19-1a311a592",
+    "ServerVersion": "2026.03.19-c0865d17c",
     "Main": "com.warhammer.wartale.WartalePlugin",
     "SubPlugins": []
 }

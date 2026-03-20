@@ -5,10 +5,11 @@ import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.warhammer.wartale.interactions.weapons.ValidateReloadInteraction;
 import com.warhammer.wartale.systems.HudTickingSystem;
 import com.warhammer.wartale.globalEvents.PlayerEventHandler;
-import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Reload;
-import com.warhammer.wartale.interactions.weapons.Weapon_Interaction_Shoot;
+import com.warhammer.wartale.interactions.weapons.ReloadInteraction;
+import com.warhammer.wartale.interactions.weapons.ShootInteraction;
 
 import javax.annotation.Nonnull;
 
@@ -31,8 +32,9 @@ public class WartalePlugin extends JavaPlugin {
     @Override
     protected void setup() {
         //Codecs
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Shoot", Weapon_Interaction_Shoot.class, Weapon_Interaction_Shoot.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Interaction_Reload", Weapon_Interaction_Reload.class, Weapon_Interaction_Reload.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Reload", ReloadInteraction.class, ReloadInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_ValidateReload", ValidateReloadInteraction.class, ValidateReloadInteraction.CODEC);
         //Global events
         this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
         //Systems

@@ -1,0 +1,74 @@
+{
+    "Categories": [
+        "Items.Weapons",
+        "Warhammer"
+    ],
+    "Model": "Resources/Items/Warhammer/Weapons/Bolter_Pistol/Bolt_Pistol_Model.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Bolter_Pistol/Bolt_Pistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Bolter_Pistol.png",
+    "PlayerAnimationsId": {
+        "Parent": "Handgun",
+        "Animations": {
+            "Shoot": {
+                "ThirdPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot.blockyanim",
+                "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_Moving.blockyanim",
+                "FirstPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_FPS.blockyanim",
+                "Speed": 1,
+                "BlendingDuration": 0,
+                "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+            },
+            "Reload": {
+                "ThirdPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+                "FirstPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload_FPS.blockyanim",
+                "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+                "Speed": 3.34,
+                "Looping": true,
+                "BlendingDuration": 0.1,
+                "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+            }
+        }
+    },
+    "Interactions": {
+        "Primary": {
+            "Cooldown": {
+                "Id": "Shoot",
+                "Cooldown": 1
+            },
+            "Interactions": [
+                {
+                    "Parent": "Warhammer_Shoot_Auto"
+                }
+            ]
+        },
+        "Secondary": {
+            "Interactions": [
+                {
+                    "Parent": "Warhammer_Reload_Auto"
+                }
+            ]
+        }
+    },
+    "IconProperties": {
+        "Scale": 0.67,
+        "Translation": [
+            0.69,
+            -10.11
+        ],
+        "Rotation": [
+            315,
+            90,
+            0
+        ]
+    },
+    "Utility": {
+        "Compatible": true
+    },
+    "Quality": "Template",
+    "Tags": {
+        "Type": [
+            "Weapon",
+            "Warhammer"
+        ]
+    },
+    "Weapon": {}
+}
