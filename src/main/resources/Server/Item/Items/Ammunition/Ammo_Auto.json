@@ -1,0 +1,23 @@
+{
+    "TranslationProperties": {
+        "Name": "Autogun Ammo"
+    },
+    "Parent": "Ammo_Template",
+    "Model": "Resources/Items/Warhammer/Ammunition/AutogunAmmo/AutogunMagazine.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Ammunition/AutogunAmmo/AutogunMagazine_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/AutogunMagazine.png",
+    "Quality": "Uncommon",
+    "IconProperties": {
+        "Scale": 0.5,
+        "Rotation": [
+            45.0,
+            90.0,
+            0.0
+        ],
+        "Translation": [
+            -25.0,
+            -25.0
+        ]
+    },
+    "MaxStack": 999
+}

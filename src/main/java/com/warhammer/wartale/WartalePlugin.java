@@ -32,9 +32,9 @@ public class WartalePlugin extends JavaPlugin {
     @Override
     protected void setup() {
         //Codecs
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_Reload", ReloadInteraction.class, ReloadInteraction.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Warhammer_Weapon_ValidateReload", ValidateReloadInteraction.class, ValidateReloadInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Interaction_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Interaction_Weapon_Reload", ReloadInteraction.class, ReloadInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC).register("Interaction_Weapon_ValidateReload", ValidateReloadInteraction.class, ValidateReloadInteraction.CODEC);
         //Global events
         this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
         //Systems
