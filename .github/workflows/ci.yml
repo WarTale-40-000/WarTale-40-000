@@ -10,6 +10,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -34,11 +36,17 @@ jobs:
           mv hytale-downloader-linux-amd64 hytale-downloader
           chmod +x hytale-downloader
 
+      # Writes the auth token from the secret so the downloader can authenticate.
+      # The token may be refreshed on each use — the "Update Hytale credentials secret" step
+      # saves the updated file back to the secret after every run.
       - name: Restore Hytale credentials
         env:
           HYTALE_AUTH_JSON: ${{ secrets.HYTALE_AUTH_JSON }}
         run: echo "$HYTALE_AUTH_JSON" > ./.hytale-downloader-credentials.json
 
+      # Used to key the cache — if the version matches the previous run the 1.4 GB download
+      # is skipped entirely. Only when Hytale ships a new build does the cache get invalidated
+      # and the assets re-downloaded.
       - name: Get Hytale version
         id: hytale-version
         run: echo "version=$(./hytale-downloader -print-version -patchline pre-release)" >> $GITHUB_OUTPUT
@@ -50,6 +58,8 @@ jobs:
           path: hytale-home
           key: hytale-assets-pre-release-${{ steps.hytale-version.outputs.version }}
 
+      # Extracts into the install path expected by the dev.scaffoldit plugin:
+      # $hytale.home_path/install/$patchline/package/game/$version/Assets.zip
       - name: Download Hytale server files
         if: steps.cache-hytale.outputs.cache-hit != 'true'
         run: |
@@ -58,6 +68,8 @@ jobs:
           unzip hytale-home/game.zip -d hytale-home/install/pre-release/package/game/latest
           rm hytale-home/game.zip
 
+      # Runs even on failure to capture any token refresh that happened during
+      # -print-version or the download step.
       - name: Update Hytale credentials secret
         if: always()
         env:
@@ -74,10 +86,13 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: ./gradlew jar -Phytale.home_path=${{ github.workspace }}/hytale-home
 
-      - name: Upload JAR artifact
+      - name: Remove sources JAR
         if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v4
+        run: rm -f build/libs/*-sources.jar
+
+      - name: Release JAR
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
         with:
-          name: Wartale-${{ github.sha }}
-          path: build/libs/*.jar
-          if-no-files-found: error
+          tag_name: latest
+          files: build/libs/Wartale-*.jar
