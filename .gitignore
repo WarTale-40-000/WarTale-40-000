@@ -38,3 +38,4 @@ devserver
 gradle.properties
 .env
 .cache/
+bin/
