@@ -1,6 +1,6 @@
 {
     "TranslationProperties": {
-        "Name": "Autogun"
+        "Name": "Lasgun"
     },
     "Parent": "Weapon_Rifle_Template",
     "Model": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun.blockymodel",
