@@ -28,7 +28,7 @@
             },
             "Interactions": [
                 {
-                    "Parent": "Interaction_Shoot_Auto"
+                    "Parent": "Interaction_Shoot_Autogun"
                 }
             ]
         },
