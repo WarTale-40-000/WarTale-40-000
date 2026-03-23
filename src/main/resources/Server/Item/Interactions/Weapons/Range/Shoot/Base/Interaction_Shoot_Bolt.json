@@ -11,8 +11,9 @@
                 {
                     "SystemId": "RifleShooting",
                     "PositionOffset": {
-                        "Z": 1,
-                        "Y": 0
+                        "X": -0.1,
+                        "Y": 0.2,
+                        "Z": 0.5
                     },
                     "RotationOffset": {
                         "Pitch": 90
