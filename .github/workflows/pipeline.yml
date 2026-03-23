@@ -83,7 +83,7 @@ jobs:
         run: |
           mkdir -p hytale-home/install/pre-release/package/game/latest
           ./hytale-downloader -patchline pre-release -download-path hytale-home/game.zip
-          unzip hytale-home/game.zip -d hytale-home/install/pre-release/package/game/latest
+          unzip -o hytale-home/game.zip -d hytale-home/install/pre-release/package/game/latest
           rm hytale-home/game.zip
 
       # Runs even on failure to capture any token refresh that happened during
