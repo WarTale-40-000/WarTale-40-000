@@ -1,0 +1,27 @@
+{
+    "Type": "Interaction_Weapon_Shoot",
+    "ProjectileId": "GunPvP_Assault_Rifle_Bullet",
+    "MaxSpreadAngle": 3,
+    "Next": {
+        "Type": "Simple",
+        "Effects": {
+            "ItemAnimationId": "Shoot",
+            "CameraEffect": "Handgun_Shoot",
+            "Particles": [
+                {
+                    "SystemId": "RifleShooting",
+                    "PositionOffset": {
+                        "X": -0.1,
+                        "Z": 1,
+                        "Y": 0
+                    },
+                    "RotationOffset": {
+                        "Pitch": 90
+                    }
+                }
+            ],
+            "LocalSoundEventId": "SFX_Rifle_Fire_Local"
+        }
+    },
+    "Failed": "Gun_Shoot_Fail"
+}
