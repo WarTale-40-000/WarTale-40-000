@@ -3,9 +3,6 @@
         "Items.Weapons",
         "Warhammer"
     ],
-    "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
     "PlayerAnimationsId": {
         "Parent": "Handgun",
         "Animations": {
@@ -28,47 +25,10 @@
             }
         }
     },
-    "Interactions": {
-        "Primary": {
-            "Cooldown": {
-                "Id": "Shoot",
-                "Cooldown": 1
-            },
-            "Interactions": [
-                {
-                    "Parent": "Interaction_Shoot_Auto"
-                }
-            ]
-        },
-        "Secondary": {
-            "Interactions": [
-                {
-                    "Parent": "Interaction_Reload_Auto"
-                }
-            ]
-        }
-    },
-    "IconProperties": {
-        "Scale": 0.67,
-        "Translation": [
-            0.69,
-            -10.11
-        ],
-        "Rotation": [
-            315,
-            90,
-            0
-        ]
-    },
-    "Utility": {
-        "Compatible": true
-    },
-    "Quality": "Template",
     "Tags": {
         "Type": [
             "Weapon",
             "Warhammer"
         ]
-    },
-    "Weapon": {}
+    }
 }
