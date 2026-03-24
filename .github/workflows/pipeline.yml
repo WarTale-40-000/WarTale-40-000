@@ -1,0 +1,181 @@
+name: Pipeline
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# Prevent simultaneous main pushes from racing over :latest Docker tag and release assets.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      hytale-version: ${{ steps.hytale-version.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Get project version
+        id: version
+        run: |
+          version=$(grep -oP '(?<=version = ").*(?=")' build.gradle.kts)
+          echo "version=$version" >> $GITHUB_OUTPUT
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Download Hytale Downloader CLI
+        run: |
+          curl -L https://downloader.hytale.com/hytale-downloader.zip -o hytale-downloader.zip
+          unzip hytale-downloader.zip
+          mv hytale-downloader-linux-amd64 hytale-downloader
+          chmod +x hytale-downloader
+
+      # Writes the auth token from the secret so the downloader can authenticate.
+      # The token may be refreshed on each use — the "Update Hytale credentials secret" step
+      # saves the updated file back to the secret after every run.
+      - name: Restore Hytale credentials
+        env:
+          HYTALE_AUTH_JSON: ${{ secrets.HYTALE_AUTH_JSON }}
+        run: echo "$HYTALE_AUTH_JSON" > ./.hytale-downloader-credentials.json
+
+      # Used to key the cache — if the version matches the previous run the 1.4 GB download
+      # is skipped entirely. Only when Hytale ships a new build does the cache get invalidated
+      # and the assets re-downloaded.
+      - name: Get Hytale version
+        id: hytale-version
+        run: echo "version=$(./hytale-downloader -print-version -patchline pre-release)" >> $GITHUB_OUTPUT
+
+      - name: Cache Hytale assets
+        id: cache-hytale
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+        with:
+          path: hytale-home
+          key: hytale-assets-pre-release-${{ steps.hytale-version.outputs.version }}
+          # Fall back to the most recent entry if the exact version key is missing
+          # (e.g. after a -print-version network error) to avoid a full 1.4 GB re-download.
+          restore-keys: |
+            hytale-assets-pre-release-
+
+      # Extracts into the install path expected by the dev.scaffoldit plugin:
+      # $hytale.home_path/install/$patchline/package/game/$version/Assets.zip
+      - name: Download Hytale server files
+        if: steps.cache-hytale.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p hytale-home/install/pre-release/package/game/latest
+          ./hytale-downloader -patchline pre-release -download-path hytale-home/game.zip
+          unzip -o hytale-home/game.zip -d hytale-home/install/pre-release/package/game/latest
+          rm hytale-home/game.zip
+
+      # Runs even on failure to capture any token refresh that happened during
+      # -print-version or the download step.
+      - name: Update Hytale credentials secret
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ -f ./.hytale-downloader-credentials.json ]; then
+            cat ./.hytale-downloader-credentials.json | gh secret set HYTALE_AUTH_JSON --repo "$GH_REPO"
+          fi
+          rm -f ./.hytale-downloader-credentials.json
+
+      - name: Build
+        run: ./gradlew build -Phytale.home_path=${{ github.workspace }}/hytale-home
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+        with:
+          name: test-reports
+          path: build/reports/
+
+      # Upload the plugin JAR (excluding sources) so the publish job can use it
+      # without re-running the full build.
+      - name: Upload JAR artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+        with:
+          name: plugin-jar
+          path: |
+            build/libs/Wartale-*.jar
+            !build/libs/*-sources.jar
+
+  publish:
+    name: Publish
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      # Restore the Hytale server files cached by the build job. The matching cache key
+      # guarantees a hit within the same workflow run without re-downloading 1.4 GB.
+      - name: Restore Hytale assets from cache
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+        with:
+          path: hytale-home
+          key: hytale-assets-pre-release-${{ needs.build.outputs.hytale-version }}
+          restore-keys: |
+            hytale-assets-pre-release-
+
+      - name: Download JAR artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: plugin-jar
+          path: build/libs/
+
+      - name: Set image name
+        id: image
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: echo "name=ghcr.io/$(echo "$GH_REPO" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294
+        with:
+          context: .
+          file: docker/Dockerfile
+          push: true
+          # Tag with semver and commit SHA to enable precise rollbacks; :latest for convenience.
+          tags: |
+            ${{ steps.image.outputs.name }}:latest
+            ${{ steps.image.outputs.name }}:${{ needs.build.outputs.version }}
+            ${{ steps.image.outputs.name }}:${{ github.sha }}
+
+      - name: Release JAR
+        uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe
+        with:
+          tag_name: v${{ needs.build.outputs.version }}
+          files: build/libs/Wartale-*.jar

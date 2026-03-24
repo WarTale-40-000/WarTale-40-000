@@ -1,0 +1,43 @@
+{
+    "TranslationProperties": {
+        "Name": "Autogun"
+    },
+    "Parent": "Weapon_Rifle_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
+    "IconProperties": {
+        "Scale": 1.2,
+        "Rotation": [
+            315,
+            90,
+            0
+        ],
+        "Translation": [
+            18,
+            -12
+        ]
+    },
+    "Quality": "Uncommon",
+    "Scale": 1,
+    "Interactions": {
+        "Primary": {
+            "Cooldown": {
+                "Id": "Shoot",
+                "Cooldown": 0.1
+            },
+            "Interactions": [
+                {
+                    "Parent": "Interaction_Shoot_Autogun"
+                }
+            ]
+        },
+        "Secondary": {
+            "Interactions": [
+                {
+                    "Parent": "Interaction_Reload_Auto"
+                }
+            ]
+        }
+    }
+}

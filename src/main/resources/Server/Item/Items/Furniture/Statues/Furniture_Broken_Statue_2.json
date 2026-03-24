@@ -1,0 +1,66 @@
+{
+  "TranslationProperties": {
+    "Name": "Broken Statue 2"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Blocks.Deco",
+    "Blocks.Warhammer"
+  ],
+  "Set": "Furniture_Human",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Furniture/Statues/Broken_Statue2.png",
+  "IconProperties": {
+    "Scale": 0.282,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      2.113,
+      -42.254
+    ]
+  },
+  "BlockType": {
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "CustomModel": "Resources/Items/Warhammer/Furniture/Statues/Broken_Statue2.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Furniture/Statues/Broken_Statue2_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Woods"
+      }
+    },
+    "HitboxType": "Statue_Full",
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "ParticleColor": "#9f9e81"
+  },
+  "Tags": {
+    "Type": [
+      "Furniture",
+      "Warhammer"
+    ],
+    "Family": [
+      "Human"
+    ]
+  },
+  "Scale": 0.6,
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "MaxStack": 1
+}

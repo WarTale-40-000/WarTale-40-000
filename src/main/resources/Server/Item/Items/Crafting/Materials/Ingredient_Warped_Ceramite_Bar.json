@@ -1,0 +1,41 @@
+{
+  "TranslationProperties": {
+    "Name": "Warped Ceramite"
+  },
+  "Categories": [
+    "Items",
+    "Items.Warhammer"
+  ],
+  "Model": "Resources/Materials/Ingot.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Crafting/Materials/Warped_Ceramite.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Materials/Warped_Ceramite.png",
+  "ResourceTypes": [
+    {
+      "Id": "Metal_Bars"
+    }
+  ],
+  "PlayerAnimationsId": "Item",
+  "IconProperties": {
+    "Scale": 1,
+    "Translation": [
+      0,
+      -3
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Ingredient",
+      "Warhammer"
+    ]
+  },
+  "ItemEntity": {
+    "ParticleSystemId": null
+  },
+  "ItemSoundSetId": "ISS_Items_Ingots",
+  "DropOnDeath": true
+}
