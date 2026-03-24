@@ -1,42 +1,42 @@
 {
-  "TranslationProperties": {
-    "Name": "Laspistol"
-  },
-  "Parent": "Weapon_Rifle_Template",
-  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Laspistol.png",
-  "IconProperties": {
-    "Scale": 0.6,
-    "Rotation": [
-      313,
-      90,
-      0
-    ],
-    "Translation": [
-      12,
-      -26
-    ]
-  },
-  "Quality": "Uncommon",
-  "Interactions": {
-    "Primary": {
-      "Cooldown": {
-        "Id": "Shoot",
-        "Cooldown": 0.2
-      },
-      "Interactions": [
-        {
-          "Parent": "Interaction_Shoot_Laser"
-        }
-      ]
+    "TranslationProperties": {
+        "Name": "Laspistol"
     },
-    "Secondary": {
-      "Interactions": [
-        {
-          "Parent": "Interaction_Reload_Laser"
+    "Parent": "Weapon_Rifle_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Laspistol.png",
+    "IconProperties": {
+        "Scale": 0.6,
+        "Rotation": [
+            313,
+            90,
+            0
+        ],
+        "Translation": [
+            12,
+            -26
+        ]
+    },
+    "Quality": "Uncommon",
+    "Interactions": {
+        "Primary": {
+            "Cooldown": {
+                "Id": "Shoot",
+                "Cooldown": 0.2
+            },
+            "Interactions": [
+                {
+                    "Parent": "Interaction_Shoot_Laser"
+                }
+            ]
+        },
+        "Ability1": {
+            "Interactions": [
+                {
+                    "Parent": "Interaction_Reload_Laser"
+                }
+            ]
         }
-      ]
     }
-  }
 }

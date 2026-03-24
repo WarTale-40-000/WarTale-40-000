@@ -1,11 +1,11 @@
 {
     "TranslationProperties": {
-        "Name": "Bloodpact Bolter Pistol"
+        "Name": "Autogun"
     },
-    "Parent": "Weapon_Gun_Template",
-    "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_Boltpistol.png",
+    "Parent": "Weapon_Rifle_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
     "IconProperties": {
         "Scale": 1.2,
         "Rotation": [
@@ -19,22 +19,23 @@
         ]
     },
     "Quality": "Uncommon",
+    "Scale": 1,
     "Interactions": {
         "Primary": {
             "Cooldown": {
                 "Id": "Shoot",
-                "Cooldown": 0.3
+                "Cooldown": 0.1
             },
             "Interactions": [
                 {
-                    "Parent": "Interaction_Shoot_Bolt"
+                    "Parent": "Interaction_Shoot_Autogun"
                 }
             ]
         },
-        "Secondary": {
+        "Ability1": {
             "Interactions": [
                 {
-                    "Parent": "Interaction_Reload_Bolt"
+                    "Parent": "Interaction_Reload_Auto"
                 }
             ]
         }

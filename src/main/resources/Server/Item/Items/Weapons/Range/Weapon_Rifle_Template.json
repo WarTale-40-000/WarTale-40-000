@@ -3,9 +3,6 @@
         "Items.Weapons",
         "Warhammer"
     ],
-    "Model": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
     "PlayerAnimationsId": {
         "Parent": "Rifle",
         "Animations": {
@@ -27,44 +24,10 @@
             }
         }
     },
-    "Interactions": {
-        "Primary": {
-            "Cooldown": {
-                "Id": "Shoot",
-                "Cooldown": 1
-            },
-            "Interactions": [
-                {
-                    "Parent": "Interaction_Shoot_Bolt"
-                }
-            ]
-        },
-        "Secondary": {
-            "Interactions": [
-                {
-                    "Parent": "Interaction_Reload_Bolt"
-                }
-            ]
-        }
-    },
-    "IconProperties": {
-        "Scale": 0.37,
-        "Translation": [
-            -3.6,
-            -20.4
-        ],
-        "Rotation": [
-            315,
-            90,
-            0
-        ]
-    },
-    "Quality": "Template",
     "Tags": {
         "Type": [
             "Weapon",
             "Warhammer"
         ]
-    },
-    "Weapon": {}
+    }
 }

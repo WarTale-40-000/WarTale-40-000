@@ -31,7 +31,7 @@
                 }
             ]
         },
-        "Secondary": {
+        "Ability1": {
             "Interactions": [
                 {
                     "Parent": "Interaction_Reload_Laser"
