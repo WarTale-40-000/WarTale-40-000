@@ -1,7 +1,7 @@
 {
     "Type": "Interaction_Weapon_Shoot",
     "ProjectileId": "GunPvP_Assault_Rifle_Bullet",
-    "MaxSpreadAngle": 0,
+    "MaxSpreadAngle": 3,
     "Next": {
         "Type": "Simple",
         "Effects": {
@@ -12,15 +12,15 @@
                     "SystemId": "RifleShooting",
                     "PositionOffset": {
                         "X": -0.1,
-                        "Y": 0.2,
-                        "Z": 0.5
+                        "Z": 1,
+                        "Y": 0
                     },
                     "RotationOffset": {
                         "Pitch": 90
                     }
                 }
             ],
-            "LocalSoundEventId": "SFX_Bolter_Pistol"
+            "LocalSoundEventId": "SFX_Rifle_Fire_Local"
         }
     },
     "Failed": "Gun_Shoot_Fail"

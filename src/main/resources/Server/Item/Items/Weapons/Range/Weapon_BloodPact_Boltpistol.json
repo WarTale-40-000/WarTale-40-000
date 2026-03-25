@@ -1,11 +1,11 @@
 {
     "TranslationProperties": {
-        "Name": "Bolter Pistol"
+        "Name": "Bloodpact Bolter Pistol"
     },
     "Parent": "Weapon_Gun_Template",
-    "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
+    "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_Boltpistol.png",
     "IconProperties": {
         "Scale": 1.2,
         "Rotation": [
@@ -31,7 +31,7 @@
                 }
             ]
         },
-        "Secondary": {
+        "Ability1": {
             "Interactions": [
                 {
                     "Parent": "Interaction_Reload_Bolt"
