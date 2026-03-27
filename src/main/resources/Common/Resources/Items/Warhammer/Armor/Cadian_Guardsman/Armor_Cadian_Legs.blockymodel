@@ -256,12 +256,12 @@
                 "angle": 0
               },
               "right": {
-                "offset": {"x": 18, "y": 18},
-                "mirror": {"x": true, "y": false},
+                "offset": {"x": 0, "y": 18},
+                "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "front": {
-                "offset": {"x": 88, "y": 18},
+                "offset": {"x": 96, "y": 5},
                 "mirror": {"x": true, "y": false},
                 "angle": 0
               },

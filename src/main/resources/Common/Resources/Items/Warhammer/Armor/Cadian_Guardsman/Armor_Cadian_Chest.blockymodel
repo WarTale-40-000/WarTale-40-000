@@ -680,7 +680,7 @@
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
                 "type": "box",
-                "offset": {"x": 0, "y": 2, "z": 0},
+                "offset": {"x": -0.1743, "y": 0.00774, "z": 0.02278},
                 "stretch": {"x": -0.98, "y": 1, "z": 1},
                 "settings": {
                   "isPiece": false,
@@ -910,7 +910,7 @@
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
                 "type": "box",
-                "offset": {"x": 0, "y": 2, "z": 0},
+                "offset": {"x": 0.1743, "y": 0.00774, "z": 0.02278},
                 "stretch": {"x": -0.98, "y": 1, "z": 1},
                 "settings": {
                   "isPiece": false,
