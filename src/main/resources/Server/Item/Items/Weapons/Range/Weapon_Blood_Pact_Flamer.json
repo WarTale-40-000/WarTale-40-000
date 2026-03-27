@@ -1,43 +1,43 @@
 {
-  "TranslationProperties": {
-    "Name": "Blood Pact Flamer"
-  },
-  "Parent": "Weapon_Rifle_Template",
-  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/BloodPact_Flamer.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/Bloodpact_Flamer_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Blood_Pact_Flamer.png",
-  "IconProperties": {
-    "Scale": 0.3,
-    "Rotation": [
-      318,
-      90,
-      0
-    ],
-    "Translation": [
-      32,
-      -51
-    ]
-  },
-  "Quality": "Uncommon",
-  "Scale": 1,
-  "Interactions": {
-    "Primary": {
-      "Cooldown": {
-        "Id": "Shoot",
-        "Cooldown": 0.1
-      },
-      "Interactions": [
-        {
-          "Parent": "Interaction_Shoot_Auto"
-        }
-      ]
+    "TranslationProperties": {
+        "Name": "Blood Pact Flamer"
     },
-    "Secondary": {
-      "Interactions": [
-        {
-          "Parent": "Interaction_Reload_Auto"
+    "Parent": "Weapon_Rifle_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/BloodPact_Flamer.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/Bloodpact_Flamer_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Blood_Pact_Flamer.png",
+    "IconProperties": {
+        "Scale": 0.3,
+        "Rotation": [
+            318,
+            90,
+            0
+        ],
+        "Translation": [
+            32,
+            -51
+        ]
+    },
+    "Quality": "Uncommon",
+    "Scale": 1,
+    "Interactions": {
+        "Primary": {
+            "Cooldown": {
+                "Id": "Shoot",
+                "Cooldown": 0.1
+            },
+            "Interactions": [
+                {
+                    "Parent": "Interaction_Shoot_Auto"
+                }
+            ]
+        },
+        "Ability1": {
+            "Interactions": [
+                {
+                    "Parent": "Interaction_Reload_Auto"
+                }
+            ]
         }
-      ]
     }
-  }
 }

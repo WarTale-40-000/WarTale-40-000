@@ -1,11 +1,11 @@
 {
     "TranslationProperties": {
-        "Name": "Bloodpact Autogun"
+        "Name": "Auto Pistol"
     },
-    "Parent": "Weapon_Rifle_Template",
-    "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Autogun/BloodPact_Autogun.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Autogun/BloodPact_Autogun_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_Autogun.png",
+    "Parent": "Weapon_Gun_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/AutoPistol/AutoPistol.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/AutoPistol/AutoPistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/AutoPistol.png",
     "IconProperties": {
         "Scale": 1.2,
         "Rotation": [
@@ -19,7 +19,6 @@
         ]
     },
     "Quality": "Uncommon",
-    "Scale": 1,
     "Interactions": {
         "Primary": {
             "Cooldown": {
@@ -28,11 +27,11 @@
             },
             "Interactions": [
                 {
-                    "Parent": "Interaction_Shoot_Auto"
+                    "Parent": "Interaction_Shoot_Autopistol"
                 }
             ]
         },
-        "Secondary": {
+        "Ability1": {
             "Interactions": [
                 {
                     "Parent": "Interaction_Reload_Auto"

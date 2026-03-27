@@ -1,11 +1,11 @@
 {
     "TranslationProperties": {
-        "Name": "Lasgun"
+        "Name": "Bolter Pistol"
     },
-    "Parent": "Weapon_Rifle_Template",
-    "Model": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Lasgun.png",
+    "Parent": "Weapon_Gun_Template",
+    "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
+    "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
+    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
     "IconProperties": {
         "Scale": 1.2,
         "Rotation": [
@@ -23,18 +23,18 @@
         "Primary": {
             "Cooldown": {
                 "Id": "Shoot",
-                "Cooldown": 0.2
+                "Cooldown": 0.3
             },
             "Interactions": [
                 {
-                    "Parent": "Interaction_Shoot_Laser"
+                    "Parent": "Interaction_Shoot_Bolt"
                 }
             ]
         },
-        "Secondary": {
+        "Ability1": {
             "Interactions": [
                 {
-                    "Parent": "Interaction_Reload_Laser"
+                    "Parent": "Interaction_Reload_Bolt"
                 }
             ]
         }
