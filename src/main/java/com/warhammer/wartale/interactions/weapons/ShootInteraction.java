@@ -9,9 +9,8 @@ import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.math.vector.Transform;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.protocol.InteractionState;
 import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.protocol.WaitForDataFrom;
@@ -28,6 +27,7 @@ import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Sim
 import com.hypixel.hytale.server.core.modules.time.TimeResource;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.TargetUtil;
+import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
 import java.util.UUID;
@@ -99,7 +99,7 @@ public class ShootInteraction extends SimpleInstantInteraction {
 
         Transform lookVec = TargetUtil.getLook(sourceRef, commandBuffer);
         Vector3d lookPosition = lookVec.getPosition();
-        Vector3f lookRotation = lookVec.getRotation();
+        Rotation3f lookRotation = lookVec.getRotation();
         UUIDComponent sourceUuidComponent = commandBuffer.getComponent(sourceRef, UUIDComponent.getComponentType());
         if (sourceUuidComponent != null) {
             UUID sourceUuid = sourceUuidComponent.getUuid();
@@ -117,8 +117,8 @@ public class ShootInteraction extends SimpleInstantInteraction {
                 }
             }
 
-            float yaw = lookRotation.getYaw();
-            float pitch = lookRotation.getPitch();
+            float yaw = lookRotation.yaw();
+            float pitch = lookRotation.pitch();
             if (this.maxSpreadAngle > 0) {
                 ThreadLocalRandom random = ThreadLocalRandom.current();
                 double spreadRadius = random.nextDouble() * Math.toRadians(this.maxSpreadAngle);
@@ -128,7 +128,7 @@ public class ShootInteraction extends SimpleInstantInteraction {
             }
 
             projectileComponent.shoot(
-                    holder, sourceUuid, lookPosition.getX(), lookPosition.getY(), lookPosition.getZ(), yaw, pitch
+                    holder, sourceUuid, lookPosition.x(), lookPosition.y(), lookPosition.z(), yaw, pitch
             );
             commandBuffer.addEntity(holder, AddReason.SPAWN);
         }
