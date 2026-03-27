@@ -1,33 +1,34 @@
 {
-    "Categories": [
-        "Items.Weapons",
-        "Warhammer"
-    ],
-    "PlayerAnimationsId": {
-        "Parent": "Rifle",
-        "Animations": {
-            "Shoot": {
-                "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Rifle/Attacks/Shoot/Shoot.blockyanim",
-                "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Rifle/Attacks/Shoot/Shoot_Moving.blockyanim",
-                "FirstPerson": "Characters/Animations/Items/Dual_Handed/Rifle/Attacks/Shoot/Shoot_FPS.blockyanim",
-                "Speed": 3,
-                "BlendingDuration": 0,
-                "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
-            },
-            "Reload": {
-                "ThirdPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
-                "FirstPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload_FPS.blockyanim",
-                "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
-                "Looping": true,
-                "BlendingDuration": 0.1,
-                "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
-            }
-        }
-    },
-    "Tags": {
-        "Type": [
-            "Weapon",
-            "Warhammer"
-        ]
+  "Categories": [
+    "Items.Weapons",
+    "Warhammer"
+  ],
+  "PlayerAnimationsId": {
+    "Parent": "Rifle",
+    "Animations": {
+      "Shoot": {
+        "ThirdPerson": "Characters/Animations/Items/Dual_Handed/Rifle/Attacks/Shoot/Shoot.blockyanim",
+        "ThirdPersonMoving": "Characters/Animations/Items/Dual_Handed/Rifle/Attacks/Shoot/Shoot_Moving.blockyanim",
+        "FirstPerson": "Characters/Animations/Items/Dual_Handed/Rifle/Attacks/Shoot/Shoot_FPS.blockyanim",
+        "Speed": 3,
+        "BlendingDuration": 0,
+        "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+      },
+      "Reload": {
+        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload_FPS.blockyanim",
+        "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+        "Looping": true,
+        "BlendingDuration": 0.1,
+        "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+      }
     }
+  },
+  "Tags": {
+    "Type": [
+      "Weapon",
+      "Warhammer"
+    ]
+  },
+  "MaxStack": 1
 }

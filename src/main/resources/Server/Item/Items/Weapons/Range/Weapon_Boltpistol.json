@@ -1,42 +1,43 @@
 {
-    "TranslationProperties": {
-        "Name": "Bolter Pistol"
-    },
-    "Parent": "Weapon_Gun_Template",
-    "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
-    "IconProperties": {
-        "Scale": 1.2,
-        "Rotation": [
-            315,
-            90,
-            0
-        ],
-        "Translation": [
-            18,
-            -12
-        ]
-    },
-    "Quality": "Uncommon",
-    "Interactions": {
-        "Primary": {
-            "Cooldown": {
-                "Id": "Shoot",
-                "Cooldown": 0.3
-            },
-            "Interactions": [
-                {
-                    "Parent": "Interaction_Shoot_Bolt"
-                }
-            ]
-        },
-        "Ability1": {
-            "Interactions": [
-                {
-                    "Parent": "Interaction_Reload_Bolt"
-                }
-            ]
+  "TranslationProperties": {
+    "Name": "Bolter Pistol"
+  },
+  "Parent": "Weapon_Gun_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
+  "IconProperties": {
+    "Scale": 1.2,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      18,
+      -12
+    ]
+  },
+  "Quality": "Uncommon",
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.3
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_Bolt"
         }
+      ]
+    },
+    "Ability3": {
+      "Interactions": [
+        {
+          "Parent": "Interaction_Reload_Bolt"
+        }
+      ]
     }
+  },
+  "MaxStack": 1
 }

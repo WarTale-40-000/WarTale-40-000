@@ -1,0 +1,26 @@
+{
+  "Parent": "Weapon_Powersword",
+  "TranslationProperties": {
+    "Name": "BloodPact Powersword"
+  },
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Powersword/BloodPact_Powersword.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Powersword/BloodPact_Powersword.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_Powersword.png",
+  "Tags": {
+    "Warhammer": [
+      "Weapon"
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      45,
+      90,
+      22.5
+    ],
+    "Translation": [
+      -35,
+      -35
+    ]
+  }
+}
