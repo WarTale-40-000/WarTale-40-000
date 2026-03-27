@@ -1,0 +1,21 @@
+{
+  "TranslationProperties": {
+    "Name": "BloodPact Auto Pistol"
+  },
+  "Parent": "Weapon_AutoPistol",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Autopistol/BloodPact_Autopistol.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Autopistol/BloodPact_Autopistol_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_AutoPistol.png",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      23,
+      -34
+    ]
+  }
+}
