@@ -18,7 +18,7 @@ hytale {
         Name = "Wartale"
         Main = "com.warhammer.wartale.WartalePlugin"
         Version = manifestVersion
-        ServerVersion = "pre-release/+"
+        ServerVersion = "2026.03.26-92489d5e7"
         Dependencies = mapOf("Hytale:EntityModule" to "*")
     }
 }
