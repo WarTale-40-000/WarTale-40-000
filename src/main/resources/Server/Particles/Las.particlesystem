@@ -1,0 +1,39 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "Rifle_Fire_Splash_Red",
+      "PositionOffset": {
+        "X": 0,
+        "Y": 0.1,
+        "Z": 1
+      },
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": -90,
+        "Roll": 90
+      }
+    },
+    {
+      "SpawnerId": "Rifle_Smoke",
+      "PositionOffset": {
+        "X": 0.0,
+        "Y": 0.3,
+        "Z": -0.08
+      },
+      "RotationOffset": {
+        "Yaw": 0,
+        "Pitch": 0,
+        "Roll": 0
+      }
+    },
+    {
+      "SpawnerId": "Gun_Glow",
+      "PositionOffset": {
+        "Y": 0,
+        "Z": -0.08
+      }
+    }
+  ],
+  "IsImportant": true,
+  "LifeSpan": 1.0
+}

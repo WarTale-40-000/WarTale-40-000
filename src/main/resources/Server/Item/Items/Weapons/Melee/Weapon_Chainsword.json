@@ -5,7 +5,7 @@
   },
   "Model": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_model.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/chainsword.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Chainsword.png",
   "Quality": "Uncommon",
   "ItemLevel": 30,
   "UsePlayerAnimations": true,

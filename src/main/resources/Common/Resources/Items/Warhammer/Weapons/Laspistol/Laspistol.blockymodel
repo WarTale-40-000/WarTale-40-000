@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "R-Attachment",
-      "position": {"x": 0, "y": 24, "z": -19},
+      "position": {"x": 25, "y": 15, "z": 0},
       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
       "shape": {
         "type": "none",
@@ -22,7 +22,7 @@
         {
           "id": "2",
           "name": "Origin_Projectile",
-          "position": {"x": 0, "y": 0, "z": 0},
+          "position": {"x": -25, "y": 9, "z": -19},
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "none",
@@ -737,13 +737,13 @@
                               },
                               "top": {
                                 "offset": {"x": 189, "y": 178},
-                                "mirror": {"x": true, "y": true},
-                                "angle": 270
+                                "mirror": {"x": false, "y": false},
+                                "angle": 90
                               },
                               "bottom": {
                                 "offset": {"x": 208, "y": 178},
-                                "mirror": {"x": true, "y": true},
-                                "angle": 270
+                                "mirror": {"x": false, "y": false},
+                                "angle": 90
                               }
                             },
                             "unwrapMode": "custom",
@@ -784,8 +784,8 @@
                               },
                               "left": {
                                 "offset": {"x": 23, "y": 84},
-                                "mirror": {"x": true, "y": true},
-                                "angle": 90
+                                "mirror": {"x": false, "y": false},
+                                "angle": 270
                               },
                               "top": {
                                 "offset": {"x": 23, "y": 84},

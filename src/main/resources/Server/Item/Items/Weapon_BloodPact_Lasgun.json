@@ -1,11 +1,11 @@
 {
   "TranslationProperties": {
-    "Name": "Lasgun"
+    "Name": "Blood Pact Lasgun"
   },
   "Parent": "Weapon_Rifle_Template",
-  "Model": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Lasgun.png",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Lasgun/BloodPact_Lasgun.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Lasgun/Bloodpact_Lasgun_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_KantraelLasgun.png",
   "IconProperties": {
     "Scale": 1.2,
     "Rotation": [
@@ -23,7 +23,7 @@
     "Primary": {
       "Cooldown": {
         "Id": "Shoot",
-        "Cooldown": 0.5
+        "Cooldown": 0.2
       },
       "Interactions": [
         {
@@ -47,15 +47,15 @@
         "Quantity": 22
       },
       {
-        "ItemId": "Ingredient_Ceramite_Bar",
+        "ItemId": "Ingredient_Warped_Ceramite_Bar",
         "Quantity": 8
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Cadian_Workbench",
+        "Id": "BloodPact_Workbench",
         "Categories": [
-          "Cadian_Workbench_Guns"
+          "BloodPact_Workbench_Guns"
         ],
         "RequiredTierLevel": 2
       }

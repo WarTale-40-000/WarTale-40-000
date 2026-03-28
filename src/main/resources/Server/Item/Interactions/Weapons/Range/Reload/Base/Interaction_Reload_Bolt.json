@@ -16,7 +16,7 @@
     "Next": {
       "Type": "Interaction_Weapon_Reload",
       "AmmoItemId": "Ammo_Bolt",
-      "MaxMagSize": 13,
+      "MaxMagSize": 15,
       "Failed": "Gun_Shoot_Fail"
     }
   },

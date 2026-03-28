@@ -1,7 +1,7 @@
 {
   "Type": "Interaction_Weapon_ValidateReload",
-  "AmmoItemId": "Ammo_Laser",
-  "MaxMagSize": 50,
+  "AmmoItemId": "Ammo_Auto",
+  "MaxMagSize": 20,
   "Next": {
     "Type": "Simple",
     "Effects": {
@@ -11,12 +11,12 @@
       "WorldSoundEventId": "SFX_Hand_Crossbow_T2_Reload_Start",
       "ClearSoundEventOnFinish": true
     },
-    "RunTime": 1.45,
+    "RunTime": 2,
     "HorizontalSpeedMultiplier": 0.7,
     "Next": {
       "Type": "Interaction_Weapon_Reload",
-      "AmmoItemId": "Ammo_Laser",
-      "MaxMagSize": 50,
+      "AmmoItemId": "Ammo_Auto",
+      "MaxMagSize": 20,
       "Failed": "Gun_Shoot_Fail"
     }
   },
