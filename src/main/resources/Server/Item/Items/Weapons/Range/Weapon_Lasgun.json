@@ -7,15 +7,15 @@
   "Texture": "Resources/Items/Warhammer/Weapons/Lasgun/Lasgun_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Lasgun.png",
   "IconProperties": {
-    "Scale": 1.2,
+    "Scale": 0.4,
     "Rotation": [
       315,
       90,
       0
     ],
     "Translation": [
-      18,
-      -12
+      10,
+      -34
     ]
   },
   "Quality": "Uncommon",

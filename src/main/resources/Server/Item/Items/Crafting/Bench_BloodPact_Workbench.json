@@ -63,6 +63,11 @@
           "Id": "BloodPact_Workbench_Melee",
           "Icon": "Icons/CraftingCategories/BloodPact_Workbench/BloodPact_Powersword.png",
           "Name": "Melee"
+        },
+        {
+          "Id": "BloodPact_Workbench_Ammunition",
+          "Icon": "Icons/CraftingCategories/BloodPact_Workbench/BoltMagazine.png",
+          "Name": "Ammunition"
         }
       ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
@@ -126,5 +131,7 @@
   },
   "MaxStack": 1,
   "ItemLevel": 1,
-  "ItemSoundSetId": "ISS_Blocks_Wood"
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Texture": "Resources/Items/Warhammer/Crafting/BloodPact_Workbench/BloodPact_Workbench_Texture.png",
+  "Model": "Resources/Items/Warhammer/Crafting/BloodPact_Workbench/BloodPact_Workbench.blockymodel"
 }

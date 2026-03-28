@@ -1,22 +1,21 @@
 {
   "TranslationProperties": {
-    "Name": "Blood Pact Laspistol"
+    "Name": "Blood Pact Lasgun"
   },
-  "Parent": "Weapon_Handgun",
-  "PlayerAnimationsId": "Handgun",
-  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Laspistol.png",
+  "Parent": "Weapon_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Lasgun/BloodPact_Lasgun.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Lasgun/Bloodpact_Lasgun_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_KantraelLasgun.png",
   "IconProperties": {
-    "Scale": 0.6,
+    "Scale": 1.2,
     "Rotation": [
-      313,
+      315,
       90,
       0
     ],
     "Translation": [
-      12,
-      -26
+      18,
+      -12
     ]
   },
   "Quality": "Uncommon",
@@ -24,7 +23,7 @@
     "Primary": {
       "Cooldown": {
         "Id": "Shoot",
-        "Cooldown": 0.2
+        "Cooldown": 0.5
       },
       "Interactions": [
         {
@@ -35,7 +34,7 @@
     "Ability3": {
       "Interactions": [
         {
-          "Parent": "Interaction_Reload_Laserpistol"
+          "Parent": "Interaction_Reload_Laser"
         }
       ]
     }
@@ -45,20 +44,20 @@
     "Input": [
       {
         "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 12
+        "Quantity": 22
       },
       {
         "ItemId": "Ingredient_Warped_Ceramite_Bar",
-        "Quantity": 4
+        "Quantity": 8
       }
     ],
     "BenchRequirement": [
       {
         "Id": "BloodPact_Workbench",
-        "RequiredTierLevel": 2,
         "Categories": [
           "BloodPact_Workbench_Guns"
-        ]
+        ],
+        "RequiredTierLevel": 2
       }
     ]
   }

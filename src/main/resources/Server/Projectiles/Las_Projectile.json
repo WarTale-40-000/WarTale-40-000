@@ -4,13 +4,13 @@
   "Height": 0,
   "DepthShot": 0.7,
   "PitchAdjustShot": false,
-  "SticksVertically": false,
+  "SticksVertically": true,
   "MuzzleVelocity": 300,
   "TerminalVelocity": 300,
   "Gravity": 0,
   "Bounciness": 0,
   "ImpactSlowdown": 0,
-  "TimeToLive": 50,
+  "TimeToLive": 1,
   "Damage": 25,
   "DeathEffectsOnHit": true,
   "DeadTime": 0.1,
@@ -18,8 +18,10 @@
   "DeathParticles": {
     "SystemId": "Gun_Impact"
   },
-  "VerticalCenterShot": 0,
+  "VerticalCenterShot": 0.7,
   "HorizontalCenterShot": 0,
   "DeathSoundEventId": "SFX_GunPvP_Assault_Rifle_Bullet_Death",
-  "RotationMode": "None"
+  "RotationMode": "None",
+  "Density": 2000,
+  "ComputeRoll": false
 }
