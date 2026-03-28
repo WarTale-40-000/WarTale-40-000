@@ -24,7 +24,7 @@
     "Primary": {
       "Cooldown": {
         "Id": "Shoot",
-        "Cooldown": 0.2
+        "Cooldown": 0.5
       },
       "Interactions": [
         {

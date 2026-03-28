@@ -9,7 +9,7 @@
       "CameraEffect": "Handgun_Shoot",
       "Particles": [
         {
-          "SystemId": "RifleShooting",
+          "SystemId": "Las",
           "PositionOffset": {
             "Z": 1,
             "Y": 0
