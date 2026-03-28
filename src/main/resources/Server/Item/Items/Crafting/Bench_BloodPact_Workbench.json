@@ -51,7 +51,7 @@
       "Categories": [
         {
           "Id": "BloodPact_Workbench_Armor",
-          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
+          "Icon": "Icons/CraftingCategories/BloodPact_Workbench/Armor_Sirdar_Chest.png",
           "Name": "Armor"
         },
         {
