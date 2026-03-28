@@ -1,0 +1,126 @@
+{
+  "TranslationProperties": {
+    "Name": "Alloy Furnace",
+    "Description": "Used to craft alloys"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 4,
+        "ItemId": "Ingredient_Bar_Copper"
+      },
+      {
+        "Quantity": 2,
+        "ItemId": "Ingredient_Bar_Iron"
+      },
+      {
+        "Quantity": 10,
+        "ResourceTypeId": "Rock"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Crafting"
+        ],
+        "Id": "Workbench"
+      }
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Cadian_Workbench.png",
+  "Categories": [
+    "Furniture.Benches",
+    "Furniture.Warhammmer"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Resources/Items/Warhammer/Crafting/Alloy_Furnace/Alloy_Furnace.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Crafting/Alloy_Furnace/Alloy_Furnace_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "Bench_Workbench",
+    "VariantRotation": "NESW",
+    "Bench": {
+      "Type": "Crafting",
+      "Categories": [
+        {
+          "Id": "Simple_Alloys",
+          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
+          "Name": "Simple_Alloys"
+        },
+        {
+          "Id": "Advanced_Alloys",
+          "Icon": "Icons/CraftingCategories/Cadian_Workbench/Boltpistol.png",
+          "Name": "Advanced Alloys"
+        },
+        {}
+      ],
+      "LocalOpenSoundEventId": "SFX_Workbench_Open",
+      "LocalCloseSoundEventId": "SFX_Workbench_Close",
+      "CompletedSoundEventId": "SFX_Workbench_Craft",
+      "FailedSoundEventId": "SFX_Generic_Crafting_Failed",
+      "BenchUpgradeSoundEventId": "SFX_Workbench_Upgrade_Start_Default",
+      "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default",
+      "Id": "Alloy_Furnace"
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    },
+    "State": {
+      "Definitions": {
+        "CraftCompleted": {
+          "CustomModelAnimation": "Blocks/Benches/Workbench_Crafting.blockyanim",
+          "Looping": true
+        },
+        "CraftCompletedInstant": {
+          "CustomModelAnimation": "Blocks/Benches/Workbench_Crafting.blockyanim"
+        }
+      }
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockParticleSetId": "Wood",
+    "ParticleColor": "#6e4a2f",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "Wood"
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.42,
+    "Rotation": [
+      22.5,
+      45.0,
+      22.5
+    ],
+    "Translation": [
+      12.9,
+      -11.7
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Bench",
+      "Warhammer"
+    ]
+  },
+  "MaxStack": 1,
+  "ItemLevel": 1,
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}
