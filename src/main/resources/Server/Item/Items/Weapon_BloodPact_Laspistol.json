@@ -1,12 +1,12 @@
 {
   "TranslationProperties": {
-    "Name": "Laspistol"
+    "Name": "Blood Pact Laspistol"
   },
-  "Parent": "Weapon_Rifle_Template",
+  "Parent": "Weapon_Handgun",
   "PlayerAnimationsId": "Handgun",
-  "Model": "Resources/Items/Warhammer/Weapons/Laspistol/Laspistol.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/Laspistol/Laspistol_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Laspistol.png",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Laspistol.png",
   "IconProperties": {
     "Scale": 0.6,
     "Rotation": [
@@ -48,16 +48,16 @@
         "Quantity": 12
       },
       {
-        "ItemId": "Ingredient_Ceramite_Bar",
+        "ItemId": "Ingredient_Warped_Ceramite_Bar",
         "Quantity": 4
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Cadian_Workbench",
+        "Id": "BloodPact_Workbench",
         "RequiredTierLevel": 2,
         "Categories": [
-          "Cadian_Workbench_Guns"
+          "BloodPact_Workbench_Guns"
         ]
       }
     ]
