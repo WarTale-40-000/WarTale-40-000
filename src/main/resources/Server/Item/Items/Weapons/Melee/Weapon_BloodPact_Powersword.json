@@ -1,7 +1,7 @@
 {
   "Parent": "Weapon_Powersword",
   "TranslationProperties": {
-    "Name": "BloodPact Powersword"
+    "Name": "Blood Pact Powersword"
   },
   "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Powersword/BloodPact_Powersword.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Powersword/BloodPact_Powersword.png",
@@ -22,5 +22,31 @@
       -35,
       -35
     ]
-  }
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 9
+      },
+      {
+        "ItemId": "Ingredient_Warped_Ceramite_Bar",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "RequiredTierLevel": 3,
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Melee"
+        ]
+      }
+    ]
+  },
+  "Quality": "Rare"
 }
