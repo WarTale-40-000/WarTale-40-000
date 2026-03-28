@@ -135,5 +135,8 @@
         }
       ]
     }
+  },
+  "Recipe": {
+    "Parent": "Weapon_Powersword"
   }
 }
