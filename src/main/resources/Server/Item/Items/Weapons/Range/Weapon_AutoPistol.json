@@ -34,7 +34,7 @@
     "Ability3": {
       "Interactions": [
         {
-          "Parent": "Interaction_Reload_Auto"
+          "Parent": "Interaction_Reload_Autopistol"
         }
       ]
     }
