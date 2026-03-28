@@ -6,11 +6,7 @@
   "Recipe": {
     "Input": [
       {
-        "Quantity": 4,
-        "ItemId": "Ingredient_Bar_Copper"
-      },
-      {
-        "Quantity": 2,
+        "Quantity": 6,
         "ItemId": "Ingredient_Bar_Iron"
       },
       {
@@ -28,7 +24,7 @@
       }
     ]
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Cadian_Workbench.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Alloy_Furnace.png",
   "Categories": [
     "Furniture.Benches",
     "Furniture.Warhammmer"
@@ -53,13 +49,7 @@
           "Id": "Simple_Alloys",
           "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
           "Name": "Simple_Alloys"
-        },
-        {
-          "Id": "Advanced_Alloys",
-          "Icon": "Icons/CraftingCategories/Cadian_Workbench/Boltpistol.png",
-          "Name": "Advanced Alloys"
-        },
-        {}
+        }
       ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
       "LocalCloseSoundEventId": "SFX_Workbench_Close",
