@@ -5,8 +5,8 @@
   },
   "Model": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_model.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Chainsword.png",
-  "Quality": "Rare",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Laspistol.png",
+  "Quality": "Uncommon",
   "ItemLevel": 30,
   "UsePlayerAnimations": true,
   "PlayerAnimationsId": "Sword",
@@ -38,13 +38,6 @@
         "Type": "Crafting",
         "Categories": [
           "Cadian_Workbench_Melee"
-        ]
-      },
-      {
-        "Id": "BloodPact_Workbench",
-        "Type": "Crafting",
-        "Categories": [
-          "BloodPact_Workbench_Melee"
         ]
       }
     ]

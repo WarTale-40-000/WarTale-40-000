@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "Cadian Greaves"
+    "Name": "Sirdar Chestplate"
   },
   "Quality": "Uncommon",
   "ItemLevel": 20,
@@ -9,35 +9,47 @@
   "Categories": [
     "Items.Armors"
   ],
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Cadian_Legs.png",
-  "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_Chest.png",
+  "IconProperties": {
+    "Scale": 0.45,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -67
+    ]
+  },
+  "Model": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Chest.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Chest_Texture.png",
   "Recipe": {
     "Input": [
       {
         "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 12
+        "Quantity": 17
       },
       {
         "ItemId": "Ingredient_Leather_Medium",
         "Quantity": 3
       },
       {
-        "ItemId": "Ingredient_Ceramite_Bar",
-        "Quantity": 4
+        "ItemId": "Ingredient_Warped_Ceramite_Bar",
+        "Quantity": 6
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Cadian_Workbench",
+        "Id": "BloodPact_Workbench",
         "Type": "Crafting",
         "Categories": [
-          "Cadian_Workbench_Armor"
+          "BloodPact_Workbench_Armor"
         ]
       }
     ],
     "KnowledgeRequired": false,
-    "TimeSeconds": 3
+    "TimeSeconds": 10
   },
   "Interactions": {
     "Primary": {
@@ -56,22 +68,22 @@
     }
   },
   "Armor": {
-    "ArmorSlot": "Legs",
+    "ArmorSlot": "Chest",
     "BaseDamageResistance": 0,
     "CosmeticsToHide": [
-      "Pants",
-      "Shoes"
+      "Overtop",
+      "Cape"
     ],
     "DamageResistance": {
       "Physical": [
         {
-          "Amount": 0.08,
+          "Amount": 0.13,
           "CalculationType": "Multiplicative"
         }
       ],
       "Projectile": [
         {
-          "Amount": 0.08,
+          "Amount": 0.13,
           "CalculationType": "Multiplicative"
         }
       ]
@@ -79,7 +91,7 @@
     "StatModifiers": {
       "Health": [
         {
-          "Amount": 15,
+          "Amount": 20,
           "CalculationType": "Additive"
         }
       ]

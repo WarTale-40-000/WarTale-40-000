@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "Cadian Greaves"
+    "Name": "Sirdar Greaves"
   },
   "Quality": "Uncommon",
   "ItemLevel": 20,
@@ -9,9 +9,9 @@
   "Categories": [
     "Items.Armors"
   ],
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Cadian_Legs.png",
-  "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_Legs.png",
+  "Model": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Legs.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Legs_Texture.png",
   "Recipe": {
     "Input": [
       {
@@ -23,16 +23,16 @@
         "Quantity": 3
       },
       {
-        "ItemId": "Ingredient_Ceramite_Bar",
+        "ItemId": "Ingredient_Warped_Ceramite_Bar",
         "Quantity": 4
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Cadian_Workbench",
+        "Id": "BloodPact_Workbench",
         "Type": "Crafting",
         "Categories": [
-          "Cadian_Workbench_Armor"
+          "BloodPact_Workbench_Armor"
         ]
       }
     ],
