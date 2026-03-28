@@ -83,7 +83,7 @@
           "UpgradeRequirement": {
             "Material": [
               {
-                "ItemId": "Ingredient_Ceramite_Bar",
+                "ItemId": "Ingredient_Warped_Ceramite_Bar",
                 "Quantity": 12
               },
               {
@@ -102,7 +102,7 @@
           "UpgradeRequirement": {
             "Material": [
               {
-                "ItemId": "Ingredient_Ceramite_Bar",
+                "ItemId": "Ingredient_Warped_Ceramite_Bar",
                 "Quantity": 25
               },
               {
