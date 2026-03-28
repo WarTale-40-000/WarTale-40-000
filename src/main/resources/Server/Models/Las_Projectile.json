@@ -1,0 +1,35 @@
+{
+  "Model": "Items/Projectiles/Items/Bullet/Las_Projectile.blockymodel",
+  "Texture": "Items/Projectiles/Items/Bullet/Las_Projectile.png",
+  "DefaultAttachments": [
+    {
+      "Model": "Items/Projectiles/Items/Bullet/Las_Projectile.blockymodel",
+      "Texture": "Items/Projectiles/Items/Bullet/Las_Projectile.png"
+    }
+  ],
+  "HitBox": {
+    "Max": {
+      "X": 0.05,
+      "Y": 0.05,
+      "Z": 0.05
+    },
+    "Min": {
+      "X": -0.05,
+      "Y": -0.05,
+      "Z": -0.05
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "AnimationSets": {
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "Items/Animations/Spin_Roll/Spin_Roll_Right.blockyanim",
+          "Speed": 2,
+          "SoundEventId": "SFX_Blunderbuss_Bullet_WhizBy"
+        }
+      ]
+    }
+  }
+}
