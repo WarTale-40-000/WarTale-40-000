@@ -39,3 +39,4 @@ gradle.properties
 .env
 .cache/
 bin/
+.hyve/
