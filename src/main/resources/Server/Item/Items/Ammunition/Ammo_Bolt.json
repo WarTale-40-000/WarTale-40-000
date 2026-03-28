@@ -1,23 +1,51 @@
 {
-    "TranslationProperties": {
-        "Name": "Bolter Pistol Ammo"
-    },
-    "Parent": "Ammo_Template",
-    "Model": "Resources/Items/Warhammer/Ammunition/BoltAmmo/BoltMagazine.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Ammunition/BoltAmmo/BoltMagazine_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/BoltMagazine.png",
-    "Quality": "Uncommon",
-    "IconProperties": {
-        "Scale": 0.5,
-        "Rotation": [
-            45.0,
-            90.0,
-            0.0
-        ],
-        "Translation": [
-            -25.0,
-            -25.0
+  "TranslationProperties": {
+    "Name": "Bolt Magazine"
+  },
+  "Parent": "Ammo_Template",
+  "Model": "Resources/Items/Warhammer/Ammunition/BoltAmmo/BoltMagazine.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Ammunition/BoltAmmo/BoltMagazine_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/BoltMagazine.png",
+  "Quality": "Uncommon",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      45.0,
+      90.0,
+      0.0
+    ],
+    "Translation": [
+      -25.0,
+      -25.0
+    ]
+  },
+  "MaxStack": 130,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Powder_Boom",
+        "Quantity": 20
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "RequiredTierLevel": 3,
+        "Categories": [
+          "Cadian_Workbench_Ammunition"
         ]
-    },
-    "MaxStack": 130
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "RequiredTierLevel": 3,
+        "Categories": [
+          "BloodPact_Workbench_Ammunition"
+        ]
+      }
+    ]
+  }
 }

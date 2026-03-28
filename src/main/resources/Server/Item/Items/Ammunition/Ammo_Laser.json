@@ -1,23 +1,51 @@
 {
-    "TranslationProperties": {
-        "Name": "Laser Gun Ammo"
-    },
-    "Parent": "Ammo_Template",
-    "Model": "Resources/Items/Warhammer/Ammunition/LasMagazine/LasMagazine.blockymodel",
-    "Texture": "Resources/Items/Warhammer/Ammunition/LasMagazine/LasMagazine_Texture.png",
-    "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/LasMagazine.png",
-    "Quality": "Uncommon",
-    "IconProperties": {
-        "Scale": 0.5,
-        "Rotation": [
-            45.0,
-            90.0,
-            0.0
+  "TranslationProperties": {
+    "Name": "Las Magazine"
+  },
+  "Parent": "Ammo_Template",
+  "Model": "Resources/Items/Warhammer/Ammunition/LasMagazine/LasMagazine.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Ammunition/LasMagazine/LasMagazine_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/LasMagazine.png",
+  "Quality": "Uncommon",
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      45.0,
+      90.0,
+      0.0
+    ],
+    "Translation": [
+      -25.0,
+      -25.0
+    ]
+  },
+  "MaxStack": 130,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 20
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Ammunition"
         ],
-        "Translation": [
-            -25.0,
-            -25.0
-        ]
-    },
-    "MaxStack": 130
+        "RequiredTierLevel": 2
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Ammunition"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ]
+  }
 }
