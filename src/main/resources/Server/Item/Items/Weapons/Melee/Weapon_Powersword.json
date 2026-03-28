@@ -137,6 +137,29 @@
     }
   },
   "Recipe": {
-    "Parent": "Weapon_Powersword"
+    "Parent": "Weapon_Powersword",
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 9
+      },
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Melee"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
   }
 }

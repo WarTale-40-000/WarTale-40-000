@@ -22,8 +22,8 @@
       -2
     ]
   },
-  "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Head.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Head_Texture.png",
+  "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_HeadVar1.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Head_TextureVar1.png",
   "Recipe": {
     "Input": [
       {
@@ -45,7 +45,8 @@
         "Type": "Crafting",
         "Categories": [
           "Cadian_Workbench_Armor"
-        ]
+        ],
+        "RequiredTierLevel": 2
       }
     ],
     "KnowledgeRequired": false,

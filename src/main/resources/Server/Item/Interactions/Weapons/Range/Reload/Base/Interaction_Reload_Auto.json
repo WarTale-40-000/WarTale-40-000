@@ -1,7 +1,7 @@
 {
   "Type": "Interaction_Weapon_ValidateReload",
   "AmmoItemId": "Ammo_Auto",
-  "MaxMagSize": 35,
+  "MaxMagSize": 25,
   "Next": {
     "Type": "Simple",
     "Effects": {

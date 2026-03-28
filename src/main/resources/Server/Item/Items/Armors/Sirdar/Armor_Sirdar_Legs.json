@@ -33,7 +33,8 @@
         "Type": "Crafting",
         "Categories": [
           "BloodPact_Workbench_Armor"
-        ]
+        ],
+        "RequiredTierLevel": 2
       }
     ],
     "KnowledgeRequired": false,
