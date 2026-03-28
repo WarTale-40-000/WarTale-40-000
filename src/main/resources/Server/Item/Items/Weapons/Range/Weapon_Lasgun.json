@@ -39,5 +39,26 @@
       ]
     }
   },
-  "MaxStack": 1
+  "MaxStack": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 22
+      },
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Guns"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ]
+  }
 }

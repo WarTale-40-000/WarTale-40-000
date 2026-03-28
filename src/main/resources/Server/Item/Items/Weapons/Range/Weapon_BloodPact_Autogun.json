@@ -18,5 +18,25 @@
       -12
     ]
   },
-  "Quality": "Uncommon"
+  "Quality": "Uncommon",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 20
+      },
+      {
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Guns"
+        ]
+      }
+    ]
+  }
 }
