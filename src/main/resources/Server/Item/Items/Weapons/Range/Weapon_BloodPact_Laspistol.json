@@ -2,8 +2,7 @@
   "TranslationProperties": {
     "Name": "Blood Pact Laspistol"
   },
-  "Parent": "Weapon_Handgun",
-  "PlayerAnimationsId": "Handgun",
+  "Parent": "Weapon_Gun_Template",
   "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Laspistol/Bloodpact_Laspistol_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Laspistol.png",

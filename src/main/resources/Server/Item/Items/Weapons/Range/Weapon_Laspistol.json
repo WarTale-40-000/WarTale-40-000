@@ -2,8 +2,7 @@
   "TranslationProperties": {
     "Name": "Laspistol"
   },
-  "Parent": "Weapon_Rifle_Template",
-  "PlayerAnimationsId": "Handgun",
+  "Parent": "Weapon_Gun_Template",
   "Model": "Resources/Items/Warhammer/Weapons/Laspistol/Laspistol.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Laspistol/Laspistol_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Laspistol.png",
