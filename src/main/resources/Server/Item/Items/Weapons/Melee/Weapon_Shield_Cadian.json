@@ -1,0 +1,46 @@
+{
+  "Parent": "Template_Weapon_Shield",
+  "TranslationProperties": {
+    "Name": "Cadian Shield"
+  },
+  "Model": "Resources/Items/Warhammer/Weapons/Cadian_Shield/Cadian_Shield.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Cadian_Shield/Cadian_Shield_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Cadian_Shield.png",
+  "Quality": "Uncommon",
+  "ItemLevel": 20,
+  "InteractionVars": {
+    "Guard_Wield": {
+      "Interactions": [
+        {
+          "Parent": "Weapon_Shield_Secondary_Guard_Wield",
+          "StaminaCost": {
+            "Value": 14,
+            "CostType": "Damage"
+          }
+        }
+      ]
+    }
+  },
+  "Recipe": {
+    "TimeSeconds": 3.5,
+    "KnowledgeRequired": false,
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Melee"
+        ]
+      }
+    ],
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 2
+      }
+    ]
+  }
+}

@@ -68,6 +68,11 @@
           "Id": "BloodPact_Workbench_Ammunition",
           "Icon": "Icons/CraftingCategories/BloodPact_Workbench/BoltMagazine.png",
           "Name": "Ammunition"
+        },
+        {
+          "Id": "BloodPact_Workbench_Other",
+          "Icon": "Icons/CraftingCategories/Cadian_Workbench/Corpse_Starch.png",
+          "Name": "Other"
         }
       ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",

@@ -1,0 +1,82 @@
+{
+  "TranslationProperties": {
+    "Name": "Corpse Starch",
+    "Description": "What the hell is this?"
+  },
+  "Parent": "Template_Food",
+  "Interactions": {
+    "Secondary": "Root_Secondary_Consume_Food_T2"
+  },
+  "Quality": "Uncommon",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Consumables/Corpse_Starch.png",
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Resources/Items/Warhammer/Consumables/Corpse_Starch.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Consumables/Corpse_Starch_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#a0784d"
+  },
+  "InteractionVars": {
+    "Consume_Charge": {
+      "Interactions": [
+        {
+          "Parent": "Consume_Charge_Food_T1_Inner",
+          "Effects": {
+            "Particles": [
+              {
+                "SystemId": "Food_Eat",
+                "Color": "#7EBB4F",
+                "TargetNodeName": "Mouth",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Effect": {
+      "Interactions": [
+        {
+          "Type": "ApplyEffect",
+          "EffectId": "Food_Instant_Heal_T2"
+        },
+        "HealthRegen_TierCheck_T1"
+      ]
+    }
+  },
+  "Recipe": {
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Other"
+        ]
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Other"
+        ]
+      }
+    ],
+    "Input": [
+      {
+        "ItemId": "Ingredient_Flour",
+        "Quantity": 3
+      },
+      {
+        "ResourceTypeId": "Vegetables",
+        "Quantity": 3
+      }
+    ]
+  },
+  "ItemLevel": 5,
+  "MaxStack": 25,
+  "DropOnDeath": true
+}

@@ -68,6 +68,11 @@
           "Id": "Cadian_Workbench_Ammunition",
           "Icon": "Icons/CraftingCategories/Cadian_Workbench/BoltMagazine.png",
           "Name": "Ammunition"
+        },
+        {
+          "Icon": "Icons/CraftingCategories/Cadian_Workbench/Corpse_Starch.png",
+          "Id": "Cadian_Workbench_Other",
+          "Name": "Other"
         }
       ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
