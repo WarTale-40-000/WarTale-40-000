@@ -5,10 +5,22 @@ import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.warhammer.wartale.commands.DebugKillProfessionCommand;
+import com.warhammer.wartale.components.professions.KillProfessionComponent;
+import com.warhammer.wartale.eventHandlers.GiveProfessionExperienceHandler;
+import com.warhammer.wartale.eventHandlers.LevelUpProfessionHandler;
+import com.warhammer.wartale.globalEvents.GiveProfessionExperienceEvent;
+import com.warhammer.wartale.globalEvents.LevelUpProfessionEvent;
+import com.warhammer.wartale.interactions.weapons.ValidateReloadInteraction;
+import com.warhammer.wartale.systems.HudTickingSystem;
+import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
+import com.warhammer.wartale.interactions.weapons.ReloadInteraction;
 import com.warhammer.wartale.globalEvents.PlayerEventHandler;
 import com.warhammer.wartale.interactions.InventoryHasItemAmountInteraction;
 import com.warhammer.wartale.interactions.weapons.LoadMagazineInteraction;
 import com.warhammer.wartale.interactions.weapons.ShootInteraction;
+import com.warhammer.wartale.systems.KillSystem;
+import com.warhammer.wartale.systems.PlayerJoinSystem;
 import com.warhammer.wartale.systems.HudTickingSystem;
 
 import javax.annotation.Nonnull;
@@ -31,7 +43,7 @@ public class WartalePlugin extends JavaPlugin {
 
     @Override
     protected void setup() {
-        //Codecs
+        //Interactions
         this.getCodecRegistry(Interaction.CODEC)
             .register("Interaction_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
         this.getCodecRegistry(Interaction.CODEC)
@@ -42,8 +54,19 @@ public class WartalePlugin extends JavaPlugin {
                       InventoryHasItemAmountInteraction.CODEC);
         //Global events
         this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
+        this.getEventRegistry().register(GiveProfessionExperienceEvent.class, new GiveProfessionExperienceHandler());
+        this.getEventRegistry().register(LevelUpProfessionEvent.class, new LevelUpProfessionHandler());
         //Systems
         this.getEntityStoreRegistry().registerSystem(new HudTickingSystem());
+        this.getEntityStoreRegistry().registerSystem(new PlayerJoinSystem());
+        this.getEntityStoreRegistry().registerSystem(new KillSystem());
+
+        // Profession Components
+        var killProfessionType = this.getEntityStoreRegistry().registerComponent(KillProfessionComponent.class, "KillProfession", KillProfessionComponent.CODEC);
+        KillProfessionComponent.setComponentType(killProfessionType);
+
+        // Commands
+        this.getCommandRegistry().registerCommand(new DebugKillProfessionCommand());
     }
 
     @Override
