@@ -1,4 +1,4 @@
-package com.warhammer.wartale.globalEvents;
+package com.warhammer.wartale.eventHandlers;
 
 import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.server.core.entity.entities.Player;
