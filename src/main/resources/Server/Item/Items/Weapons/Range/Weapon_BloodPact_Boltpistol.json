@@ -7,15 +7,15 @@
   "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Boltpistol/BloodPact_Boltpistol_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_Boltpistol.png",
   "IconProperties": {
-    "Scale": 1.2,
+    "Scale": 0.7,
     "Rotation": [
       315,
       90,
       0
     ],
     "Translation": [
-      18,
-      -12
+      11,
+      -23
     ]
   },
   "Quality": "Uncommon",

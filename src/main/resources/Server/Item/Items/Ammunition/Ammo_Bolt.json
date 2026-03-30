@@ -8,15 +8,15 @@
   "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/BoltMagazine.png",
   "Quality": "Uncommon",
   "IconProperties": {
-    "Scale": 0.5,
+    "Scale": 1.4,
     "Rotation": [
-      45.0,
-      90.0,
-      0.0
+      45,
+      90,
+      0
     ],
     "Translation": [
-      -25.0,
-      -25.0
+      -23,
+      -2
     ]
   },
   "MaxStack": 130,
