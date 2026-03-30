@@ -7,15 +7,15 @@
   "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
   "IconProperties": {
-    "Scale": 1.2,
+    "Scale": 0.4,
     "Rotation": [
       315,
       90,
       0
     ],
     "Translation": [
-      18,
-      -12
+      24,
+      -25
     ]
   },
   "Quality": "Uncommon",

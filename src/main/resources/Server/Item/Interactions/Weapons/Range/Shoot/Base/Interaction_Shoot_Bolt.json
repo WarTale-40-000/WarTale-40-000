@@ -20,7 +20,8 @@
           }
         }
       ],
-      "LocalSoundEventId": "SFX_Bolter_Pistol"
+      "LocalSoundEventId": "SFX_Bolter_Pistol",
+      "WorldSoundEventId": "SFX_Bolter_Pistol_Global"
     }
   },
   "Failed": "Gun_Shoot_Fail"
