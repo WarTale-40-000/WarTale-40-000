@@ -19,7 +19,8 @@
           }
         }
       ],
-      "LocalSoundEventId": "SFX_Lasgun"
+      "LocalSoundEventId": "SFX_Lasgun",
+      "WorldSoundEventId": "SFX_Lasgun_Global"
     }
   },
   "Failed": "Gun_Shoot_Fail"
