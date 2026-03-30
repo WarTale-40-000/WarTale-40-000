@@ -8,15 +8,15 @@
   "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/LasMagazine.png",
   "Quality": "Uncommon",
   "IconProperties": {
-    "Scale": 0.5,
+    "Scale": 1.6,
     "Rotation": [
-      45.0,
-      90.0,
-      0.0
+      45,
+      90,
+      0
     ],
     "Translation": [
-      -25.0,
-      -25.0
+      -1,
+      -7
     ]
   },
   "MaxStack": 130,

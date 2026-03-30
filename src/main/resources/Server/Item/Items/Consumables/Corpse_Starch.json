@@ -78,5 +78,17 @@
   },
   "ItemLevel": 5,
   "MaxStack": 25,
-  "DropOnDeath": true
+  "DropOnDeath": true,
+  "IconProperties": {
+    "Scale": 0.7,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -4
+    ]
+  }
 }
