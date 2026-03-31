@@ -19,13 +19,13 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import javax.annotation.Nonnull;
 
 public class ReloadInteraction extends SimpleInstantInteraction {
-    private String ammoItemId;
+    private String magazineItemId;
     private int maxMagSize;
 
     public static final BuilderCodec<ReloadInteraction> CODEC = BuilderCodec
             .builder(ReloadInteraction.class, ReloadInteraction::new, SimpleInstantInteraction.CODEC)
             .appendInherited(
-                    new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId, (obj, p) -> obj.ammoItemId = p.ammoItemId
+                    new KeyedCodec<>("MagazineItemId", Codec.STRING, true), (obj, val) -> obj.magazineItemId = val, obj -> obj.magazineItemId, (obj, p) -> obj.magazineItemId = p.magazineItemId
             )
             .add()
             .appendInherited(
@@ -69,27 +69,21 @@ public class ReloadInteraction extends SimpleInstantInteraction {
             return;
         }
 
-        // Check that the player has enough ammo items to fill the magazine
-        int ammoNeeded = maxMagSize;
+        // Each magazine item represents a full magazine refill.
         CombinedItemContainer inventory = player.getInventory().getCombinedHotbarFirst();
 
-        int ammoCount = inventory.countItemStacks(stack -> ammoItemId.equals(stack.getItemId()));
+        int magazineCount = inventory.countItemStacks(stack -> magazineItemId.equals(stack.getItemId()));
 
-        if (ammoCount <= 0) {
+        if (magazineCount <= 0) {
             interactionContext.getState().state = InteractionState.Failed;
-            LOGGER.atInfo().log("No ammo " + ammoItemId + " available for weapon: " + weaponID);
+            LOGGER.atInfo().log("No magazine " + magazineItemId + " available for weapon: " + weaponID);
             return;
         }
 
-        // Consume as many ammo items as needed to fill the mag, capped by what the player has
-        int currentAmmo = currentAmmoAmount != null ? currentAmmoAmount : 0;
-        int ammoToFill = ammoNeeded - currentAmmo;
-        int ammoToConsume = Math.min(ammoToFill, ammoCount);
-
-        inventory.removeItemStack(new ItemStack(ammoItemId, ammoToConsume));
+        inventory.removeItemStack(new ItemStack(magazineItemId, 1));
 
         ItemStack newItemStack = itemStack
-                .withMetadata("current_ammo", Codec.INTEGER, currentAmmo + ammoToConsume)
+                .withMetadata("current_ammo", Codec.INTEGER, maxMagSize)
                 .withMetadata("max_ammo", Codec.INTEGER, maxMagSize);
 
         assert interactionContext.getHeldItemContainer() != null;

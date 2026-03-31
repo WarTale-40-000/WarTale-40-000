@@ -79,20 +79,20 @@ WarTale-40-000/
 
 ### Component System
 The mod uses Hytale's Entity Component System (ECS) to track weapon data:
-- The current ammunition count gets tracked inside a custom metafield
+- The current magazine count gets tracked inside a custom metafield
 - Data persists across players and player sessions
 
 ### Interaction System
 Custom interactions registered with Hytale's interaction framework:
 - `ShootInteraction` - Handles weapon firing
-- `ReloadInteraction` - Manages ammunition reloading
+- `ReloadInteraction` - Manages magazine reloading
 
 ### Weapon Metadata
 Weapons are configured via their json file. For example the reload interaction would look like this:
 ```json
 {
     "Type": "Warhammer_Weapon_ValidateReload",
-    "AmmoItemId": "Warhammer_Ammo_Bolt",
+    "MagazineItemId": "Warhammer_Magazine_Bolt",
     "MaxMagSize": 13,
     "Next": {
         "Type": "Simple",
@@ -107,7 +107,7 @@ Weapons are configured via their json file. For example the reload interaction w
         "HorizontalSpeedMultiplier": 0.7,
         "Next": {
             "Type": "Warhammer_Weapon_Reload",
-            "AmmoItemId": "Warhammer_Ammo_Auto",
+            "MagazineItemId": "Warhammer_Magazine_Auto",
             "MaxMagSize": 13,
             "Failed": "Gun_Shoot_Fail"
         }
@@ -115,8 +115,8 @@ Weapons are configured via their json file. For example the reload interaction w
     "Failed": "Gun_Shoot_Fail"
 }
 ```
-- **AmmoItemId**: The id of the ammunition the weapon uses
-- **MaxMagSize**: The amount of ammunition that is inside one weapon magazine
+- **MagazineItemId**: The id of the magazine item the weapon uses for reloads
+- **MaxMagSize**: The amount of rounds that fit inside one weapon magazine
 
 
 ---

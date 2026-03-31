@@ -65,9 +65,9 @@
           "Name": "Melee"
         },
         {
-          "Id": "BloodPact_Workbench_Ammunition",
-          "Icon": "Icons/CraftingCategories/BloodPact_Workbench/BoltMagazine.png",
-          "Name": "Ammunition"
+          "Id": "BloodPact_Workbench_Magazines",
+          "Icon": "Icons/CraftingCategories/BloodPact_Workbench/Magazine_Bolt.png",
+          "Name": "Magazines"
         },
         {
           "Id": "BloodPact_Workbench_Other",

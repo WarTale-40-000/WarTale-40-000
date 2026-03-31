@@ -1,6 +1,6 @@
 {
   "Type": "Interaction_Weapon_ValidateReload",
-  "AmmoItemId": "Ammo_Auto",
+  "MagazineItemId": "Magazine_Auto",
   "MaxMagSize": 20,
   "Next": {
     "Type": "Simple",
@@ -15,7 +15,7 @@
     "HorizontalSpeedMultiplier": 0.7,
     "Next": {
       "Type": "Interaction_Weapon_Reload",
-      "AmmoItemId": "Ammo_Auto",
+      "MagazineItemId": "Magazine_Auto",
       "MaxMagSize": 20,
       "Failed": "Gun_Shoot_Fail"
     }
