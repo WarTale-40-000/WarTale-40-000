@@ -65,9 +65,9 @@
           "Name": "Melee"
         },
         {
-          "Id": "Cadian_Workbench_Ammunition",
-          "Icon": "Icons/CraftingCategories/Cadian_Workbench/BoltMagazine.png",
-          "Name": "Ammunition"
+          "Id": "Cadian_Workbench_Magazines",
+          "Icon": "Icons/CraftingCategories/Cadian_Workbench/Magazine_Bolt.png",
+          "Name": "Magazines"
         },
         {
           "Icon": "Icons/CraftingCategories/Cadian_Workbench/Corpse_Starch.png",

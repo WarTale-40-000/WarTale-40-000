@@ -19,13 +19,13 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import javax.annotation.Nonnull;
 
 public class ValidateReloadInteraction extends SimpleInstantInteraction {
-    private String ammoItemId;
+    private String magazineItemId;
     private int maxMagSize;
 
     public static final BuilderCodec<ValidateReloadInteraction> CODEC = BuilderCodec
             .builder(ValidateReloadInteraction.class, ValidateReloadInteraction::new, SimpleInstantInteraction.CODEC)
             .appendInherited(
-                    new KeyedCodec<>("AmmoItemId", Codec.STRING, true), (obj, val) -> obj.ammoItemId = val, obj -> obj.ammoItemId, (obj, p) -> obj.ammoItemId = p.ammoItemId
+                    new KeyedCodec<>("MagazineItemId", Codec.STRING, true), (obj, val) -> obj.magazineItemId = val, obj -> obj.magazineItemId, (obj, p) -> obj.magazineItemId = p.magazineItemId
             )
             .add()
             .appendInherited(
@@ -69,14 +69,13 @@ public class ValidateReloadInteraction extends SimpleInstantInteraction {
             return;
         }
 
-        // Check that the player has enough ammo items to fill the magazine
         CombinedItemContainer inventory = player.getInventory().getCombinedHotbarFirst();
 
-        int ammoCount = inventory.countItemStacks(stack -> ammoItemId.equals(stack.getItemId()));
+        int magazineCount = inventory.countItemStacks(stack -> magazineItemId.equals(stack.getItemId()));
 
-        if (ammoCount <= 0) {
+        if (magazineCount <= 0) {
             interactionContext.getState().state = InteractionState.Failed;
-            LOGGER.atInfo().log("No ammo " + ammoItemId + " available for weapon: " + weaponID);
+            LOGGER.atInfo().log("No magazine " + magazineItemId + " available for weapon: " + weaponID);
         }
     }
 }

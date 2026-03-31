@@ -22,15 +22,13 @@
   "Scale": 1,
   "Interactions": {
     "Primary": {
+      "Interactions": [
+        "Interaction_Shoot_Autogun"
+      ],
       "Cooldown": {
         "Id": "Shoot",
         "Cooldown": 0.15
-      },
-      "Interactions": [
-        {
-          "Parent": "Interaction_Shoot_Autogun"
-        }
-      ]
+      }
     },
     "Ability3": {
       "Interactions": [

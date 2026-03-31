@@ -2,10 +2,10 @@
   "TranslationProperties": {
     "Name": "Auto Magazine"
   },
-  "Parent": "Ammo_Template",
-  "Model": "Resources/Items/Warhammer/Ammunition/AutogunAmmo/AutogunMagazine.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Ammunition/AutogunAmmo/AutogunMagazine_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Ammunition/AutogunMagazine.png",
+  "Parent": "Magazine_Template",
+  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Auto/Magazine_Auto.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Auto/Magazine_Auto_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Magazine_Auto.png",
   "Quality": "Uncommon",
   "IconProperties": {
     "Scale": 1.6,
@@ -31,13 +31,13 @@
       {
         "Id": "Cadian_Workbench",
         "Categories": [
-          "Cadian_Workbench_Ammunition"
+          "Cadian_Workbench_Magazines"
         ]
       },
       {
         "Id": "BloodPact_Workbench",
         "Categories": [
-          "BloodPact_Workbench_Ammunition"
+          "BloodPact_Workbench_Magazines"
         ]
       }
     ]
