@@ -35,7 +35,6 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 devserver
-gradle.properties
 .env
 .cache/
 bin/
