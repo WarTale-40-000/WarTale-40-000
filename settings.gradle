@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'AzureDoom Maven'
+            url = uri("https://maven.azuredoom.com/mods")
+        }
+    }
+}
+
+rootProject.name = "Wartale"

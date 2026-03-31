@@ -1,25 +1,31 @@
 {
-    "Group": "Wartale",
-    "Name": "Wartale",
+    "Group": "com.warhammer.wartale",
+    "Name": "WarTale-40-000",
     "Version": "1.0.2",
     "Description": "Wartale 40k mod adds Warhammer 40k themed content to Hytale.",
     "Authors": [
         {
-            "Name": "Wartale-Team"
-        },
-        {
-            "Name": "Marcel-TO"
+            "Name": "Wartale Team"
         }
     ],
-    "Website": "",
+    "Website": "https://github.com/WarTale-40-000/WarTale-40-000",
     "DisabledByDefault": false,
     "IncludesAssetPack": true,
     "Dependencies": {
-        "Hytale:EntityModule": "*"
+        
     },
-    "OptionalDependencies": {},
-    "LoadBefore": {},
+    "OptionalDependencies": {
+        
+    },
+    "LoadBefore": {
+        
+    },
     "ServerVersion": "2026.03.26-92489d5e7",
     "Main": "com.warhammer.wartale.WartalePlugin",
-    "SubPlugins": []
+    "SubPlugins": [
+        
+    ],
+    "UpdateChecker": {
+        "CurseForge": ""
+    }
 }
