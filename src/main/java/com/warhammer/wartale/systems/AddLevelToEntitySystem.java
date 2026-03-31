@@ -6,23 +6,30 @@ import com.hypixel.hytale.component.system.RefSystem;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
+import com.warhammer.wartale.components.EntityLevelComponent;
 import com.warhammer.wartale.components.professions.KillProfessionComponent;
+import com.warhammer.wartale.level.EntityLevelMappingTable;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
+import java.util.Objects;
+
 /**
- * Handles player entity load events.
+ * Assigns a level to NPC entities when they first spawn.
  * <p>
- * On {@link AddReason#LOAD}, initialises a {@link KillProfessionComponent} for new players
- * or greets returning players with their current level and XP.
+ * On {@link AddReason#SPAWN}, looks up the entity's role name in
+ * {@link EntityLevelMappingTable} and attaches an {@link EntityLevelComponent}
+ * if one is not already present.
  */
-public class PlayerJoinSystem extends RefSystem<EntityStore> {
+public class AddLevelToEntitySystem extends RefSystem<EntityStore> {
 
     /**
-     * Called when a player entity is added to the world.
+     * Called when an NPC entity is added to the world.
      * <p>
-     * Ignored for any reason other than {@link AddReason#LOAD}. Greets the player and,
-     * if no {@link KillProfessionComponent} exists yet, creates one at level 1.
+     * Only acts on {@link AddReason#SPAWN}. Skips entities that already carry an
+     * {@link EntityLevelComponent}. The assigned level is determined by
+     * {@link EntityLevelMappingTable#getLevelOfEntity(String)}.
      *
      * @param ref           reference to the entity being added
      * @param addReason     reason the entity was added
@@ -36,26 +43,23 @@ public class PlayerJoinSystem extends RefSystem<EntityStore> {
             @NonNullDecl Store<EntityStore> store,
             @NonNullDecl CommandBuffer<EntityStore> commandBuffer
     ) {
-        if (addReason != AddReason.LOAD) return;
+        if (addReason != AddReason.SPAWN) return;
 
-        var playerRef = store.getComponent(ref, PlayerRef.getComponentType());
-        if (playerRef == null) return;
+        var entityComponent = store.getComponent(ref, Objects.requireNonNull(NPCEntity.getComponentType()));
+        if (entityComponent == null) return;
+        NPCEntity entity = (NPCEntity) entityComponent;
 
-        var killProfessionType = KillProfessionComponent.getComponentType();
-        var killProfession = store.getComponent(ref, killProfessionType);
+        var entityLevelType = EntityLevelComponent.getComponentType();
+        var entityLevel = store.getComponent(ref, entityLevelType);
 
-        if (killProfession != null) {
-            playerRef.sendMessage(Message.raw(
-                    "Welcome back! Level %d (%d XP)".formatted(killProfession.getLevel(), killProfession.getExperience())
-            ));
-        } else {
-            commandBuffer.addComponent(ref, killProfessionType, new KillProfessionComponent());
-            playerRef.sendMessage(Message.raw("Welcome! Your adventure begins at Level 1."));
+        if (entityLevel == null) {
+            int spawnedLevel = EntityLevelMappingTable.getLevelOfEntity(entity.getRoleName());
+            commandBuffer.addComponent(ref, entityLevelType, new EntityLevelComponent(spawnedLevel));
         }
     }
 
     /**
-     * Called when a player entity is removed from the world.
+     * Called when an NPC entity is removed from the world. No action is taken.
      *
      * @param ref           reference to the entity being removed
      * @param removeReason  reason the entity was removed
@@ -72,13 +76,13 @@ public class PlayerJoinSystem extends RefSystem<EntityStore> {
     }
 
     /**
-     * Returns the query that filters entities to those carrying a {@link PlayerRef} component.
+     * Returns the query that filters entities to those carrying an {@link NPCEntity} component.
      *
      * @return the archetype query for this system
      */
     @NullableDecl
     @Override
     public Query<EntityStore> getQuery() {
-        return Archetype.of(PlayerRef.getComponentType());
+        return Archetype.of(Objects.requireNonNull(NPCEntity.getComponentType()));
     }
 }

@@ -1,4 +1,4 @@
-package com.warhammer.wartale.commands;
+package com.warhammer.wartale.commands.professions.kill;
 
 import com.hypixel.hytale.codec.validation.Validators;
 import com.hypixel.hytale.component.Ref;
@@ -15,17 +15,38 @@ import com.warhammer.wartale.components.professions.KillProfessionComponent;
 
 import javax.annotation.Nonnull;
 
-public class DebugKillProfessionCommand extends AbstractPlayerCommand {
+/**
+ * Admin command that directly sets a player's kill-profession XP ({@code /profession kill xp [amount]}).
+ * <p>
+ * If {@code amount} is omitted, defaults to {@code DEFAULT_AMOUNT}. The value must be {@code >= 0}.
+ */
+public class KillProfessionSetXpCommand extends AbstractPlayerCommand {
+    /** The command literal used to invoke this command. */
+    public static final String COMMAND_NAME = "xp";
+
+    /** XP amount used when the optional argument is not provided. */
     private static final int DEFAULT_AMOUNT = 50;
 
     private final OptionalArg<Integer> amountArg;
 
-    public DebugKillProfessionCommand() {
-        super("xp", "Set XP");
-        this.amountArg = withOptionalArg("amount", "XP amount (>0)", ArgTypes.INTEGER)
-                .addValidator(Validators.greaterThan(0));
+    /**
+     * Constructs the set-XP command and registers the optional {@code amount} argument.
+     */
+    public KillProfessionSetXpCommand() {
+        super(COMMAND_NAME, "Set XP for KillProfession");
+        this.amountArg = withOptionalArg("amount", "XP amount (>=0)", ArgTypes.INTEGER)
+                .addValidator(Validators.greaterThanOrEqual(0));
     }
 
+    /**
+     * Sets the executing player's kill-profession XP to the given amount.
+     *
+     * @param context   the command context holding parsed arguments
+     * @param store     the entity component store
+     * @param ref       reference to the executing player entity
+     * @param playerRef the player reference used for messaging
+     * @param world     the world the player is currently in
+     */
     @Override
     protected void execute(
             @Nonnull CommandContext context,

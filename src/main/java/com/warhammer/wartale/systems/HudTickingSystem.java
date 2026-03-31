@@ -18,9 +18,28 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Ticking system that keeps each player's HUD ammo display in sync with their held item.
+ * <p>
+ * Runs every server tick. Tracks the last-sent ammo string per player to avoid
+ * redundant network packets — {@link WartaleHUD#setAmmoSection} is only called when
+ * the display value or visibility has changed.
+ */
 public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
     private final Map<UUID, String> lastAmmoDisplay = new HashMap<>();
 
+    /**
+     * Called every tick for each entity matching the query.
+     * <p>
+     * Reads ammo metadata ({@code max_ammo}, {@code current_ammo}) from the player's
+     * held item and updates the HUD ammo section only when the state has changed.
+     *
+     * @param v             delta time for this tick
+     * @param index         index of the entity within the archetype chunk
+     * @param chunk         the archetype chunk containing the entity
+     * @param store         the entity component store
+     * @param commandBuffer buffer for deferred component mutations
+     */
     @Override
     public void tick(float v, int index, @Nonnull ArchetypeChunk<EntityStore> chunk, @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> commandBuffer) {
 
@@ -65,6 +84,12 @@ public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
         }
     }
 
+    /**
+     * Returns the query that filters entities to those carrying both
+     * {@link Player} and {@link PlayerRef} components.
+     *
+     * @return the compound query for this system
+     */
     @Override
     public Query<EntityStore> getQuery() {
         return Query.and(Player.getComponentType(), PlayerRef.getComponentType());

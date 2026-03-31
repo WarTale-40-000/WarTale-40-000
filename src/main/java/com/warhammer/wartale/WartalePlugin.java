@@ -5,13 +5,15 @@ import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import com.warhammer.wartale.commands.DebugKillProfessionCommand;
+import com.warhammer.wartale.commands.professions.ProfessionBaseCommand;
+import com.warhammer.wartale.components.EntityLevelComponent;
 import com.warhammer.wartale.components.professions.KillProfessionComponent;
 import com.warhammer.wartale.eventHandlers.GiveProfessionExperienceHandler;
 import com.warhammer.wartale.eventHandlers.LevelUpProfessionHandler;
 import com.warhammer.wartale.globalEvents.GiveProfessionExperienceEvent;
 import com.warhammer.wartale.globalEvents.LevelUpProfessionEvent;
 import com.warhammer.wartale.interactions.weapons.ValidateReloadInteraction;
+import com.warhammer.wartale.systems.AddLevelToEntitySystem;
 import com.warhammer.wartale.systems.HudTickingSystem;
 import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
 import com.warhammer.wartale.interactions.weapons.ReloadInteraction;
@@ -60,13 +62,16 @@ public class WartalePlugin extends JavaPlugin {
         this.getEntityStoreRegistry().registerSystem(new HudTickingSystem());
         this.getEntityStoreRegistry().registerSystem(new PlayerJoinSystem());
         this.getEntityStoreRegistry().registerSystem(new KillSystem());
+        this.getEntityStoreRegistry().registerSystem(new AddLevelToEntitySystem());
 
-        // Profession Components
+        // Components
         var killProfessionType = this.getEntityStoreRegistry().registerComponent(KillProfessionComponent.class, "KillProfession", KillProfessionComponent.CODEC);
         KillProfessionComponent.setComponentType(killProfessionType);
+        var entityLevelType = this.getEntityStoreRegistry().registerComponent(EntityLevelComponent.class, "EntityLevelComponent", EntityLevelComponent.CODEC);
+        EntityLevelComponent.setComponentType(entityLevelType);
 
         // Commands
-        this.getCommandRegistry().registerCommand(new DebugKillProfessionCommand());
+        this.getCommandRegistry().registerCommand(new ProfessionBaseCommand());
     }
 
     @Override

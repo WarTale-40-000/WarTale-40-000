@@ -11,41 +11,48 @@ import com.warhammer.wartale.globalEvents.LevelUpProfessionEvent;
 
 import java.util.function.Consumer;
 
-public class LevelUpProfessionHandler implements Consumer<LevelUpProfessionEvent> {
+/**
+ * Handles {@link LevelUpProfessionEvent} by sending a level-up notification to the player.
+ * <p>
+ * Reads the profession's display colours and icon from {@link BaseProfessionComponent} and
+ * uses {@link com.hypixel.hytale.server.core.util.NotificationUtil} to push a rich UI notification
+ * containing the profession name, levels gained, and XP required for the next level.
+ *
+ * @param <T> the specific {@link BaseProfessionComponent} subtype associated with this event
+ */
+public class LevelUpProfessionHandler<T extends BaseProfessionComponent> implements Consumer<LevelUpProfessionEvent<T>> {
+
+    /**
+     * Processes the level-up event and sends a notification to the player.
+     * <p>
+     * Silently returns if the player reference is invalid or any required component is absent.
+     *
+     * @param event the event carrying the player reference, old/new levels, and profession type
+     */
     @Override
-    public void accept(LevelUpProfessionEvent event) {
+    public void accept(LevelUpProfessionEvent<T> event) {
         if (!event.playerRef().isValid()) return;
 
         var ref = event.playerRef();
         var store = ref.getStore();
 
-        var playerComponent = store.getComponent(ref, Player.getComponentType());
-        if (playerComponent == null) return;
-        Player player = (Player) playerComponent;
+        Player player = store.getComponent(ref, Player.getComponentType());
+        if (player == null) return;
 
-        var playerRefComponent = store.getComponent(ref, PlayerRef.getComponentType());
-        if (playerRefComponent == null) return;
-        PlayerRef playerRef = (PlayerRef) playerRefComponent;
+        PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
+        if (playerRef == null) return;
 
-        player.sendMessage(Message.raw("Handle Level Up Event"));
-
-        var professionComponent = store.getComponent(ref, event.professionType());
-        if (professionComponent == null) {
-            player.sendMessage(Message.raw("profession is null"));
-            return;
-        }
-        BaseProfessionComponent profession = (BaseProfessionComponent)professionComponent;
+        BaseProfessionComponent profession = store.getComponent(ref, event.professionType());
+        if (profession == null) return;
 
         String message = profession.getProfessionName() + " +" + event.levelsGained() + " Level Up!";
         String submessage = "You leveled up from " + event.oldLevel() + " to " + event.newLevel();
-        player.sendMessage(Message.raw(submessage));
+        submessage += "\nGain " + profession.getExperienceToNextLevel() + " Experience for next level!";
 
-        String color = "#c300ff";
-        String secondaryColor = "#8b32ff";
         var packetHandler = playerRef.getPacketHandler();
-        var primaryMessage = Message.raw(message).color(color);
-        var secondaryMessage = Message.raw(submessage).color(secondaryColor);
-        var icon = new ItemStack("Weapon_Boltpistol", 1).toPacket();
+        var primaryMessage = Message.raw(message).color(profession.getLevelUpgradeColor());
+        var secondaryMessage = Message.raw(submessage).color(profession.getLevelUpgradeSecondaryColor());
+        var icon = new ItemStack(profession.getLevelUpgradeIcon(), 1).toPacket();
         NotificationUtil.sendNotification(
                 packetHandler,
                 primaryMessage,
