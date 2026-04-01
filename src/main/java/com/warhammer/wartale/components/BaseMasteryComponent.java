@@ -1,15 +1,12 @@
 package com.warhammer.wartale.components;
 
 import com.hypixel.hytale.component.Component;
-import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.components.professions.KillProfessionComponent;
+import com.warhammer.wartale.masteryCore.MasteryCalculations;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
-import static java.lang.Math.floor;
-
 /**
- * Abstract base for all profession components.
+ * Abstract base for all mastery components.
  * <p>
  * Provides a shared XP and levelling implementation driven by two tunable constants:
  * <ul>
@@ -18,45 +15,22 @@ import static java.lang.Math.floor;
  * </ul>
  * The level formula is: {@code level = floor((xp / scalingFactor) ^ (1 / levelIncreaseFactor)) + 1}
  */
-public abstract class BaseProfessionComponent implements Component<EntityStore> {
-    private static ComponentType<EntityStore, KillProfessionComponent> TYPE;
-
-    /** Exponent applied to the XP curve: higher values steepen per-level XP cost. */
-    private final double levelIncreaseFactor;
-
-    /** Divisor that anchors the level curve; 100 means 100 XP transitions level 1 → 2. */
-    private final double scalingFactor;
-
-    /** Accumulated experience points for this profession. */
+public abstract class BaseMasteryComponent implements Component<EntityStore> {
+    /**
+     * Accumulated experience points for this mastery.
+     */
     protected int experience;
 
-    /**
-     * Returns the shared component type handle.
-     *
-     * @return the component type for this profession
-     */
-    public static ComponentType<EntityStore, KillProfessionComponent> getComponentType() {
-        return TYPE;
-    }
+    /** Human-readable display name for this mastery (e.g. {@code "Boltpistol Mastery"}). */
+    protected String masteryName;
 
-    /**
-     * Default constructor using {@code levelIncreaseFactor = 1.4} and {@code scalingFactor = 100.0}.
-     */
-    protected BaseProfessionComponent() {
-        this.levelIncreaseFactor = 1.4;
-        this.scalingFactor = 100.0;
+    protected BaseMasteryComponent(String masterName) {
         this.experience = 0;
+        this.masteryName = masterName;
     }
 
-    /**
-     * Constructor allowing custom curve parameters.
-     *
-     * @param levelIncreaseFactor exponent controlling XP cost growth per level
-     * @param scalingFactor       XP anchor point for the level curve
-     */
-    protected BaseProfessionComponent(int levelIncreaseFactor, double scalingFactor) {
-        this.levelIncreaseFactor = levelIncreaseFactor;
-        this.scalingFactor = scalingFactor;
+    protected BaseMasteryComponent() {
+        this.masteryName = "";
         this.experience = 0;
     }
 
@@ -65,14 +39,13 @@ public abstract class BaseProfessionComponent implements Component<EntityStore> 
      *
      * @param other the component to copy state from
      */
-    protected BaseProfessionComponent(BaseProfessionComponent other) {
+    protected BaseMasteryComponent(BaseMasteryComponent other) {
         this.experience = other.experience;
-        this.levelIncreaseFactor = other.levelIncreaseFactor;
-        this.scalingFactor = other.scalingFactor;
+        this.masteryName = other.masteryName;
     }
 
     /**
-     * Returns the player's total accumulated XP for this profession.
+     * Returns the player's total accumulated XP for this mastery.
      *
      * @return current experience points
      */
@@ -89,31 +62,24 @@ public abstract class BaseProfessionComponent implements Component<EntityStore> 
         this.experience = gainedExperience;
     }
 
+
     /**
-     * Calculates the current level from accumulated XP.
-     * <p>
-     * Returns {@code 1} for negative XP values to avoid {@code NaN} from fractional exponents.
+     * Returns the player's current level derived from accumulated XP.
      *
      * @return current level (minimum 1)
      */
     public int getLevel() {
-        if (this.experience < 0) return 1;
-        return (int) floor(Math.pow((this.experience / scalingFactor), (1 / levelIncreaseFactor))) + 1;
+        return MasteryCalculations.getLevel(this.experience);
     }
 
     /**
      * Returns the total cumulative XP required to reach the given level.
-     * <p>
-     * Returns {@code 0} for levels below 1. Clamps to {@link Integer#MAX_VALUE} on overflow.
      *
      * @param level the target level (must be {@code >= 1})
-     * @return total XP needed to reach {@code level}
+     * @return total XP needed to reach {@code level}, or {@code 0} if {@code level < 1}
      */
     public int getTotalExperienceForLevel(int level) {
-        if (level < 1) return 0;
-        double result = scalingFactor * Math.pow(level, levelIncreaseFactor);
-        if (result >= Integer.MAX_VALUE) return Integer.MAX_VALUE;
-        return (int) floor(result);
+        return MasteryCalculations.getTotalExperienceForLevel(level);
     }
 
     /**
@@ -136,7 +102,7 @@ public abstract class BaseProfessionComponent implements Component<EntityStore> 
     }
 
     /**
-     * Adds XP to this profession's total.
+     * Adds XP to this mastery's total.
      *
      * @param gainedExperience the amount of XP to add
      */
@@ -144,21 +110,25 @@ public abstract class BaseProfessionComponent implements Component<EntityStore> 
         this.experience += gainedExperience;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @NullableDecl
     @Override
     public abstract Component<EntityStore> clone();
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public abstract String toString();
 
     /**
-     * Returns the display name of this profession.
+     * Returns the display name of this mastery.
      *
-     * @return human-readable profession name
+     * @return human-readable mastery name
      */
-    public abstract String getProfessionName();
+    public abstract String getMasteryName();
 
     /**
      * Returns the primary hex colour used in the level-up UI.

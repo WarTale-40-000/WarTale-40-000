@@ -6,14 +6,14 @@ import com.hypixel.hytale.component.system.RefSystem;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.components.professions.KillProfessionComponent;
+import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryComponent;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
 /**
  * Handles player entity load events.
  * <p>
- * On {@link AddReason#LOAD}, initialises a {@link KillProfessionComponent} for new players
+ * On {@link AddReason#LOAD}, initialises a {@link WeaponMasteryComponent} for new players
  * or greets returning players with their current level and XP.
  */
 public class PlayerJoinSystem extends RefSystem<EntityStore> {
@@ -22,7 +22,7 @@ public class PlayerJoinSystem extends RefSystem<EntityStore> {
      * Called when a player entity is added to the world.
      * <p>
      * Ignored for any reason other than {@link AddReason#LOAD}. Greets the player and,
-     * if no {@link KillProfessionComponent} exists yet, creates one at level 1.
+     * if no {@link WeaponMasteryComponent} exists yet, creates one at level 1.
      *
      * @param ref           reference to the entity being added
      * @param addReason     reason the entity was added
@@ -41,15 +41,15 @@ public class PlayerJoinSystem extends RefSystem<EntityStore> {
         var playerRef = store.getComponent(ref, PlayerRef.getComponentType());
         if (playerRef == null) return;
 
-        var killProfessionType = KillProfessionComponent.getComponentType();
-        var killProfession = store.getComponent(ref, killProfessionType);
+        var killMasteryType = BoltpistolMasteryComponent.getComponentType();
+        var killMastery = store.getComponent(ref, killMasteryType);
 
-        if (killProfession != null) {
+        if (killMastery != null) {
             playerRef.sendMessage(Message.raw(
-                    "Welcome back! Level %d (%d XP)".formatted(killProfession.getLevel(), killProfession.getExperience())
+                    "Welcome back! Level %d (%d XP)".formatted(killMastery.getLevel(), killMastery.getExperience())
             ));
         } else {
-            commandBuffer.addComponent(ref, killProfessionType, new KillProfessionComponent());
+            commandBuffer.addComponent(ref, killMasteryType, new BoltpistolMasteryComponent());
             playerRef.sendMessage(Message.raw("Welcome! Your adventure begins at Level 1."));
         }
     }

@@ -34,10 +34,21 @@ import javax.annotation.Nonnull;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Interaction that fires a projectile from the player's held weapon.
+ * <p>
+ * Decrements the weapon's {@code current_ammo} metadata by one, assembles and
+ * spawns a {@link com.hypixel.hytale.server.core.entity.entities.ProjectileComponent}
+ * in the direction the player is looking, and optionally applies random spread.
+ * Fails if the magazine is empty or any required context component is absent.
+ */
 public class ShootInteraction extends SimpleInstantInteraction {
+    /** Asset ID of the projectile definition to spawn on each shot. */
     private String projectileId;
+    /** Maximum random angular offset (in degrees) applied to each shot; {@code 0} means no spread. */
     private float maxSpreadAngle = 0f;
 
+    /** Codec used to serialise/deserialise this interaction from item definition JSON. */
     public static final BuilderCodec<ShootInteraction> CODEC = BuilderCodec
             .builder(ShootInteraction.class, ShootInteraction::new, SimpleInstantInteraction.CODEC)
             .appendInherited(
@@ -52,14 +63,32 @@ public class ShootInteraction extends SimpleInstantInteraction {
             .add()
             .build();
 
+    /** Logger for this interaction class. */
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
+    /**
+     * Indicates that interaction data is authorised from the server side.
+     *
+     * @return {@link WaitForDataFrom#Server}
+     */
     @Nonnull
     @Override
     public WaitForDataFrom getWaitForDataFrom() {
         return WaitForDataFrom.Server;
     }
 
+    /**
+     * Decrements ammo and spawns a projectile in the player's look direction.
+     * <p>
+     * Fails if the held item is absent, the magazine is empty, the command buffer
+     * is unavailable, or the shooter is not a living entity.
+     * When {@link #maxSpreadAngle} is greater than zero, a random yaw and pitch
+     * offset is applied to simulate bullet spread.
+     *
+     * @param interactionType    the type of interaction being processed
+     * @param interactionContext context providing orientation, inventory, and entity references
+     * @param cooldownHandler    handler for managing interaction cooldown timers
+     */
     @Override
     protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
         ItemStack itemStack = interactionContext.getHeldItem();

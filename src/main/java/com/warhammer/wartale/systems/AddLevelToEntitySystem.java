@@ -3,13 +3,10 @@ package com.warhammer.wartale.systems;
 import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.RefSystem;
-import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.warhammer.wartale.components.EntityLevelComponent;
-import com.warhammer.wartale.components.professions.KillProfessionComponent;
-import com.warhammer.wartale.level.EntityLevelMappingTable;
+import com.warhammer.wartale.masteryCore.EntityLevelMappingTable;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
@@ -43,9 +40,7 @@ public class AddLevelToEntitySystem extends RefSystem<EntityStore> {
             @NonNullDecl Store<EntityStore> store,
             @NonNullDecl CommandBuffer<EntityStore> commandBuffer
     ) {
-        if (addReason != AddReason.SPAWN) return;
-
-        var entityComponent = store.getComponent(ref, Objects.requireNonNull(NPCEntity.getComponentType()));
+        var entityComponent = store.getComponent(ref, NPCEntity.getComponentType());
         if (entityComponent == null) return;
         NPCEntity entity = (NPCEntity) entityComponent;
 
