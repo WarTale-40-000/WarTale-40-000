@@ -1,11 +1,50 @@
 {
     "Group": "com.warhammer.wartale",
     "Name": "WarTale-40-000",
-    "Version": "1.0.2",
+    "Version": "0.1.0-alpha",
     "Description": "Wartale 40k mod adds Warhammer 40k themed content to Hytale.",
     "Authors": [
         {
-            "Name": "Wartale Team"
+            "Name": "Clashgore"
+        },
+        {
+            "Name": "Marcel-TO/McHawk"
+        },
+        {
+            "Name": "JohnyBro"
+        },
+        {
+            "Name": "Bizuter"
+        },
+        {
+            "Name": "AutoSneak"
+        },
+        {
+            "Name": "Krystekku"
+        },
+        {
+            "Name": "Arch Pierrot"
+        },
+        {
+            "Name": "Stray123"
+        },
+        {
+            "Name": "James Romonov"
+        },
+        {
+            "Name": "Danilerts"
+        },
+        {
+            "Name": "Fortukiing"
+        },
+        {
+            "Name": "Old man mountain"
+        },
+        {
+            "Name": "Valdek21"
+        },
+        {
+            "Name": "Archmagos Trollman"
         }
     ],
     "Website": "https://github.com/WarTale-40-000/WarTale-40-000",

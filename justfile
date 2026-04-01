@@ -15,3 +15,7 @@ dev_setup:
 # Runs the development server with the mod loaded, allowing you to test it in a local environment
 dev_run:
     DEV_SERVER_ENABLED=true DEV_SERVER_ALLOW_OP=true ./gradlew runServer
+
+# Update the mod manifest
+manifest:
+    ./gradlew updatePluginManifest
