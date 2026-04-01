@@ -1,4 +1,4 @@
-package com.warhammer.wartale.level;
+package com.warhammer.wartale.masteryCore;
 
 import java.util.Map;
 
@@ -16,7 +16,9 @@ public class EntityLevelMappingTable {
      */
     private static final int DEFAULT_LEVEL = 1;
 
-    /** Maps NPC role name to its spawn level. */
+    /**
+     * Maps NPC role name to its spawn level.
+     */
     private static final Map<String, Integer> LEVEL_TABLE = Map.ofEntries(
             Map.entry("Chicken_Chick", 10),
             Map.entry("Crab", 100));
@@ -26,7 +28,7 @@ public class EntityLevelMappingTable {
      *
      * @param entity the role name of the NPC (e.g. {@code "Crab"})
      * @return the mapped level, or {@code DEFAULT_LEVEL} if the role is not
-     *         registered
+     * registered
      */
     public static int getLevelOfEntity(String entity) {
         return LEVEL_TABLE.getOrDefault(entity, DEFAULT_LEVEL);

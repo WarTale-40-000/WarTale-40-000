@@ -7,7 +7,6 @@ import com.hypixel.hytale.codec.validation.Validators;
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.components.professions.KillProfessionComponent;
 
 /**
  * Component that stores the spawn level of an NPC entity.
@@ -19,10 +18,14 @@ import com.warhammer.wartale.components.professions.KillProfessionComponent;
 public class EntityLevelComponent implements Component<EntityStore> {
     private static ComponentType<EntityStore, EntityLevelComponent> TYPE;
 
-    /** Codec used to serialise/deserialise this component. */
+    /**
+     * Codec used to serialise/deserialise this component.
+     */
     public static final BuilderCodec<EntityLevelComponent> CODEC = buildCodec();
 
-    /** The entity's level (minimum 1). */
+    /**
+     * The entity's level (minimum 1).
+     */
     private int level;
 
     /**
@@ -96,11 +99,11 @@ public class EntityLevelComponent implements Component<EntityStore> {
      * @return the codec for {@link EntityLevelComponent}
      */
     public static BuilderCodec<EntityLevelComponent> buildCodec() {
-        var playerExperience = new KeyedCodec<>("EntityLevel", Codec.INTEGER);
+        KeyedCodec<Integer> entityLevel = new KeyedCodec<>("EntityLevel", Codec.INTEGER);
 
         return BuilderCodec.builder(EntityLevelComponent.class, EntityLevelComponent::new)
                 .append(
-                        playerExperience,
+                        entityLevel,
                         (data, value) -> data.level = value,
                         (data) -> data.level)
                 .addValidator(Validators.nonNull())

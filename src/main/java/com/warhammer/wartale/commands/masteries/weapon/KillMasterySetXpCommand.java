@@ -1,4 +1,4 @@
-package com.warhammer.wartale.commands.professions.kill;
+package com.warhammer.wartale.commands.masteries.weapon;
 
 import com.hypixel.hytale.codec.validation.Validators;
 import com.hypixel.hytale.component.Ref;
@@ -11,20 +11,25 @@ import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayer
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.components.professions.KillProfessionComponent;
+import com.warhammer.wartale.components.masteries.WeaponMasteryComponent;
+import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryComponent;
 
 import javax.annotation.Nonnull;
 
 /**
- * Admin command that directly sets a player's kill-profession XP ({@code /profession kill xp [amount]}).
+ * Admin command that directly sets a player's kill-mastery XP ({@code /mastery kill xp [amount]}).
  * <p>
  * If {@code amount} is omitted, defaults to {@code DEFAULT_AMOUNT}. The value must be {@code >= 0}.
  */
-public class KillProfessionSetXpCommand extends AbstractPlayerCommand {
-    /** The command literal used to invoke this command. */
+public class KillMasterySetXpCommand extends AbstractPlayerCommand {
+    /**
+     * The command literal used to invoke this command.
+     */
     public static final String COMMAND_NAME = "xp";
 
-    /** XP amount used when the optional argument is not provided. */
+    /**
+     * XP amount used when the optional argument is not provided.
+     */
     private static final int DEFAULT_AMOUNT = 50;
 
     private final OptionalArg<Integer> amountArg;
@@ -32,14 +37,14 @@ public class KillProfessionSetXpCommand extends AbstractPlayerCommand {
     /**
      * Constructs the set-XP command and registers the optional {@code amount} argument.
      */
-    public KillProfessionSetXpCommand() {
-        super(COMMAND_NAME, "Set XP for KillProfession");
+    public KillMasterySetXpCommand() {
+        super(COMMAND_NAME, "Set XP for KillMastery");
         this.amountArg = withOptionalArg("amount", "XP amount (>=0)", ArgTypes.INTEGER)
                 .addValidator(Validators.greaterThanOrEqual(0));
     }
 
     /**
-     * Sets the executing player's kill-profession XP to the given amount.
+     * Sets the executing player's kill-mastery XP to the given amount.
      *
      * @param context   the command context holding parsed arguments
      * @param store     the entity component store
@@ -58,13 +63,13 @@ public class KillProfessionSetXpCommand extends AbstractPlayerCommand {
         var amount = amountArg.get(context);
         if (amount == null) amount = DEFAULT_AMOUNT;
 
-        KillProfessionComponent profession = store.getComponent(ref, KillProfessionComponent.getComponentType());
-        if (profession == null) {
-            playerRef.sendMessage(Message.raw("No Profession data found"));
+        WeaponMasteryComponent mastery = store.getComponent(ref, BoltpistolMasteryComponent.getComponentType());
+        if (mastery == null) {
+            playerRef.sendMessage(Message.raw("No Mastery data found"));
             return;
         }
 
-        profession.setExperience(amount);
-        playerRef.sendMessage(Message.raw("Set Profession to %d XP".formatted(amount)));
+        mastery.setExperience(amount);
+        playerRef.sendMessage(Message.raw("Set Mastery to %d XP".formatted(amount)));
     }
 }
