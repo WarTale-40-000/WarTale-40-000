@@ -34,19 +34,19 @@ public class WartalePlugin extends JavaPlugin {
 
     private static WartalePlugin instance;
 
-    
+
     public WartalePlugin(@Nonnull JavaPluginInit init) {
         super(init);
         instance = this;
         LOGGER.atInfo().log("Initializing Wartale...");
     }
 
-    
+
     public static WartalePlugin get() {
         return instance;
     }
 
-    
+
     @Override
     protected void setup() {
         //Interactions
@@ -79,23 +79,23 @@ public class WartalePlugin extends JavaPlugin {
         this.getCommandRegistry().registerCommand(new MasteryBaseCommand());
     }
 
-    
+
     @Override
     protected void start() {
         LOGGER.atInfo().log("Wartale started.");
     }
 
-    
+
     @Override
     protected void shutdown() {
         LOGGER.atInfo().log("Wartale has been disabled.");
     }
 
-    
+
     private void registerMasteries() {
         // Boltpistol Mastery
-        var boltpistolMasteryComponentComponentType = this.getEntityStoreRegistry().registerComponent(BoltpistolMasteryComponent.class, "KillMastery", BoltpistolMasteryComponent.CODEC);
+        var boltpistolMasteryComponentComponentType = this.getEntityStoreRegistry().registerComponent(BoltpistolMasteryComponent.class, "BoltpistolMastery", BoltpistolMasteryComponent.CODEC);
         BoltpistolMasteryComponent.setComponentType(boltpistolMasteryComponentComponentType);
-        ItemMasteryMappingTable.register("Weapon_Boltpistol", boltpistolMasteryComponentComponentType);
+        ItemMasteryMappingTable.registerFromWeaponTierMap(new BoltpistolMasteryComponent(), boltpistolMasteryComponentComponentType);
     }
 }

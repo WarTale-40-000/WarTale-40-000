@@ -10,6 +10,9 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.components.masteries.WeaponMasteryComponent;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BoltpistolMasteryComponent extends WeaponMasteryComponent {
 
     private static ComponentType<EntityStore, BoltpistolMasteryComponent> TYPE;
@@ -49,8 +52,14 @@ public class BoltpistolMasteryComponent extends WeaponMasteryComponent {
         return "Weapon_Boltpistol";
     }
 
+    public Map<String, Integer> getWeaponTierMap() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Weapon_Boltpistol", 1);
+        return map;
+    }
+
     private static BuilderCodec<BoltpistolMasteryComponent> buildCodec() {
-        var playerExperience = new KeyedCodec<>("PlayerExperience", Codec.INTEGER);
+        var playerExperience = new KeyedCodec<>("BoltpistolMasteryExperience", Codec.INTEGER);
 
         return BuilderCodec.builder(BoltpistolMasteryComponent.class, BoltpistolMasteryComponent::new)
                 .append(

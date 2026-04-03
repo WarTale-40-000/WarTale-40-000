@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class AddLevelToEntitySystem extends RefSystem<EntityStore> {
 
-    
+
     @Override
     public void onEntityAdded(
             @NonNullDecl Ref<EntityStore> ref,
@@ -22,9 +22,8 @@ public class AddLevelToEntitySystem extends RefSystem<EntityStore> {
             @NonNullDecl Store<EntityStore> store,
             @NonNullDecl CommandBuffer<EntityStore> commandBuffer
     ) {
-        var entityComponent = store.getComponent(ref, NPCEntity.getComponentType());
-        if (entityComponent == null) return;
-        NPCEntity entity = (NPCEntity) entityComponent;
+        NPCEntity entity = store.getComponent(ref, NPCEntity.getComponentType());
+        if (entity == null) return;
 
         var entityLevelType = EntityLevelComponent.getComponentType();
         var entityLevel = store.getComponent(ref, entityLevelType);
@@ -35,7 +34,7 @@ public class AddLevelToEntitySystem extends RefSystem<EntityStore> {
         }
     }
 
-    
+
     @Override
     public void onEntityRemove(
             @NonNullDecl Ref<EntityStore> ref,
@@ -45,7 +44,7 @@ public class AddLevelToEntitySystem extends RefSystem<EntityStore> {
     ) {
     }
 
-    
+
     @NullableDecl
     @Override
     public Query<EntityStore> getQuery() {

@@ -8,8 +8,8 @@ public class EntityLevelMappingTable {
 
     
     private static final Map<String, Integer> LEVEL_TABLE = Map.ofEntries(
-            Map.entry("Chicken_Chick", 10),
-            Map.entry("Crab", 100));
+            Map.entry("Hellhound", 100)
+    );
 
     
     public static int getLevelOfEntity(String entity) {
