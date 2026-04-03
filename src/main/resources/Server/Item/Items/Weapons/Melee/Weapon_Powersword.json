@@ -6,7 +6,6 @@
   "Model": "Resources/Items/Warhammer/Weapons/Cadian_Powersword/Cadian_Powersword.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Cadian_Powersword/Cadian_Powersword_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/PowerSword.png",
-  "Quality": "Rare",
   "ItemLevel": 30,
   "UsePlayerAnimations": true,
   "PlayerAnimationsId": "Sword",

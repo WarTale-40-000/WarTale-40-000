@@ -18,7 +18,6 @@
       -23
     ]
   },
-  "Quality": "Uncommon",
   "Interactions": {
     "Primary": {
       "Cooldown": {
@@ -31,15 +30,8 @@
         }
       ]
     },
-    "Ability3": {
-      "Interactions": [
-        {
-          "Parent": "Interaction_Reload_Bolt"
-        }
-      ]
-    }
+    "Ability3": "Reload_Bolt"
   },
-  "MaxStack": 1,
   "Recipe": {
     "Input": [
       {

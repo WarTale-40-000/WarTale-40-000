@@ -6,7 +6,6 @@
   "Model": "Resources/Items/Warhammer/Weapons/Combat_Knives/Combat_Knives.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Combat_Knives/Combat_Knives_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Combat_Knives.png",
-  "Quality": "Uncommon",
   "ItemLevel": 20,
   "Recipe": {
     "TimeSeconds": 3.5,

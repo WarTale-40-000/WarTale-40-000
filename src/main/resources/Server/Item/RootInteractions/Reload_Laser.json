@@ -1,0 +1,33 @@
+{
+  "Interactions": [
+    {
+      "Type": "InventoryHasItemAmount",
+      "ItemId": "Magazine_Laser",
+      "Amount": 1,
+      "Failed": "Gun_Shoot_Fail",
+      "Next": {
+        "Type": "LoadMagazine",
+        "ReloadAmount": 0,
+        "Next": {
+          "Type": "Simple",
+          "Effects": {
+            "ItemAnimationId": "Reload",
+            "ClearAnimationOnFinish": true
+          },
+          "RunTime": 2,
+          "CancelOnItemChange": true,
+          "Next": {
+            "Type": "LoadMagazine",
+            "ReloadAmount": 30,
+            "Next": {
+              "Type": "ModifyInventory",
+              "ItemToRemove": {
+                "Id": "Magazine_Laser"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
