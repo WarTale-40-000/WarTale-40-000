@@ -11,6 +11,7 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.gui.WartaleHUD;
+import com.warhammer.wartale.items.WeaponMetadataKey;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
@@ -41,15 +42,15 @@ public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
 
         if (heldItem != null) {
             displayName = heldItem.getItemId();
-            Integer maxAmmo = heldItem.getFromMetadataOrNull("max_ammo", Codec.INTEGER);
-            if (maxAmmo != null) {
+            Integer maxMagSize = heldItem.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER);
+            if (maxMagSize != null) {
                 hasAmmo = true;
-                Integer currentAmmo = heldItem.getFromMetadataOrNull("current_ammo", Codec.INTEGER);
+                Integer currentAmmo = heldItem.getFromMetadataOrNull(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER);
                 int current = currentAmmo != null ? currentAmmo : 0;
                 if (current == 0) {
                     shouldReload = true;
                 }
-                display = current + "/" + maxAmmo;
+                display = current + "/" + maxMagSize;
             }
         }
 

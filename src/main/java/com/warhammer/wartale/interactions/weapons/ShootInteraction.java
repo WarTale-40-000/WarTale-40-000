@@ -27,6 +27,7 @@ import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Sim
 import com.hypixel.hytale.server.core.modules.time.TimeResource;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.TargetUtil;
+import com.warhammer.wartale.items.WeaponMetadataKey;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
@@ -69,7 +70,7 @@ public class ShootInteraction extends SimpleInstantInteraction {
         }
 
         String weaponID = itemStack.getItem().getId();
-        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull("current_ammo", Codec.INTEGER);
+        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER);
 
         if (currentAmmoAmount == null || currentAmmoAmount <= 0) {
             interactionContext.getState().state = InteractionState.Failed;
@@ -77,7 +78,7 @@ public class ShootInteraction extends SimpleInstantInteraction {
             return;
         }
 
-        ItemStack newItemStack = itemStack.withMetadata("current_ammo", Codec.INTEGER, currentAmmoAmount - 1);
+        ItemStack newItemStack = itemStack.withMetadata(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, currentAmmoAmount - 1);
         if (interactionContext.getHeldItemContainer() == null) {
             interactionContext.getState().state = InteractionState.Failed;
             LOGGER.atInfo().log("ItemStack is null");
