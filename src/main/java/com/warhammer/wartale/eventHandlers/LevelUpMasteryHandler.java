@@ -11,24 +11,9 @@ import com.warhammer.wartale.globalEvents.LevelUpMasteryEvent;
 
 import java.util.function.Consumer;
 
-/**
- * Handles {@link LevelUpMasteryEvent} by sending a level-up notification to the player.
- * <p>
- * Reads the mastery's display colours and icon from {@link BaseMasteryComponent} and
- * uses {@link com.hypixel.hytale.server.core.util.NotificationUtil} to push a rich UI notification
- * containing the mastery name, levels gained, and XP required for the next level.
- *
- * @param <T> the specific {@link BaseMasteryComponent} subtype associated with this event
- */
 public class LevelUpMasteryHandler<T extends BaseMasteryComponent> implements Consumer<LevelUpMasteryEvent<T>> {
 
-    /**
-     * Processes the level-up event and sends a notification to the player.
-     * <p>
-     * Silently returns if the player reference is invalid or any required component is absent.
-     *
-     * @param event the event carrying the player reference, old/new levels, and mastery type
-     */
+
     @Override
     public void accept(LevelUpMasteryEvent<T> event) {
         if (!event.playerRef().isValid()) return;
@@ -47,7 +32,7 @@ public class LevelUpMasteryHandler<T extends BaseMasteryComponent> implements Co
 
         String message = mastery.getMasteryName() + " +" + event.levelsGained() + " Level Up!";
         String submessage = "You leveled up from " + event.oldLevel() + " to " + event.newLevel();
-        submessage += "\nGain " + mastery.getExperienceToNextLevel() + " Experience for next level!";
+        submessage += "\nGain " + (MasteryCalculations.getTotalExperienceForLevel(event.newLevel()) - mastery.getExperience()) + " Experience for next level!";
 
         var packetHandler = playerRef.getPacketHandler();
         var primaryMessage = Message.raw(message).color(mastery.getLevelUpgradeColor());
