@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - main
+        - main
 
 # Prevent simultaneous main pushes from racing over :latest Docker tag and release assets.
 concurrency:
@@ -73,6 +73,66 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Download JAR artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: plugin-jar
+          path: build/libs/
+
+      - name: Download Hytale Downloader CLI
+        run: |
+          curl -L https://downloader.hytale.com/hytale-downloader.zip -o hytale-downloader.zip
+          unzip hytale-downloader.zip
+          mv hytale-downloader-linux-amd64 hytale-downloader
+          chmod +x hytale-downloader
+
+      # Writes the auth token from the secret so the downloader can authenticate.
+      # The token may be refreshed on each use — the "Update Hytale credentials secret" step
+      # saves the updated file back to the secret after every run.
+      - name: Restore Hytale credentials
+        env:
+          HYTALE_AUTH_JSON: ${{ secrets.HYTALE_AUTH_JSON }}
+        run: echo "$HYTALE_AUTH_JSON" > ./.hytale-downloader-credentials.json
+
+      # Used to key the cache — if the version matches the previous run the 1.4 GB download
+      # is skipped entirely. Only when Hytale ships a new build does the cache get invalidated
+      # and the assets re-downloaded.
+      - name: Get Hytale version
+        id: hytale-version
+        run: echo "version=$(./hytale-downloader -print-version -patchline pre-release)" >> $GITHUB_OUTPUT
+
+      - name: Cache Hytale assets
+        id: cache-hytale
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+        with:
+          path: hytale-home
+          key: hytale-assets-pre-release-${{ steps.hytale-version.outputs.version }}
+          # Fall back to the most recent entry if the exact version key is missing
+          # (e.g. after a -print-version network error) to avoid a full 1.4 GB re-download.
+          restore-keys: |
+            hytale-assets-pre-release-
+
+      # Extracts into the install path expected by the mod's Dockerfile, which copies from there into the image.:
+      - name: Download Hytale server files
+        if: steps.cache-hytale.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p hytale-home/install/pre-release/package/game/latest
+          ./hytale-downloader -patchline pre-release -download-path hytale-home/game.zip
+          unzip -o hytale-home/game.zip -d hytale-home/install/pre-release/package/game/latest
+          rm hytale-home/game.zip
+
+      # Runs even on failure to capture any token refresh that happened during
+      # -print-version or the download step.
+      - name: Update Hytale credentials secret
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ -f ./.hytale-downloader-credentials.json ]; then
+            cat ./.hytale-downloader-credentials.json | gh secret set HYTALE_AUTH_JSON --repo "$GH_REPO"
+          fi
+          rm -f ./.hytale-downloader-credentials.json
 
       - name: Set image name
         id: image
