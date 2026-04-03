@@ -6,24 +6,21 @@ import com.warhammer.wartale.components.BaseMasteryComponent;
 import com.warhammer.wartale.masteryCore.MasteryCalculations;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class WeaponMasteryComponent extends BaseMasteryComponent {
-
-    protected Map<String, Integer> weaponTierMap;
-
     protected WeaponMasteryComponent() {
         super();
-        this.weaponTierMap = new HashMap<>();
     }
 
-    protected WeaponMasteryComponent(String masterName, Map<String, Integer> weaponTierMap) {
+    protected WeaponMasteryComponent(String masterName) {
         super(masterName);
-        this.weaponTierMap = new HashMap<>(weaponTierMap);
     }
 
 
     protected WeaponMasteryComponent(WeaponMasteryComponent other) {
         super(other);
-        this.weaponTierMap = new HashMap<>(other.weaponTierMap);
     }
 
     @NullableDecl
@@ -61,4 +58,6 @@ public abstract class WeaponMasteryComponent extends BaseMasteryComponent {
     public String getLevelUpgradeIcon() {
         return "Weapon_Boltpistol";
     }
+
+    public abstract Map<String, Integer> getWeaponTierMap();
 }

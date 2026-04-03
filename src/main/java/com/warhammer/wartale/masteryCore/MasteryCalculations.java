@@ -29,13 +29,13 @@ public class MasteryCalculations {
         return (int) floor(result);
     }
 
-    public int getExperienceToNextLevel(int experience) {
-        return this.getTotalExperienceForLevel(this.getLevel(experience));
+    public static int getExperienceToNextLevel(int experience) {
+        return getTotalExperienceForLevel(getLevel(experience));
     }
 
 
-    public boolean isLevelUp(int experience, int gainedExperience) {
-        return this.getExperienceToNextLevel(experience) <= gainedExperience;
+    public static boolean isLevelUp(int experience, int gainedExperience) {
+        return getExperienceToNextLevel(experience) <= gainedExperience;
     }
 
     public static int getExperienceFromDefeatedLevel(int level) {
