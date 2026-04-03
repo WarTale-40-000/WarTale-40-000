@@ -18,7 +18,6 @@
       -25
     ]
   },
-  "Quality": "Uncommon",
   "Scale": 1,
   "Interactions": {
     "Primary": {
@@ -30,15 +29,8 @@
         "Cooldown": 0.15
       }
     },
-    "Ability3": {
-      "Interactions": [
-        {
-          "Parent": "Interaction_Reload_Auto"
-        }
-      ]
-    }
+    "Ability3": "Reload_Auto"
   },
-  "MaxStack": 1,
   "Recipe": {
     "BenchRequirement": [
       {

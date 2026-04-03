@@ -6,7 +6,6 @@
   "Model": "Resources/Items/Warhammer/Weapons/Cadian_Shield/Cadian_Shield.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Cadian_Shield/Cadian_Shield_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Cadian_Shield.png",
-  "Quality": "Uncommon",
   "ItemLevel": 20,
   "InteractionVars": {
     "Guard_Wield": {

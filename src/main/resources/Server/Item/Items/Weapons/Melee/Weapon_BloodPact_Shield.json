@@ -6,7 +6,6 @@
   "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Shield/Bloodpact_Shield.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Shield/BloodPact_Shield_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Bloodpact_Shield.png",
-  "Quality": "Uncommon",
   "ItemLevel": 20,
   "InteractionVars": {
     "Guard_Wield": {

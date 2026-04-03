@@ -2,7 +2,7 @@
   "TranslationProperties": {
     "Name": "Blood Pact Lasgun"
   },
-  "Parent": "Weapon_Rifle_Template",
+  "Parent": "Weapon_Lasgun",
   "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Lasgun/BloodPact_Lasgun.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Lasgun/Bloodpact_Lasgun_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_KantraelLasgun.png",
@@ -18,28 +18,6 @@
       -38
     ]
   },
-  "Quality": "Uncommon",
-  "Interactions": {
-    "Primary": {
-      "Cooldown": {
-        "Id": "Shoot",
-        "Cooldown": 0.5
-      },
-      "Interactions": [
-        {
-          "Parent": "Interaction_Shoot_Laser"
-        }
-      ]
-    },
-    "Ability3": {
-      "Interactions": [
-        {
-          "Parent": "Interaction_Reload_Laser"
-        }
-      ]
-    }
-  },
-  "MaxStack": 1,
   "Recipe": {
     "Input": [
       {

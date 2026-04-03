@@ -5,11 +5,11 @@ import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import com.warhammer.wartale.interactions.weapons.ValidateReloadInteraction;
-import com.warhammer.wartale.systems.HudTickingSystem;
 import com.warhammer.wartale.globalEvents.PlayerEventHandler;
-import com.warhammer.wartale.interactions.weapons.ReloadInteraction;
+import com.warhammer.wartale.interactions.InventoryHasItemAmountInteraction;
+import com.warhammer.wartale.interactions.weapons.LoadMagazineInteraction;
 import com.warhammer.wartale.interactions.weapons.ShootInteraction;
+import com.warhammer.wartale.systems.HudTickingSystem;
 
 import javax.annotation.Nonnull;
 
@@ -32,9 +32,14 @@ public class WartalePlugin extends JavaPlugin {
     @Override
     protected void setup() {
         //Codecs
-        this.getCodecRegistry(Interaction.CODEC).register("Interaction_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Interaction_Weapon_Reload", ReloadInteraction.class, ReloadInteraction.CODEC);
-        this.getCodecRegistry(Interaction.CODEC).register("Interaction_Weapon_ValidateReload", ValidateReloadInteraction.class, ValidateReloadInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC)
+            .register("Interaction_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC)
+            .register("LoadMagazine", LoadMagazineInteraction.class, LoadMagazineInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC)
+            .register("InventoryHasItemAmount",
+                      InventoryHasItemAmountInteraction.class,
+                      InventoryHasItemAmountInteraction.CODEC);
         //Global events
         this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
         //Systems
