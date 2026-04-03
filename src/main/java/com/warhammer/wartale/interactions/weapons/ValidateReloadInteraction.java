@@ -20,16 +20,11 @@ import javax.annotation.Nonnull;
 
 public class ValidateReloadInteraction extends SimpleInstantInteraction {
     private String magazineItemId;
-    private int maxMagSize;
 
     public static final BuilderCodec<ValidateReloadInteraction> CODEC = BuilderCodec
             .builder(ValidateReloadInteraction.class, ValidateReloadInteraction::new, SimpleInstantInteraction.CODEC)
             .appendInherited(
                     new KeyedCodec<>("MagazineItemId", Codec.STRING, true), (obj, val) -> obj.magazineItemId = val, obj -> obj.magazineItemId, (obj, p) -> obj.magazineItemId = p.magazineItemId
-            )
-            .add()
-            .appendInherited(
-                    new KeyedCodec<>("MaxMagSize", Codec.INTEGER, true), (obj, val) -> obj.maxMagSize = val, obj -> obj.maxMagSize, (obj, p) -> obj.maxMagSize = p.maxMagSize
             )
             .add()
             .build();
@@ -61,16 +56,7 @@ public class ValidateReloadInteraction extends SimpleInstantInteraction {
         }
 
         String weaponID = itemStack.getItem().getId();
-        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull("current_ammo", Codec.INTEGER);
-
-        if (currentAmmoAmount != null && currentAmmoAmount >= maxMagSize) {
-            interactionContext.getState().state = InteractionState.Failed;
-            LOGGER.atInfo().log("Mag already full for weapon: " + weaponID);
-            return;
-        }
-
         CombinedItemContainer inventory = player.getInventory().getCombinedHotbarFirst();
-
         int magazineCount = inventory.countItemStacks(stack -> magazineItemId.equals(stack.getItemId()));
 
         if (magazineCount <= 0) {

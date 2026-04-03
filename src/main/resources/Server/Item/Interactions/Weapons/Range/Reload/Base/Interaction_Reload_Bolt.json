@@ -1,7 +1,6 @@
 {
   "Type": "Interaction_Weapon_ValidateReload",
   "MagazineItemId": "Magazine_Bolt",
-  "MaxMagSize": 15,
   "Next": {
     "Type": "Simple",
     "Effects": {

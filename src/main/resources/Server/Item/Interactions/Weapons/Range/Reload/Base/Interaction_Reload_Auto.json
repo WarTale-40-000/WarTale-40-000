@@ -1,7 +1,6 @@
 {
   "Type": "Interaction_Weapon_ValidateReload",
   "MagazineItemId": "Magazine_Auto",
-  "MaxMagSize": 30,
   "Next": {
     "Type": "Simple",
     "Effects": {
