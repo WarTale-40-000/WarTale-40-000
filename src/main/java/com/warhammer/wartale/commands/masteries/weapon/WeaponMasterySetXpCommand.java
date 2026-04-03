@@ -16,42 +16,23 @@ import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryCompo
 
 import javax.annotation.Nonnull;
 
-/**
- * Admin command that directly sets a player's kill-mastery XP ({@code /mastery kill xp [amount]}).
- * <p>
- * If {@code amount} is omitted, defaults to {@code DEFAULT_AMOUNT}. The value must be {@code >= 0}.
- */
-public class KillMasterySetXpCommand extends AbstractPlayerCommand {
-    /**
-     * The command literal used to invoke this command.
-     */
+public class WeaponMasterySetXpCCommand extends AbstractPlayerCommand {
+
     public static final String COMMAND_NAME = "xp";
 
-    /**
-     * XP amount used when the optional argument is not provided.
-     */
+
     private static final int DEFAULT_AMOUNT = 50;
 
     private final OptionalArg<Integer> amountArg;
 
-    /**
-     * Constructs the set-XP command and registers the optional {@code amount} argument.
-     */
-    public KillMasterySetXpCommand() {
-        super(COMMAND_NAME, "Set XP for KillMastery");
+
+    public WeaponMasterySetXpCCommand() {
+        super(COMMAND_NAME, "Set XP for WeaponMastery");
         this.amountArg = withOptionalArg("amount", "XP amount (>=0)", ArgTypes.INTEGER)
                 .addValidator(Validators.greaterThanOrEqual(0));
     }
 
-    /**
-     * Sets the executing player's kill-mastery XP to the given amount.
-     *
-     * @param context   the command context holding parsed arguments
-     * @param store     the entity component store
-     * @param ref       reference to the executing player entity
-     * @param playerRef the player reference used for messaging
-     * @param world     the world the player is currently in
-     */
+
     @Override
     protected void execute(
             @Nonnull CommandContext context,

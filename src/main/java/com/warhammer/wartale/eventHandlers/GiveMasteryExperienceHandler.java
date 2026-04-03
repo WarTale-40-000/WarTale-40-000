@@ -8,22 +8,9 @@ import com.warhammer.wartale.globalEvents.LevelUpMasteryEvent;
 
 import java.util.function.Consumer;
 
-/**
- * Handles {@link GiveMasteryExperienceEvent} by awarding XP to a player's mastery.
- * <p>
- * After adding the XP, checks whether a level-up occurred and, if so,
- * dispatches a {@link LevelUpMasteryEvent} with the old and new level.
- */
 public class GiveMasteryExperienceHandler implements Consumer<GiveMasteryExperienceEvent> {
 
-    /**
-     * Processes the XP award event.
-     * <p>
-     * Silently returns if the player reference is invalid, the player component is absent,
-     * or the target mastery component is not found.
-     *
-     * @param event the event carrying the player reference, XP amount, and mastery type
-     */
+
     @Override
     public void accept(GiveMasteryExperienceEvent event) {
         if (!event.playerRef().isValid()) return;
@@ -43,11 +30,11 @@ public class GiveMasteryExperienceHandler implements Consumer<GiveMasteryExperie
 
         BaseMasteryComponent mastery = (BaseMasteryComponent) masteryComponent;
         player.sendMessage(Message.raw("+%d XP".formatted(event.givenXP())));
-        int oldLevel = mastery.getLevel();
-        boolean isLevelUp = mastery.isLevelUp(mastery.getExperience() + event.givenXP());
+        int oldLevel = MasteryCalculations.getLevel(mastery.getExperience());
+        boolean isLevelUp = MasteryCalculations.isLevelUp(mastery.getExperience(), event.givenXP());
         mastery.addExperience(event.givenXP());
-        int newLevel = mastery.getLevel();
-        player.sendMessage(Message.raw("LevelUp?: %b, MissingXP: %d".formatted(isLevelUp, mastery.getExperienceToNextLevel())));
+        int newLevel = MasteryCalculations.getLevel(mastery.getExperience());
+        player.sendMessage(Message.raw("LevelUp?: %b, MissingXP: %d".formatted(isLevelUp, MasteryCalculations.getExperienceToNextLevel(mastery.getExperience()))));
 
         if (isLevelUp) {
             LevelUpMasteryEvent.dispatch(playerRef, oldLevel, newLevel, event.masteryType());

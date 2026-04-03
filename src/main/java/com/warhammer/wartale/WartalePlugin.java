@@ -28,44 +28,25 @@ import com.warhammer.wartale.systems.HudTickingSystem;
 
 import javax.annotation.Nonnull;
 
-/**
- * Main plugin entry point for the WarTale Hytale plugin.
- * <p>
- * Responsible for registering all interactions, global events, ECS systems,
- * components, masteries, and commands during the plugin lifecycle.
- */
 public class WartalePlugin extends JavaPlugin {
 
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     private static WartalePlugin instance;
 
-    /**
-     * Constructs the plugin, stores the singleton instance, and logs initialisation.
-     *
-     * @param init the platform-provided plugin initialisation context
-     */
+    
     public WartalePlugin(@Nonnull JavaPluginInit init) {
         super(init);
         instance = this;
         LOGGER.atInfo().log("Initializing Wartale...");
     }
 
-    /**
-     * Returns the singleton instance of this plugin.
-     *
-     * @return the active {@link WartalePlugin} instance
-     */
+    
     public static WartalePlugin get() {
         return instance;
     }
 
-    /**
-     * Registers all plugin subsystems with the server during the setup phase.
-     * <p>
-     * Specifically registers: weapon interactions, global event handlers, ECS systems,
-     * entity/mastery components, and chat commands.
-     */
+    
     @Override
     protected void setup() {
         //Interactions
@@ -98,26 +79,19 @@ public class WartalePlugin extends JavaPlugin {
         this.getCommandRegistry().registerCommand(new MasteryBaseCommand());
     }
 
-    /**
-     * Called after {@link #setup()} once the server is ready to accept connections.
-     */
+    
     @Override
     protected void start() {
         LOGGER.atInfo().log("Wartale started.");
     }
 
-    /**
-     * Called when the plugin is being disabled, allowing cleanup of held resources.
-     */
+    
     @Override
     protected void shutdown() {
         LOGGER.atInfo().log("Wartale has been disabled.");
     }
 
-    /**
-     * Registers all mastery component types with the ECS and maps them to their
-     * associated weapon item IDs in {@link ItemMasteryMappingTable}.
-     */
+    
     private void registerMasteries() {
         // Boltpistol Mastery
         var boltpistolMasteryComponentComponentType = this.getEntityStoreRegistry().registerComponent(BoltpistolMasteryComponent.class, "KillMastery", BoltpistolMasteryComponent.CODEC);

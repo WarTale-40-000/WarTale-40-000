@@ -21,28 +21,8 @@ import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
-
-/**
- * Processes entity death events and awards kill XP to the responsible player.
- * <p>
- * Listens for {@link DeathComponent} additions. When a player kills an NPC that
- * carries an {@link com.warhammer.wartale.components.EntityLevelComponent}, XP is
- * calculated from the enemy's level and dispatched via
- * {@link com.warhammer.wartale.globalEvents.GiveMasteryExperienceEvent}.
- */
 public class KillSystem extends DeathSystems.OnDeathSystem {
-    /**
-     * Called when a {@link DeathComponent} is added to an entity (i.e. it dies).
-     * <p>
-     * Validates that the kill source is a player, that the victim is an NPC with a
-     * level component, and that the player has a {@link WeaponMasteryComponent}.
-     * Awards scaled XP on success.
-     *
-     * @param ref            reference to the entity that died
-     * @param deathComponent the death component containing kill source information
-     * @param store          the entity component store
-     * @param commandBuffer  buffer for deferred component mutations
-     */
+    
     @Override
     public void onComponentAdded(
             @Nonnull Ref<EntityStore> ref,
@@ -91,31 +71,14 @@ public class KillSystem extends DeathSystems.OnDeathSystem {
         GiveMasteryExperienceEvent.dispatch(killerRef, killMastery.getExperienceFromDefeatedLevel(entityLevel.getLevel()), expectedMasteryComponentType);
     }
 
-    /**
-     * Returns the query that filters entities to those carrying a {@link DeathComponent}.
-     *
-     * @return the archetype query for this system
-     */
+    
     @NullableDecl
     @Override
     public Query<EntityStore> getQuery() {
         return Archetype.of(DeathComponent.getComponentType());
     }
 
-    /**
-     * Resolves the mastery component type that corresponds to the weapon the player
-     * is currently holding.
-     * <p>
-     * Looks up the held item's ID in {@link ItemMasteryMappingTable}.
-     * Returns {@code null} if the player is holding nothing or the weapon has no
-     * registered mastery.
-     *
-     * @param store     the entity component store
-     * @param player    the player whose held item is inspected
-     * @param playerRef reference to the player entity (unused, reserved for future use)
-     * @return the matching mastery {@link com.hypixel.hytale.component.ComponentType},
-     *         or {@code null} if not found
-     */
+    
     private ComponentType<EntityStore, ? extends BaseMasteryComponent> getMasteryComponentType(
             @Nonnull Store<EntityStore> store,
             @Nonnull Player player,

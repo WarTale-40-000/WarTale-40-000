@@ -13,33 +13,16 @@ import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryCompo
 
 import javax.annotation.Nonnull;
 
-/**
- * Admin command that prints a player's kill-mastery statistics ({@code /mastery kill stats}).
- * <p>
- * Sends the {@link WeaponMasteryComponent#toString()} output directly to the executing player.
- */
-public class KillMasteryStatsCommand extends AbstractPlayerCommand {
-    /**
-     * The command literal used to invoke this command.
-     */
+public class WeaponMasteryStatsCommand extends AbstractPlayerCommand {
+
     public static final String COMMAND_NAME = "stats";
 
-    /**
-     * Constructs the stats command.
-     */
-    public KillMasteryStatsCommand() {
-        super(COMMAND_NAME, "Set XP for KillMastery");
+
+    public WeaponMasteryStatsCommand() {
+        super(COMMAND_NAME, "Set XP for WeaponMastery system.");
     }
 
-    /**
-     * Sends the executing player's kill-mastery stats as a chat message.
-     *
-     * @param context   the command context
-     * @param store     the entity component store
-     * @param ref       reference to the executing player entity
-     * @param playerRef the player reference used for messaging
-     * @param world     the world the player is currently in
-     */
+
     @Override
     protected void execute(
             @Nonnull CommandContext context,
