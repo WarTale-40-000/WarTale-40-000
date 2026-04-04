@@ -11,33 +11,33 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 public class EntityLevelComponent implements Component<EntityStore> {
     private static ComponentType<EntityStore, EntityLevelComponent> TYPE;
 
-    
+
     public static final BuilderCodec<EntityLevelComponent> CODEC = buildCodec();
 
-    
+
     private int level;
 
-    
+
     public EntityLevelComponent() {
         this.level = 1;
     }
 
-    
+
     public EntityLevelComponent(int level) {
         this.level = level;
     }
 
-    
+
     public EntityLevelComponent(EntityLevelComponent other) {
         this.level = other.level;
     }
 
-    
+
     public int getLevel() {
         return level;
     }
 
-    
+
     public void setLevel(int level) {
         if (level < 1) {
             throw new IllegalArgumentException("Level cannot be less than 1");
@@ -45,17 +45,17 @@ public class EntityLevelComponent implements Component<EntityStore> {
         this.level = level;
     }
 
-    
+
     public static ComponentType<EntityStore, EntityLevelComponent> getComponentType() {
         return TYPE;
     }
 
-    
+
     public static void setComponentType(ComponentType<EntityStore, EntityLevelComponent> type) {
         TYPE = type;
     }
 
-    
+
     public static BuilderCodec<EntityLevelComponent> buildCodec() {
         KeyedCodec<Integer> entityLevel = new KeyedCodec<>("EntityLevel", Codec.INTEGER);
 
