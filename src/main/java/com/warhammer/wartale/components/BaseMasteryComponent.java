@@ -2,7 +2,6 @@ package com.warhammer.wartale.components;
 
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.warhammer.wartale.masteryCore.MasteryCalculations;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
 public abstract class BaseMasteryComponent implements Component<EntityStore> {

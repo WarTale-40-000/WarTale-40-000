@@ -8,23 +8,19 @@ import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.warhammer.wartale.commands.masteries.MasteryBaseCommand;
 import com.warhammer.wartale.components.EntityLevelComponent;
 import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryComponent;
-import com.warhammer.wartale.masteryCore.ItemMasteryMappingTable;
 import com.warhammer.wartale.eventHandlers.GiveMasteryExperienceHandler;
 import com.warhammer.wartale.eventHandlers.LevelUpMasteryHandler;
+import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
 import com.warhammer.wartale.globalEvents.GiveMasteryExperienceEvent;
 import com.warhammer.wartale.globalEvents.LevelUpMasteryEvent;
-import com.warhammer.wartale.interactions.weapons.ValidateReloadInteraction;
-import com.warhammer.wartale.systems.AddLevelToEntitySystem;
-import com.warhammer.wartale.systems.HudTickingSystem;
-import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
-import com.warhammer.wartale.interactions.weapons.ReloadInteraction;
-import com.warhammer.wartale.globalEvents.PlayerEventHandler;
 import com.warhammer.wartale.interactions.InventoryHasItemAmountInteraction;
 import com.warhammer.wartale.interactions.weapons.LoadMagazineInteraction;
 import com.warhammer.wartale.interactions.weapons.ShootInteraction;
+import com.warhammer.wartale.masteryCore.ItemMasteryMappingTable;
+import com.warhammer.wartale.systems.AddLevelToEntitySystem;
+import com.warhammer.wartale.systems.HudTickingSystem;
 import com.warhammer.wartale.systems.KillSystem;
 import com.warhammer.wartale.systems.PlayerJoinSystem;
-import com.warhammer.wartale.systems.HudTickingSystem;
 
 import javax.annotation.Nonnull;
 
