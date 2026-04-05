@@ -19,7 +19,8 @@
           }
         }
       ],
-      "LocalSoundEventId": "SFX_Rifle_Fire_Local"
+      "LocalSoundEventId": "SFX_Autogun",
+      "WorldSoundEventId": "SFX_Autogun_Global"
     }
   },
   "Failed": "Gun_Shoot_Fail"
