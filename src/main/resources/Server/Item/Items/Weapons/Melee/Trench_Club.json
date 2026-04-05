@@ -6,7 +6,6 @@
     "Items.Weapons"
   ],
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/TrenchClub.png",
-  "ItemLevel": 20,
   "Recipe": {
     "TimeSeconds": 3.5,
     "KnowledgeRequired": false,
