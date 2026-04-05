@@ -1,0 +1,10 @@
+{
+  "StatModifiers": {
+    "Health": 25
+  },
+  "ValueType": "Percent",
+  "OverlapBehavior": "Overwrite",
+  "Duration": 0.1,
+  "DamageCalculatorCooldown": 0,
+  "StatusEffectIcon": "Icons/ItemsGenerated/Medkit.png"
+}

@@ -19,26 +19,6 @@
     ]
   },
   "Scale": 1,
-  "Interactions": {
-    "Primary": {
-      "Cooldown": {
-        "Id": "Shoot",
-        "Cooldown": 0.1
-      },
-      "Interactions": [
-        {
-          "Parent": "Interaction_Shoot_Auto"
-        }
-      ]
-    },
-    "Ability3": {
-      "Interactions": [
-        {
-          "Parent": "Interaction_Reload_Auto"
-        }
-      ]
-    }
-  },
   "Recipe": {
     "Input": [
       {
