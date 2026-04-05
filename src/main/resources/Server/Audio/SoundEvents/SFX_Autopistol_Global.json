@@ -2,19 +2,18 @@
   "Layers": [
     {
       "Files": [
-        "Sounds/Warhammer/Guns/BoltgunFire05_Mono.ogg"
+        "Sounds/Warhammer/Guns/Autogun_shot_v2_Mono.ogg"
       ],
       "RandomSettings": {
         "MinPitch": 0,
         "MaxPitch": 0,
         "MinVolume": 0
       },
-      "Volume": 10,
-      "RoundRobinHistorySize": 0
+      "Volume": 10
     }
   ],
-  "Volume": -0.56,
-  "MaxDistance": 120,
+  "Volume": 10,
+  "MaxDistance": 90,
   "StartAttenuationDistance": 2,
-  "Pitch": 0
+  "Pitch": 1.1
 }
