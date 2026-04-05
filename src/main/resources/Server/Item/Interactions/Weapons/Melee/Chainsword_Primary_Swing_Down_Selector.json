@@ -1,0 +1,52 @@
+{
+  "Type": "Selector",
+  "RunTime": 0.067,
+  "Effects": {
+    "CameraEffect": "Sword_Swing_Vertical"
+  },
+  "Selector": {
+    "Id": "Horizontal",
+    "Direction": "ToLeft",
+    "TestLineOfSight": true,
+    "ExtendTop": 0.4,
+    "ExtendBottom": 0.4,
+    "StartDistance": 0.1,
+    "EndDistance": 2.75,
+    "Length": 90,
+    "RollOffset": 90,
+    "YawStartOffset": -60
+  },
+  "HitBlock": {
+    "Interactions": [
+      {
+        "Type": "Replace",
+        "Var": "Swing_Down_Hit_Block",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Block_Break_Adventure"
+          ]
+        }
+      }
+    ]
+  },
+  "HitEntity": {
+    "Interactions": [
+      {
+        "Type": "Replace",
+        "Var": "Swing_Down_Damage",
+        "DefaultOk": true,
+        "DefaultValue": {
+          "Interactions": [
+            "Weapon_Sword_Primary_Swing_Down_Damage"
+          ]
+        }
+      }
+    ]
+  },
+  "Next": {
+    "Type": "Simple",
+    "$Comment": "Pad the interaction length",
+    "RunTime": 0.25
+  }
+}

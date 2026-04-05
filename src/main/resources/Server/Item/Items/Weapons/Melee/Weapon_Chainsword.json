@@ -161,6 +161,21 @@
           }
         }
       ]
+    },
+    "Swing_Left_Selector": {
+      "Interactions": [
+        "Chainsword_Primary_Swing_Left_Selector"
+      ]
+    },
+    "Swing_Right_Selector": {
+      "Interactions": [
+        "Chainsword_Primary_Swing_Right_Selector"
+      ]
+    },
+    "Swing_Down_Selector": {
+      "Interactions": [
+        "Chainsword_Primary_Swing_Down_Selector"
+      ]
     }
   }
 }
