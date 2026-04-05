@@ -1,0 +1,122 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Bandage_Crude.name",
+    "Description": "server.items.Bandage_Crude.description"
+  },
+  "Categories": [
+    "Items.Potions"
+  ],
+  "Quality": "Common",
+  "Model": "Items/Consumables/FirstAid/Bandage.blockymodel",
+  "Texture": "Items/Consumables/FirstAid/Bandage_Texture.png",
+  "Interactions": {
+    "Secondary": {
+      "RequireNewClick": false,
+      "Interactions": [
+        {
+          "Type": "Condition",
+          "RequiredGameMode": "Adventure",
+          "Crouching": false,
+          "Next": {
+            "Type": "Simple",
+            "Effects": {
+              "ItemAnimationId": "Consume",
+              "ClearAnimationOnFinish": true
+            },
+            "RunTime": 0.2,
+            "Next": {
+              "Type": "ModifyInventory",
+              "AdjustHeldItemQuantity": -1,
+              "Next": {
+                "Type": "Replace",
+                "DefaultValue": {
+                  "Interactions": [
+                    "Effect"
+                  ]
+                },
+                "Var": "Effect"
+              }
+            }
+          },
+          "Failed": "Block_Secondary"
+        }
+      ]
+    }
+  },
+  "InteractionVars": {
+    "Effect": {
+      "Interactions": [
+        {
+          "Type": "ChangeStat",
+          "Behaviour": "Add",
+          "StatModifiers": {
+            "Health": 25
+          }
+        }
+      ]
+    }
+  },
+  "Utility": {
+    "Compatible": false
+  },
+  "Consumable": true,
+  "PlayerAnimationsId": "Item",
+  "Icon": "Icons/ItemsGenerated/Bandage_Crude.png",
+  "IconProperties": {
+    "Scale": 0.8,
+    "Rotation": [
+      27.0,
+      163.0,
+      19.0
+    ],
+    "Translation": [
+      -6.0,
+      -9.0
+    ]
+  },
+  "ItemEntity": {
+    "ParticleSystemId": null
+  },
+  "Recipe": {
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Other"
+        ]
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Other"
+        ]
+      }
+    ],
+    "Input": [
+      {
+        "ItemId": "Ingredient_Flour",
+        "Quantity": 3
+      },
+      {
+        "ResourceTypeId": "Vegetables",
+        "Quantity": 3
+      }
+    ]
+  },
+  "ItemSoundSetId": "ISS_Items_Foliage",
+  "MaxStack": 10,
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Items/Consumables/FirstAid/Bandage.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Consumables/FirstAid/Bandage_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#a0784d",
+    "Parent": "Template_Food"
+  }
+}

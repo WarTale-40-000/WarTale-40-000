@@ -1,0 +1,27 @@
+{
+  "StatModifiers": {
+    "Health": 50
+  },
+  "ValueType": "Percent",
+  "DamageCalculatorCooldown": 5,
+  "Duration": 5.05,
+  "OverlapBehavior": "Overwrite",
+  "StatusEffectIcon": "Icons/ItemsGenerated/Medkit.png",
+  "ApplicationEffects": {
+    "Particles": [
+      {
+        "SystemId": "Potion_Health_Heal",
+        "TargetEntityPart": "Entity",
+        "TargetNodeName": "Pelvis"
+      }
+    ]
+  },
+  "StatModifierEffects": {
+    "WorldParticles": [
+      {
+        "SystemId": "Potion_Health_Implosion"
+      }
+    ],
+    "WorldSoundEventId": "SFX_Deployable_Totem_Heal_Despawn"
+  }
+}

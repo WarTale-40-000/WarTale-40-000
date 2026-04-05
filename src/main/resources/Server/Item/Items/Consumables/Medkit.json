@@ -1,0 +1,133 @@
+{
+  "PlayerAnimationsId": {
+    "Parent": "Item",
+    "Animations": {
+      "Consume": {
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Drink/Drink_FPS.blockyanim",
+        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Item/Attacks/Drink/Drink.blockyanim",
+        "Speed": 1,
+        "Looping": true
+      }
+    }
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Consumables/Medkit.png",
+  "IconProperties": {
+    "Scale": 0.6,
+    "Rotation": [
+      24,
+      53,
+      344
+    ],
+    "Translation": [
+      33,
+      -32
+    ]
+  },
+  "Interactions": {
+    "Secondary": "Root_Secondary_Consume_Potion"
+  },
+  "InteractionVars": {
+    "RemoveEffect": {
+      "Interactions": [
+        {
+          "Type": "Simple"
+        }
+      ]
+    },
+    "Effect": {
+      "Interactions": [
+        {
+          "Type": "EffectCondition",
+          "EntityEffectIds": [
+            "Potion_Health_Regen_Lesser"
+          ],
+          "Match": "None",
+          "Next": {
+            "Type": "Serial",
+            "Interactions": [
+              {
+                "Type": "ApplyEffect",
+                "EffectId": "Medkit_Instant_Heal_Greater"
+              },
+              {
+                "Type": "ApplyEffect",
+                "EffectId": "Medkit_Regen_Heal_Greater"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ConsumeSFX": {
+      "Interactions": [
+        {
+          "Parent": "Consume_SFX",
+          "Effects": {
+            "LocalSoundEventId": "SFX_Health_Potion_Low_Drink"
+          }
+        }
+      ]
+    },
+    "ConsumedSFX": {
+      "Interactions": [
+        {
+          "Parent": "Consumed_SFX",
+          "Effects": {
+            "LocalSoundEventId": "SFX_Potion_Drink_Success"
+          }
+        }
+      ]
+    }
+  },
+  "Utility": {
+    "Compatible": false
+  },
+  "Consumable": true,
+  "Scale": 1,
+  "MaxStack": 10,
+  "TranslationProperties": {
+    "Name": "Medkit"
+  },
+  "Model": "Resources/Items/Warhammer/Consumables/Medkit.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Consumables/Medkit.png",
+  "Parent": "Template_Food",
+  "Recipe": {
+    "TimeSeconds": 1,
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Other"
+        ]
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Other"
+        ]
+      }
+    ],
+    "Input": [
+      {
+        "ItemId": "Ingredient_Flour",
+        "Quantity": 3
+      },
+      {
+        "ResourceTypeId": "Vegetables",
+        "Quantity": 3
+      }
+    ]
+  },
+  "BlockType": {
+    "Material": "Empty",
+    "DrawType": "Model",
+    "CustomModel": "Resources/Items/Warhammer/Consumables/Medkit.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Consumables/Medkit.png",
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#a0784d"
+  }
+}
