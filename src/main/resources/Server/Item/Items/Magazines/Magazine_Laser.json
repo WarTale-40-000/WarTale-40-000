@@ -6,7 +6,6 @@
   "Model": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Magazine_Laser.blockymodel",
   "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Magazine_Laser_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Magazine_Laser.png",
-  "Quality": "Uncommon",
   "IconProperties": {
     "Scale": 1.6,
     "Rotation": [
@@ -19,7 +18,7 @@
       -7
     ]
   },
-  "MaxStack": 130,
+  "MaxStack": 20,
   "Recipe": {
     "Input": [
       {

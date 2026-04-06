@@ -20,14 +20,12 @@ import com.hypixel.hytale.server.core.entity.InteractionContext;
 import com.hypixel.hytale.server.core.entity.LivingEntity;
 import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.entity.entities.ProjectileComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.component.Intangible;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.modules.time.TimeResource;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.TargetUtil;
-import com.warhammer.wartale.items.WeaponMetadataKey;
 import org.joml.Vector3d;
 
 import javax.annotation.Nonnull;
@@ -68,32 +66,6 @@ public class ShootInteraction extends SimpleInstantInteraction {
     
     @Override
     protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
-        ItemStack itemStack = interactionContext.getHeldItem();
-        if (itemStack == null) {
-            interactionContext.getState().state = InteractionState.Failed;
-            LOGGER.atInfo().log("ItemStack is null");
-            return;
-        }
-
-        String weaponID = itemStack.getItem().getId();
-        Integer currentAmmoAmount = itemStack.getFromMetadataOrNull(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER);
-
-        if (currentAmmoAmount == null || currentAmmoAmount <= 0) {
-            interactionContext.getState().state = InteractionState.Failed;
-            LOGGER.atInfo().log("Mag empty for weapon: " + weaponID);
-            return;
-        }
-
-        ItemStack newItemStack = itemStack.withMetadata(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, currentAmmoAmount - 1);
-        if (interactionContext.getHeldItemContainer() == null) {
-            interactionContext.getState().state = InteractionState.Failed;
-            LOGGER.atInfo().log("ItemStack is null");
-            return;
-        }
-
-        interactionContext.getHeldItemContainer().setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
-        interactionContext.setHeldItem(newItemStack);
-
         CommandBuffer<EntityStore> commandBuffer = interactionContext.getCommandBuffer();
         assert commandBuffer != null;
         Ref<EntityStore> sourceRef = interactionContext.getEntity();

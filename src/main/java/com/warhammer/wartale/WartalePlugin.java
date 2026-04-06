@@ -14,6 +14,7 @@ import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
 import com.warhammer.wartale.globalEvents.GiveMasteryExperienceEvent;
 import com.warhammer.wartale.globalEvents.LevelUpMasteryEvent;
 import com.warhammer.wartale.interactions.InventoryHasItemAmountInteraction;
+import com.warhammer.wartale.interactions.weapons.DecrementAmmoInteraction;
 import com.warhammer.wartale.interactions.weapons.LoadMagazineInteraction;
 import com.warhammer.wartale.interactions.weapons.ShootInteraction;
 import com.warhammer.wartale.masteryCore.ItemMasteryMappingTable;
@@ -48,6 +49,8 @@ public class WartalePlugin extends JavaPlugin {
         //Interactions
         this.getCodecRegistry(Interaction.CODEC)
             .register("Interaction_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC)
+            .register("DecrementAmmo", DecrementAmmoInteraction.class, DecrementAmmoInteraction.CODEC);
         this.getCodecRegistry(Interaction.CODEC)
             .register("LoadMagazine", LoadMagazineInteraction.class, LoadMagazineInteraction.CODEC);
         this.getCodecRegistry(Interaction.CODEC)
