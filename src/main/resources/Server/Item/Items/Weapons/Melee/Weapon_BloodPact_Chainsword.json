@@ -3,8 +3,8 @@
   "TranslationProperties": {
     "Name": "Blood Pact Chainsword"
   },
-  "Model": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_model_red.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/chainsword_texture_red.png",
+  "Model": "Resources/Items/Warhammer/Weapons/Bloodpact_Chainsword/Bloodpact_Chainsword.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Bloodpact_Chainsword/Bloodpact_Chainsword_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/BloodPact_Chainsword.png",
   "Tags": {
     "Warhammer": [
