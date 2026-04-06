@@ -18,5 +18,25 @@
     ]
   },
   "ItemSoundSetId": "ISS_Weapons_Wood",
-  "Parent": "Weapon_Cadian_Flamer"
+  "Parent": "Weapon_Cadian_Flamer",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 22
+      },
+      {
+        "ItemId": "Ingredient_Fire_Essence",
+        "Quantity": 10
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Guns"
+        ]
+      }
+    ]
+  }
 }

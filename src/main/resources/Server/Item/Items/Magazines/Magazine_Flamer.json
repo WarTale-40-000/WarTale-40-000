@@ -23,7 +23,11 @@
     "Input": [
       {
         "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 3
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Fire_Essence",
+        "Quantity": 1
       }
     ],
     "BenchRequirement": [

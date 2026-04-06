@@ -95,12 +95,8 @@
     ],
     "Input": [
       {
-        "ItemId": "Ingredient_Flour",
-        "Quantity": 3
-      },
-      {
-        "ResourceTypeId": "Vegetables",
-        "Quantity": 3
+        "ItemId": "Ingredient_Fibre",
+        "Quantity": 15
       }
     ]
   },

@@ -79,5 +79,26 @@
       "Warhammer"
     ]
   },
-  "ItemSoundSetId": "ISS_Items_Cloth"
+  "ItemSoundSetId": "ISS_Items_Cloth",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fibre",
+        "Quantity": 10
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Other"
+        ]
+      }
+    ]
+  },
+  "Quality": "Common"
 }
