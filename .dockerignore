@@ -1,0 +1,15 @@
+*
+!.dockerignore
+!Dockerfile
+!build/
+!build/libs/
+!build/libs/Wartale-*.jar
+!hytale-home/
+!hytale-home/install/
+!hytale-home/install/pre-release/
+!hytale-home/install/pre-release/package/
+!hytale-home/install/pre-release/package/game/
+!hytale-home/install/pre-release/package/game/latest/
+!hytale-home/install/pre-release/package/game/latest/Server/
+!hytale-home/install/pre-release/package/game/latest/Server/**
+!hytale-home/install/pre-release/package/game/latest/Assets.zip
