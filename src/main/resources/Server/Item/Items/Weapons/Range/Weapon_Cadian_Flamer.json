@@ -101,5 +101,25 @@
         "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
       }
     }
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "Quantity": 22,
+        "ItemId": "Ingredient_Bar_Iron"
+      },
+      {
+        "Quantity": 10,
+        "ItemId": "Ingredient_Fire_Essence"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Guns"
+        ]
+      }
+    ]
   }
 }
