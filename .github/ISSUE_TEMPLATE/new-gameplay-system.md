@@ -1,7 +1,7 @@
 ---
 name: New gameplay system
 about: Create an issue for adding a new gameplay system
-title: Gameplay system title
+title: ''
 labels: Core Gameplay
 assignees: ''
 type: Feature

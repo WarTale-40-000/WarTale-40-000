@@ -1,7 +1,7 @@
 ---
 name: New build prefab
 about: Create an issue for adding a new build prefab
-title: "[Build] Title"
+title: "[Build] "
 labels: Build
 assignees: ''
 type: Asset
