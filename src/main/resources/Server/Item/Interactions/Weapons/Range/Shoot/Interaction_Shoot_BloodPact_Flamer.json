@@ -1,0 +1,85 @@
+{
+  "Type": "DecrementAmmo",
+  "Next": {
+    "Type": "Parallel",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "ApplyEffect",
+            "EffectId": "FlamethrowerSource"
+          },
+          {
+            "Type": "Simple",
+            "RunTime": 0.2,
+            "Effects": {
+              "Particles": [
+                {
+                  "PositionOffset": {
+                    "X": 0,
+                    "Y": 0.15,
+                    "Z": 4.1
+                  },
+                  "RotationOffset": {
+                    "Pitch": 0,
+                    "Roll": 0,
+                    "Yaw": 180
+                  },
+                  "SystemId": "Flamethrower"
+                }
+              ],
+              "ItemPlayerAnimationsId": "Rifle",
+              "ItemAnimationId": "Shoot",
+              "ClearAnimationOnFinish": true
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.2,
+            "Selector": {
+              "Id": "Stab",
+              "TestLineOfSight": false,
+              "ExtendTop": 0.4,
+              "ExtendLeft": 0.4,
+              "ExtendRight": 0.4,
+              "ExtendBottom": 0.4,
+              "StartDistance": 0.25,
+              "EndDistance": 6
+            },
+            "HitEntity": {
+              "Interactions": [
+                {
+                  "Type": "Replace",
+                  "Var": "Flamethrower_Damage",
+                  "DefaultOk": true,
+                  "DefaultValue": {
+                    "Interactions": [
+                      "Weapon_Stick_Fire_Secondary_Damage"
+                    ]
+                  }
+                }
+              ]
+            },
+            "HitBlock": {
+              "Interactions": [
+                {
+                  "Type": "PlaceFluid",
+                  "FluidToPlace": "Fire",
+                  "RemoveItemInHand": false,
+                  "Effects": {
+                    "WorldSoundEventId": "SFX_Flame_Build"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Failed": "Gun_Shoot_Fail"
+}

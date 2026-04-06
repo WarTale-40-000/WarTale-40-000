@@ -1,27 +1,30 @@
 {
-  "Type": "Interaction_Weapon_Shoot",
-  "ProjectileId": "Auto_Projectile",
-  "MaxSpreadAngle": 3,
+  "Type": "DecrementAmmo",
   "Next": {
-    "Type": "Simple",
-    "Effects": {
-      "ItemAnimationId": "Shoot",
-      "CameraEffect": "Handgun_Shoot",
-      "Particles": [
-        {
-          "SystemId": "RifleShooting",
-          "PositionOffset": {
-            "X": -0.1,
-            "Z": 1,
-            "Y": 0
-          },
-          "RotationOffset": {
-            "Pitch": 90
+    "Type": "Interaction_Weapon_Shoot",
+    "ProjectileId": "Auto_Projectile",
+    "MaxSpreadAngle": 3,
+    "Next": {
+      "Type": "Simple",
+      "Effects": {
+        "ItemAnimationId": "Shoot",
+        "CameraEffect": "Handgun_Shoot",
+        "Particles": [
+          {
+            "SystemId": "RifleShooting",
+            "PositionOffset": {
+              "X": -0.1,
+              "Z": 1,
+              "Y": 0
+            },
+            "RotationOffset": {
+              "Pitch": 90
+            }
           }
-        }
-      ],
-      "LocalSoundEventId": "SFX_Autogun",
-      "WorldSoundEventId": "SFX_Autogun_Global"
+        ],
+        "LocalSoundEventId": "SFX_Autogun",
+        "WorldSoundEventId": "SFX_Autogun_Global"
+      }
     }
   },
   "Failed": "Gun_Shoot_Fail"

@@ -1,0 +1,8 @@
+{
+  "Cooldown": {
+    "Cooldown": 0.1
+  },
+  "Interactions": [
+    "Interaction_Shoot_BloodPact_Flamer"
+  ]
+}

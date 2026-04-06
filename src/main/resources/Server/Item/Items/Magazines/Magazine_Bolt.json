@@ -6,7 +6,6 @@
   "Model": "Resources/Items/Warhammer/Magazines/Magazine_Bolt/Magazine_Bolt.blockymodel",
   "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Bolt/Magazine_Bolt_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Magazine_Bolt.png",
-  "Quality": "Uncommon",
   "IconProperties": {
     "Scale": 1.4,
     "Rotation": [
