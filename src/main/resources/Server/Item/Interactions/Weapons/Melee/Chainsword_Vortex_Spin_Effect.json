@@ -1,0 +1,11 @@
+{
+  "Type": "Simple",
+  "$Comment": "Length of Effect",
+  "RunTime": 0.583,
+  "Effects": {
+    "WorldSoundEventId": "SFX_Sword_T2_Signature_Part_1",
+    "LocalSoundEventId": "SFX_Sword_T2_Signature_Part_1_Local",
+    "WaitForAnimationToFinish": false
+  },
+  "CameraEffect": "Sword_Spin"
+}
