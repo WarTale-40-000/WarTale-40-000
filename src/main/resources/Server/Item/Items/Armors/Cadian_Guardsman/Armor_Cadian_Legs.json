@@ -9,7 +9,7 @@
   "Categories": [
     "Items.Armors"
   ],
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Cadian_Legs.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Legs.png",
   "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs.blockymodel",
   "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs_Texture.png",
   "Recipe": {

@@ -3,9 +3,9 @@
     "Name": "Autogun"
   },
   "Parent": "Weapon_Rifle_Template",
-  "Model": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Autogun.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Autogun_Agripina.png",
+  "Model": "Resources/Items/Warhammer/Weapons/Autogun/Weapon_Autogun.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Autogun/Weapon_Autogun_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Autogun.png",
   "IconProperties": {
     "Scale": 0.4,
     "Rotation": [

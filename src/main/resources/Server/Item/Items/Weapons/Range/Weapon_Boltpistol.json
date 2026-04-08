@@ -3,7 +3,7 @@
     "Name": "Bolter Pistol"
   },
   "Parent": "Weapon_Gun_Template",
-  "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Model.blockymodel",
+  "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Weapon_Boltpistol.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
   "IconProperties": {

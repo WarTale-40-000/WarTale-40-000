@@ -8,14 +8,14 @@
     "Secondary": "Root_Secondary_Consume_Food_T2"
   },
   "Quality": "Uncommon",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Consumables/Corpse_Starch.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Consumables/Consumable_Corpse_Starch.png",
   "BlockType": {
     "Material": "Empty",
     "DrawType": "Model",
-    "CustomModel": "Resources/Items/Warhammer/Consumables/Corpse_Starch.blockymodel",
+    "CustomModel": "Resources/Items/Warhammer/Consumables/Consumable_Corpse_Starch.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Resources/Items/Warhammer/Consumables/Corpse_Starch_Texture.png",
+        "Texture": "Resources/Items/Warhammer/Consumables/Consumable_Corpse_Starch_Texture.png",
         "Weight": 1
       }
     ],
