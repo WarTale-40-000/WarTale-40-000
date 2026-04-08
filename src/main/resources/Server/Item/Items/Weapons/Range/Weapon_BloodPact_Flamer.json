@@ -3,8 +3,8 @@
     "Name": "Blood Pact Flamer"
   },
   "Icon": "Icons/ItemsGenerated/Flamer.png",
-  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/BloodPact_Flamer.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/Bloodpact_Flamer_Texture.png",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/Weapon_BloodPact_Flamer.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Flamer/Weapon_BloodPact_Flamer_Texture.png",
   "IconProperties": {
     "Scale": 0.3,
     "Rotation": [

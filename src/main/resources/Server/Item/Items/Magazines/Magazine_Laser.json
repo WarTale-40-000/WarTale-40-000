@@ -3,9 +3,9 @@
     "Name": "Las Magazine"
   },
   "Parent": "Magazine_Template",
-  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Magazine_Laser.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Magazine_Laser_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Magazine_Laser.png",
+  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Ammo_Laser.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Ammo_Laser_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Ammo_Laser.png",
   "IconProperties": {
     "Scale": 1.6,
     "Rotation": [

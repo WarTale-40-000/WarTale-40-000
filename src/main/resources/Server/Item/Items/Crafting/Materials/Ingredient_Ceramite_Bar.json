@@ -7,8 +7,8 @@
     "Items.Warhammer"
   ],
   "Model": "Resources/Materials/Ingot.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Crafting/Materials/Ceramite.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Materials/Ceramite.png",
+  "Texture": "Resources/Items/Warhammer/Crafting/Materials/Ingredient_Ceramite_Bar_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Materials/Ingredient_Ceramite_Bar.png",
   "ResourceTypes": [
     {
       "Id": "Metal_Bars"

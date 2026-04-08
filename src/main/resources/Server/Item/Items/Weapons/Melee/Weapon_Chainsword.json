@@ -3,8 +3,8 @@
   "TranslationProperties": {
     "Name": "Chainsword"
   },
-  "Model": "Resources/Items/Warhammer/Weapons/Chainsword/Chainsword.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/Chainsword_Texture.png",
+  "Model": "Resources/Items/Warhammer/Weapons/Chainsword/Weapon_Chainsword.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Chainsword/Weapon_Chainsword_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Chainsword.png",
   "UsePlayerAnimations": true,
   "PlayerAnimationsId": "Sword",

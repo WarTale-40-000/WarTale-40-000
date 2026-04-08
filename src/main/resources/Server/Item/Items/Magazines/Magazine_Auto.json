@@ -3,9 +3,9 @@
     "Name": "Auto Magazine"
   },
   "Parent": "Magazine_Template",
-  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Auto/Magazine_Auto.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Auto/Magazine_Auto_Texture.png",
-  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Magazine_Auto.png",
+  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Auto/Ammo_Auto.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Auto/Ammo_Auto_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Ammo_Auto.png",
   "IconProperties": {
     "Scale": 1.6,
     "Rotation": [
