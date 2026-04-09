@@ -33,10 +33,10 @@
     "Material": "Solid",
     "DrawType": "Model",
     "Opacity": "Transparent",
-    "CustomModel": "Resources/Items/Warhammer/Crafting/Alloy_Furnace/Alloy_Furnace.blockymodel",
+    "CustomModel": "Resources/Items/Warhammer/Crafting/Alloy_Furnace/Bench_Alloy_Furnace.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Resources/Items/Warhammer/Crafting/Alloy_Furnace/Alloy_Furnace_Texture.png",
+        "Texture": "Resources/Items/Warhammer/Crafting/Alloy_Furnace/Bench_Alloy_Furnace_Texture.png",
         "Weight": 1
       }
     ],
@@ -44,20 +44,20 @@
     "VariantRotation": "NESW",
     "Bench": {
       "Type": "Crafting",
-      "Categories": [
-        {
-          "Id": "Simple_Alloys",
-          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
-          "Name": "Simple_Alloys"
-        }
-      ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
       "LocalCloseSoundEventId": "SFX_Workbench_Close",
       "CompletedSoundEventId": "SFX_Workbench_Craft",
       "FailedSoundEventId": "SFX_Generic_Crafting_Failed",
       "BenchUpgradeSoundEventId": "SFX_Workbench_Upgrade_Start_Default",
       "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default",
-      "Id": "Alloy_Furnace"
+      "Id": "Alloy_Furnace",
+      "Categories": [
+        {
+          "Id": "Simple_Alloys",
+          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
+          "Name": "Simple_Alloys"
+        }
+      ]
     },
     "BlockEntity": {
       "Components": {
