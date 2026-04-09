@@ -47,8 +47,8 @@
       "Categories": [
         {
           "Id": "Simple_Alloys",
-          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
-          "Name": "Simple_Alloys"
+          "Icon": "Icons/CraftingCategories/Alloy_Furnace/Ingredient_Ceramite_Bar.png",
+          "Name": "Alloys"
         }
       ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
