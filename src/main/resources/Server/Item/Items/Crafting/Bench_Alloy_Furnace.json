@@ -44,20 +44,20 @@
     "VariantRotation": "NESW",
     "Bench": {
       "Type": "Crafting",
+      "Id": "Alloy_Furnace",
+      "Categories": [
+        {
+          "Id": "Simple_Alloys",
+          "Icon": "Icons/CraftingCategories/Alloy_Furnace/Ingredient_Ceramite_Bar.png",
+          "Name": "Alloys"
+        }
+      ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
       "LocalCloseSoundEventId": "SFX_Workbench_Close",
       "CompletedSoundEventId": "SFX_Workbench_Craft",
       "FailedSoundEventId": "SFX_Generic_Crafting_Failed",
       "BenchUpgradeSoundEventId": "SFX_Workbench_Upgrade_Start_Default",
-      "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default",
-      "Id": "Alloy_Furnace",
-      "Categories": [
-        {
-          "Id": "Simple_Alloys",
-          "Icon": "Icons/CraftingCategories/Armory/MetalChest.png",
-          "Name": "Simple_Alloys"
-        }
-      ]
+      "BenchUpgradeCompletedSoundEventId": "SFX_Workbench_Upgrade_Complete_Default"
     },
     "BlockEntity": {
       "Components": {
