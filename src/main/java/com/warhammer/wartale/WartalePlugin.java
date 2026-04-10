@@ -54,7 +54,6 @@ public class WartalePlugin extends JavaPlugin {
                                                               .enabled(true)
                                                               .enableEarlyAssetPackOrdering(true)
                                                               .verboseLogging(true)
-                                                              .baseAssetPackId("Wartale:Wartale")
                                                               .build());
         assetEditorBridge.registerEarlyAssetPackOrderingHook();
 
