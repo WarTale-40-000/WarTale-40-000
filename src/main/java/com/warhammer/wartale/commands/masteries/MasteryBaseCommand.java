@@ -5,13 +5,12 @@ import com.warhammer.wartale.commands.masteries.weapon.WeaponMasteryBaseCommand;
 
 public class MasteryBaseCommand extends AbstractCommandCollection {
 
-    public static final String COMMAND_NAME = "mastery";
+  public static final String COMMAND_NAME = "mastery";
 
+  public MasteryBaseCommand() {
+    super(COMMAND_NAME, "Command to interaction with mastery system.");
+    this.requirePermission("mastery.admin");
 
-    public MasteryBaseCommand() {
-        super(COMMAND_NAME, "Command to interaction with mastery system.");
-        this.requirePermission("mastery.admin");
-
-        this.addSubCommand(new WeaponMasteryBaseCommand());
-    }
+    this.addSubCommand(new WeaponMasteryBaseCommand());
+  }
 }

@@ -8,34 +8,31 @@ import com.hypixel.hytale.event.IEventDispatcher;
 import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.components.BaseMasteryComponent;
-
 import javax.annotation.Nonnull;
 
 public record LevelUpMasteryEvent<T extends BaseMasteryComponent>(
-        @Nonnull Ref<EntityStore> ref,
-        @Nonnull Store<EntityStore> store,
-        int oldLevel,
-        int newLevel,
-        @Nonnull ComponentType<EntityStore, T> masteryType
-) implements IEvent<Void> {
+    @Nonnull Ref<EntityStore> ref,
+    @Nonnull Store<EntityStore> store,
+    int oldLevel,
+    int newLevel,
+    @Nonnull ComponentType<EntityStore, T> masteryType)
+    implements IEvent<Void> {
 
+  public int levelsGained() {
+    return newLevel - oldLevel;
+  }
 
-    public int levelsGained() {
-        return newLevel - oldLevel;
+  public static <T extends BaseMasteryComponent> void dispatch(
+      @Nonnull Ref<EntityStore> ref,
+      @Nonnull Store<EntityStore> store,
+      int oldLevel,
+      int newLevel,
+      @Nonnull ComponentType<EntityStore, T> masteryType) {
+    IEventDispatcher<LevelUpMasteryEvent<T>, LevelUpMasteryEvent<T>> dispatcher =
+        HytaleServer.get().getEventBus().dispatchFor(LevelUpMasteryEvent.class);
+
+    if (dispatcher.hasListener()) {
+      dispatcher.dispatch(new LevelUpMasteryEvent<>(ref, store, oldLevel, newLevel, masteryType));
     }
-
-
-    public static <T extends BaseMasteryComponent> void dispatch(@Nonnull Ref<EntityStore> ref,
-                                                                 @Nonnull Store<EntityStore> store,
-                                                                 int oldLevel,
-                                                                 int newLevel,
-                                                                 @Nonnull ComponentType<EntityStore, T> masteryType
-    ) {
-        IEventDispatcher<LevelUpMasteryEvent<T>, LevelUpMasteryEvent<T>> dispatcher =
-                HytaleServer.get().getEventBus().dispatchFor(LevelUpMasteryEvent.class);
-
-        if (dispatcher.hasListener()) {
-            dispatcher.dispatch(new LevelUpMasteryEvent<>(ref, store, oldLevel, newLevel, masteryType));
-        }
-    }
+  }
 }

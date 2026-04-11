@@ -4,6 +4,7 @@ pluginManagement {
             name = 'AzureDoom Maven'
             url = uri("https://maven.azuredoom.com/mods")
         }
+        gradlePluginPortal()
     }
 }
 

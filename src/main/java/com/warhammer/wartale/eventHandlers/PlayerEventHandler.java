@@ -9,14 +9,13 @@ import com.warhammer.wartale.gui.WartaleHUD;
 
 public class PlayerEventHandler {
 
-    
-    public static void onAddPlayerToWorld(AddPlayerToWorldEvent event) {
-        Holder<EntityStore> holder = event.getHolder();
-        PlayerRef playerRef = holder.getComponent(PlayerRef.getComponentType());
-        Player player = holder.getComponent(Player.getComponentType());
-        if (playerRef == null || player == null) return;
+  public static void onAddPlayerToWorld(AddPlayerToWorldEvent event) {
+    Holder<EntityStore> holder = event.getHolder();
+    PlayerRef playerRef = holder.getComponent(PlayerRef.getComponentType());
+    Player player = holder.getComponent(Player.getComponentType());
+    if (playerRef == null || player == null) return;
 
-        WartaleHUD hud = new WartaleHUD(playerRef);
-        player.getHudManager().setCustomHud(playerRef, hud);
-    }
+    WartaleHUD hud = new WartaleHUD(playerRef);
+    player.getHudManager().setCustomHud(playerRef, hud);
+  }
 }
