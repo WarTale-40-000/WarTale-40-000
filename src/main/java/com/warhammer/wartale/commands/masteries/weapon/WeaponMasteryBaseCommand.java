@@ -8,23 +8,23 @@ import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryCompo
 
 public class WeaponMasteryBaseCommand extends AbstractCommandCollection {
 
-    public static final String COMMAND_NAME = "weapon";
+  public static final String COMMAND_NAME = "weapon";
 
+  public WeaponMasteryBaseCommand() {
+    super(COMMAND_NAME, "Command to interaction with WeaponMastery system.");
+    this.requirePermission("mastery.admin");
 
-    public WeaponMasteryBaseCommand() {
-        super(COMMAND_NAME, "Command to interaction with WeaponMastery system.");
-        this.requirePermission("mastery.admin");
+    this.addSubCommand(new WeaponMasterySetXpCommand());
+    this.addSubCommand(new WeaponMasteryStatsCommand());
+  }
 
-        this.addSubCommand(new WeaponMasterySetXpCommand());
-        this.addSubCommand(new WeaponMasteryStatsCommand());
+  protected ComponentType<EntityStore, ? extends BaseMasteryComponent> getBaseMasteryComponent(
+      String masteryName) {
+    switch (masteryName) {
+      case "boltpistol":
+        return BoltpistolMasteryComponent.getComponentType();
+      default:
+        return null;
     }
-
-    protected ComponentType<EntityStore, ? extends BaseMasteryComponent> getBaseMasteryComponent(String masteryName) {
-        switch (masteryName) {
-            case "boltpistol":
-                return BoltpistolMasteryComponent.getComponentType();
-            default:
-                return null;
-        }
-    }
+  }
 }

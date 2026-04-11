@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'com.azuredoom.hytale-tools' version '1.0.20'
+    id 'checkstyle'
+    id 'com.diffplug.spotless' version '7.0.3'
 }
 
 java {
@@ -26,4 +28,21 @@ hytaleTools {
     disabledByDefault = project.disabled_by_default.toString().toBoolean()
     includesPack = project.includes_pack.toString().toBoolean()
     patchline = project.patchline.toString()
+}
+
+checkstyle {
+    toolVersion = '13.4.0'
+    configFile = file("config/checkstyle.xml")
+    ignoreFailures = false
+}
+
+tasks.named('checkstyleMain') {
+    source = sourceSets.main.allJava
+}
+
+spotless {
+    java {
+        target 'src/**/*.java'
+        googleJavaFormat('1.35.0')
+    }
 }
