@@ -232,40 +232,40 @@
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
-            "offset": {"x": 5, "y": -6, "z": 0},
+            "offset": {"x": 5, "y": -5.5, "z": 0},
             "stretch": {"x": -1, "y": 1, "z": 1},
             "settings": {
               "isPiece": false,
-              "size": {"x": 4, "y": 14, "z": 18}
+              "size": {"x": 4, "y": 15, "z": 18}
             },
             "textureLayout": {
               "back": {
-                "offset": {"x": 58, "y": 114},
+                "offset": {"x": 58, "y": 113},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "right": {
-                "offset": {"x": 40, "y": 114},
+                "offset": {"x": 40, "y": 113},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "front": {
-                "offset": {"x": 80, "y": 114},
+                "offset": {"x": 80, "y": 113},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "left": {
-                "offset": {"x": 62, "y": 114},
+                "offset": {"x": 62, "y": 113},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "top": {
-                "offset": {"x": 62, "y": 114},
+                "offset": {"x": 62, "y": 113},
                 "mirror": {"x": true, "y": true},
                 "angle": 0
               },
               "bottom": {
-                "offset": {"x": 66, "y": 96},
+                "offset": {"x": 66, "y": 95},
                 "mirror": {"x": true, "y": false},
                 "angle": 0
               }
@@ -279,7 +279,7 @@
             {
               "id": "8",
               "name": "L-HandGloveArmor--C1",
-              "position": {"x": -7, "y": 9, "z": -12},
+              "position": {"x": -7, "y": 8.5, "z": -12},
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
                 "type": "box",
@@ -331,7 +331,7 @@
             {
               "id": "9",
               "name": "L-HandGloveArmor--C2",
-              "position": {"x": 1.439, "y": -0.95275, "z": 0},
+              "position": {"x": 1.439, "y": -1.45275, "z": 0},
               "orientation": {"x": 0, "y": 0, "z": -0.04362, "w": 0.99905},
               "shape": {
                 "type": "box",
@@ -345,8 +345,8 @@
                 "textureLayout": {
                   "back": {
                     "offset": {"x": 0, "y": 100},
-                    "mirror": {"x": true, "y": true},
-                    "angle": 90
+                    "mirror": {"x": false, "y": false},
+                    "angle": 270
                   },
                   "right": {
                     "offset": {"x": 14, "y": 86},
@@ -365,8 +365,8 @@
                   },
                   "top": {
                     "offset": {"x": 24, "y": 96},
-                    "mirror": {"x": false, "y": false},
-                    "angle": 90
+                    "mirror": {"x": true, "y": true},
+                    "angle": 270
                   },
                   "bottom": {
                     "offset": {"x": 24, "y": 96},
@@ -383,7 +383,7 @@
             {
               "id": "10",
               "name": "L-HandGlove--C3",
-              "position": {"x": -12, "y": 1, "z": 0},
+              "position": {"x": -12, "y": 0.5, "z": 0},
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
                 "type": "box",
@@ -1004,40 +1004,40 @@
           "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
           "shape": {
             "type": "box",
-            "offset": {"x": -5, "y": -6, "z": 0},
+            "offset": {"x": -5, "y": -5.5, "z": 0},
             "stretch": {"x": -1, "y": 1, "z": 1},
             "settings": {
               "isPiece": false,
-              "size": {"x": 4, "y": 14, "z": 18}
+              "size": {"x": 4, "y": 15, "z": 18}
             },
             "textureLayout": {
               "back": {
-                "offset": {"x": 62, "y": 114},
+                "offset": {"x": 62, "y": 113},
                 "mirror": {"x": true, "y": false},
                 "angle": 0
               },
               "right": {
-                "offset": {"x": 62, "y": 114},
+                "offset": {"x": 62, "y": 113},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "front": {
-                "offset": {"x": 84, "y": 114},
+                "offset": {"x": 84, "y": 113},
                 "mirror": {"x": true, "y": false},
                 "angle": 0
               },
               "left": {
-                "offset": {"x": 40, "y": 114},
+                "offset": {"x": 40, "y": 113},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               },
               "top": {
-                "offset": {"x": 58, "y": 114},
+                "offset": {"x": 58, "y": 113},
                 "mirror": {"x": false, "y": true},
                 "angle": 0
               },
               "bottom": {
-                "offset": {"x": 62, "y": 96},
+                "offset": {"x": 62, "y": 95},
                 "mirror": {"x": false, "y": false},
                 "angle": 0
               }
@@ -1051,7 +1051,7 @@
             {
               "id": "31",
               "name": "R-Spike--C1",
-              "position": {"x": -4.69572, "y": 0.24438, "z": 0.30928},
+              "position": {"x": -4.69572, "y": -0.25562, "z": 0.30928},
               "orientation": {"x": 0.01058, "y": 0.00093, "z": 0.08651, "w": 0.99619},
               "shape": {
                 "type": "quad",
@@ -1079,7 +1079,7 @@
             {
               "id": "32",
               "name": "R-HandGloveArmor--C2",
-              "position": {"x": 7, "y": 9, "z": -12},
+              "position": {"x": 7, "y": 8.5, "z": -12},
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
                 "type": "box",
@@ -1098,8 +1098,8 @@
                   },
                   "right": {
                     "offset": {"x": 124, "y": 109},
-                    "mirror": {"x": true, "y": true},
-                    "angle": 90
+                    "mirror": {"x": false, "y": false},
+                    "angle": 270
                   },
                   "front": {
                     "offset": {"x": 89, "y": 104},
@@ -1131,7 +1131,7 @@
             {
               "id": "33",
               "name": "R-HandGloveArmor--C3",
-              "position": {"x": -1.439, "y": -0.95275, "z": 0},
+              "position": {"x": -1.439, "y": -1.45275, "z": 0},
               "orientation": {"x": 0, "y": 0, "z": 0.04362, "w": 0.99905},
               "shape": {
                 "type": "box",
@@ -1145,8 +1145,8 @@
                 "textureLayout": {
                   "back": {
                     "offset": {"x": 24, "y": 96},
-                    "mirror": {"x": true, "y": true},
-                    "angle": 270
+                    "mirror": {"x": false, "y": false},
+                    "angle": 90
                   },
                   "right": {
                     "offset": {"x": 0, "y": 86},
@@ -1165,8 +1165,8 @@
                   },
                   "top": {
                     "offset": {"x": 0, "y": 100},
-                    "mirror": {"x": false, "y": false},
-                    "angle": 270
+                    "mirror": {"x": true, "y": true},
+                    "angle": 90
                   },
                   "bottom": {
                     "offset": {"x": 24, "y": 96},
@@ -1183,7 +1183,7 @@
             {
               "id": "34",
               "name": "R-HandGlove--C4",
-              "position": {"x": 12, "y": 1, "z": 0},
+              "position": {"x": 12, "y": 0.5, "z": 0},
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
               "shape": {
                 "type": "box",
