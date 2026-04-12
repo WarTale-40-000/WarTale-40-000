@@ -1,0 +1,116 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Bench_Builders.name",
+    "Description": "server.items.Bench_Builders.description"
+  },
+  "ItemLevel": 2,
+  "MaxStack": 1,
+  "Icon": "Icons/ItemsGenerated/Bench_Architects.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Wood_Trunk",
+        "Quantity": 6
+      },
+      {
+        "ResourceTypeId": "Rock",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Fieldcraft",
+        "Type": "Crafting",
+        "Categories": [
+          "Tools"
+        ]
+      },
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Crafting"
+        ]
+      }
+    ]
+  },
+  "PlayerAnimationsId": "Block",
+  "IconProperties": {
+    "Scale": 0.365,
+    "Translation": [
+      13.5,
+      -11.1
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Bench"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Resources/Items/Warhammer/Crafting/Servoskull/Bench_Servoskull.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Resources/Items/Warhammer/Crafting/Servoskull/Bench_Servoskull_Texture.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "Bench_Architect",
+    "VariantRotation": "NESW",
+    "Bench": {
+      "Type": "StructuralCrafting",
+      "Id": "Styling",
+      "AllowBlockGroupCycling": true,
+      "AlwaysShowInventoryHints": true,
+      "HeaderCategories": [
+        "WoodPlanks",
+        "OrnatePlanks",
+        "DecorativePlanks"
+      ],
+      "LocalOpenSoundEventId": "SFX_Workbench_Open",
+      "LocalCloseSoundEventId": "SFX_Workbench_Close",
+      "CompletedSoundEventId": "SFX_Workbench_Craft",
+      "FailedSoundEventId": "SFX_Generic_Crafting_Failed",
+      "Categories": [
+        "Variant0",
+        "Variant1",
+        "Variant2",
+        "Variant3"
+      ]
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#5C583E",
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "CustomModelScale": 0.6
+  }
+}

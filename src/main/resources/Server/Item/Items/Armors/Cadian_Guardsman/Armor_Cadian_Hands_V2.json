@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "Cadian Chestplate"
+    "Name": "Cadian_Gauntlets"
   },
   "Quality": "Uncommon",
   "ItemLevel": 20,
@@ -9,48 +9,40 @@
   "Categories": [
     "Items.Armors"
   ],
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Chest.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Hands.png",
   "IconProperties": {
-    "Scale": 0.45,
     "Rotation": [
       22.5,
       45,
       22.5
     ],
+    "Scale": 0.92,
     "Translation": [
-      0,
-      -61
+      15,
+      -33
     ]
   },
-  "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Chest.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Chest_Texture.png",
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_HandsV2.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_Hands_Texture.png",
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 17
-      },
-      {
-        "ItemId": "Ingredient_Leather_Medium",
-        "Quantity": 3
-      },
-      {
-        "ItemId": "Ingredient_Ceramite_Bar",
-        "Quantity": 6
+        "ItemId": "Armor_Cadian_Hands",
+        "Quantity": 1
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Cadian_Workbench",
-        "Type": "Crafting",
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
         "Categories": [
-          "Cadian_Workbench_Armor"
+          "Variant1"
         ],
         "RequiredTierLevel": 0
       }
     ],
     "KnowledgeRequired": false,
-    "TimeSeconds": 10
+    "TimeSeconds": 0
   },
   "Interactions": {
     "Primary": {
@@ -69,22 +61,18 @@
     }
   },
   "Armor": {
-    "ArmorSlot": "Chest",
+    "ArmorSlot": "Hands",
     "BaseDamageResistance": 0,
-    "CosmeticsToHide": [
-      "Overtop",
-      "Cape"
-    ],
     "DamageResistance": {
       "Physical": [
         {
-          "Amount": 0.13,
+          "Amount": 0.05,
           "CalculationType": "Multiplicative"
         }
       ],
       "Projectile": [
         {
-          "Amount": 0.13,
+          "Amount": 0.05,
           "CalculationType": "Multiplicative"
         }
       ]
@@ -92,7 +80,7 @@
     "StatModifiers": {
       "Health": [
         {
-          "Amount": 20,
+          "Amount": 5,
           "CalculationType": "Additive"
         }
       ]
@@ -107,11 +95,5 @@
     "Family": [
       "Iron"
     ]
-  },
-  "Set": "Cadian_Chest_Type",
-  "ResourceTypes": [
-    {
-      "Id": "Cadian_Chest_Type"
-    }
-  ]
+  }
 }

@@ -22,35 +22,27 @@
       -61
     ]
   },
-  "Model": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Chest.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Chest_Texture.png",
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_ChestV2.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_Chest_Texture.png",
   "Recipe": {
-    "Input": [
-      {
-        "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 17
-      },
-      {
-        "ItemId": "Ingredient_Leather_Medium",
-        "Quantity": 3
-      },
-      {
-        "ItemId": "Ingredient_Ceramite_Bar",
-        "Quantity": 6
-      }
-    ],
     "BenchRequirement": [
       {
-        "Id": "Cadian_Workbench",
-        "Type": "Crafting",
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
         "Categories": [
-          "Cadian_Workbench_Armor"
+          "Variant1"
         ],
         "RequiredTierLevel": 0
       }
     ],
     "KnowledgeRequired": false,
-    "TimeSeconds": 10
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Cadian_Chest",
+        "ResourceTypeId": "Cadian_Chest_Type"
+      }
+    ]
   },
   "Interactions": {
     "Primary": {
