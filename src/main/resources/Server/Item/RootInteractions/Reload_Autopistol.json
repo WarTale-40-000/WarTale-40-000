@@ -2,7 +2,7 @@
   "Interactions": [
     {
       "Type": "InventoryHasItemAmount",
-      "ItemId": "Magazine_Laser",
+      "ItemId": "Magazine_Auto",
       "Amount": 1,
       "Failed": "Gun_Shoot_Fail",
       "Next": {
@@ -18,11 +18,11 @@
           "CancelOnItemChange": true,
           "Next": {
             "Type": "LoadMagazine",
-            "ReloadAmount": 50,
+            "ReloadAmount": 20,
             "Next": {
               "Type": "ModifyInventory",
               "ItemToRemove": {
-                "Id": "Magazine_Laser"
+                "Id": "Magazine_Auto"
               }
             }
           }

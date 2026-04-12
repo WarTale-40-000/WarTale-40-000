@@ -18,7 +18,7 @@
           "CancelOnItemChange": true,
           "Next": {
             "Type": "LoadMagazine",
-            "ReloadAmount": 50,
+            "ReloadAmount": 30,
             "Next": {
               "Type": "ModifyInventory",
               "ItemToRemove": {
