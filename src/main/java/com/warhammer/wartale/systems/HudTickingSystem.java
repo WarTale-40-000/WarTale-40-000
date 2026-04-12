@@ -3,11 +3,15 @@ package com.warhammer.wartale.systems;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.warhammer.wartale.gui.WartaleHUD;
@@ -37,28 +41,35 @@ public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
     WartaleHUD hud = (WartaleHUD) player.getHudManager().getCustomHud();
     if (hud == null) return;
 
-    // Determine ammo state
-    ItemStack heldItem = player.getInventory().getItemInHand();
-    boolean hasAmmo = false;
-    String display = "";
-    String displayName = "";
-    boolean shouldReload = false;
+        // Determine ammo state
+        ItemStack heldItem = player.getInventory().getItemInHand();
+        boolean hasAmmo = false;
+        String display = "";
+        String displayName;
+        boolean shouldReload = false;
 
-    if (heldItem != null) {
-      displayName = heldItem.getItemId();
-      Integer maxMagSize =
-          heldItem.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER);
-      if (maxMagSize != null) {
-        hasAmmo = true;
-        Integer currentAmmo =
-            heldItem.getFromMetadataOrNull(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER);
-        int current = currentAmmo != null ? currentAmmo : 0;
-        if (current == 0) {
-          shouldReload = true;
+        if (heldItem != null) {
+            displayName = heldItem.getItemId();
+            Integer maxMagSize = heldItem.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER);
+            if (maxMagSize != null) {
+                hasAmmo = true;
+                Integer currentAmmo = heldItem.getFromMetadataOrNull(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER);
+                String magId = heldItem.getFromMetadataOrNull(WeaponMetadataKey.MAG_ID.key(), Codec.STRING);
+                int current = currentAmmo != null ? currentAmmo : 0;
+                if (current == 0) {
+                    shouldReload = true;
+                }
+
+                Ref<EntityStore> ref = chunk.getReferenceTo(index);
+                CombinedItemContainer inventory = InventoryComponent.getCombined(commandBuffer,
+                        ref,
+                        InventoryComponent.HOTBAR_FIRST);
+                int itemCount = inventory.countItemStacks(stack -> stack.getItemId().equals(magId));
+                display = current + " / " + (itemCount * maxMagSize);
+            }
+        } else {
+            displayName = "";
         }
-        display = current + "/" + maxMagSize;
-      }
-    }
 
     // Only send a packet when something changed
     String lastDisplay = lastAmmoDisplay.getOrDefault(playerId, null);
