@@ -40,3 +40,4 @@ devserver
 bin/
 .hyve/
 run/
+node_modules/

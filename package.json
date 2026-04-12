@@ -1,0 +1,13 @@
+{
+  "name": "wartale-40-000",
+  "private": true,
+  "devDependencies": {
+    "husky": "^9.1.7"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "prepare": "husky"
+  }
+}
