@@ -16,18 +16,21 @@ import com.warhammer.wartale.items.WeaponMetadataKey;
 import javax.annotation.Nonnull;
 
 public class LoadMagazineInteraction extends SimpleInstantInteraction {
-    public static final BuilderCodec<LoadMagazineInteraction> CODEC = BuilderCodec.builder(LoadMagazineInteraction.class,
-                    LoadMagazineInteraction::new,
-                    SimpleInstantInteraction.CODEC)
-            .appendInherited(new KeyedCodec<>("ReloadAmount", Codec.INTEGER, true),
-                    (obj, val) -> obj.reloadAmount = val,
-                    obj -> obj.reloadAmount,
-                    (obj, p) -> obj.reloadAmount = p.reloadAmount)
-            .addValidator(Validators.greaterThan(-1))
-            .add()
-            .build();
-    public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
-    private int reloadAmount;
+  public static final BuilderCodec<LoadMagazineInteraction> CODEC =
+      BuilderCodec.builder(
+              LoadMagazineInteraction.class,
+              LoadMagazineInteraction::new,
+              SimpleInstantInteraction.CODEC)
+          .appendInherited(
+              new KeyedCodec<>("ReloadAmount", Codec.INTEGER, true),
+              (obj, val) -> obj.reloadAmount = val,
+              obj -> obj.reloadAmount,
+              (obj, p) -> obj.reloadAmount = p.reloadAmount)
+          .addValidator(Validators.greaterThan(-1))
+          .add()
+          .build();
+  public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+  private int reloadAmount;
 
   @Nonnull
   @Override
@@ -54,14 +57,21 @@ public class LoadMagazineInteraction extends SimpleInstantInteraction {
       return;
     }
 
-        ItemStack newItemStack = itemStack.withMetadata(WeaponMetadataKey.CURRENT_AMMO.key(),
-                        Codec.INTEGER,
-                        reloadAmount)
-                .withMetadata(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER, itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER))
-                .withMetadata(WeaponMetadataKey.MAG_ID.key(), Codec.STRING, itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_ID.key(), Codec.STRING));
+    ItemStack newItemStack =
+        itemStack
+            .withMetadata(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, reloadAmount)
+            .withMetadata(
+                WeaponMetadataKey.MAG_SIZE.key(),
+                Codec.INTEGER,
+                itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER))
+            .withMetadata(
+                WeaponMetadataKey.MAG_ID.key(),
+                Codec.STRING,
+                itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_ID.key(), Codec.STRING));
 
-        interactionContext.getHeldItemContainer()
-                .setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
-        interactionContext.setHeldItem(newItemStack);
-    }
+    interactionContext
+        .getHeldItemContainer()
+        .setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
+    interactionContext.setHeldItem(newItemStack);
+  }
 }
