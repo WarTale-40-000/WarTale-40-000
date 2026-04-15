@@ -8,6 +8,7 @@ import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.warhammer.wartale.assets.armorVariants.ArmorVariantStore;
 import com.warhammer.wartale.commands.masteries.MasteryBaseCommand;
 import com.warhammer.wartale.components.EntityLevelComponent;
 import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryComponent;
@@ -91,7 +92,10 @@ public class WartalePlugin extends JavaPlugin {
 
     // Commands
     this.getCommandRegistry().registerCommand(new MasteryBaseCommand());
-  }
+
+    // Assets
+    this.getAssetRegistry().register(ArmorVariantStore.create());
+    }
 
   @Override
   protected void start() {
