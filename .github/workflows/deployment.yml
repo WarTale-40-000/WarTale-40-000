@@ -52,7 +52,7 @@ jobs:
 
       - name: Upload test reports
         if: failure()
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: test-reports
           path: build/reports/
@@ -60,7 +60,7 @@ jobs:
       # Upload the plugin JAR (excluding sources) so the publish job can use it
       # without re-running the full build.
       - name: Upload JAR artifact
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: plugin-jar
           path: |
@@ -110,7 +110,7 @@ jobs:
 
       - name: Cache Hytale assets
         id: cache-hytale
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
         with:
           path: hytale-home
           key: hytale-assets-pre-release-${{ steps.hytale-version.outputs.version }}
@@ -157,7 +157,7 @@ jobs:
         uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294
+        uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f
         with:
           context: .
           file: ./Dockerfile
@@ -171,7 +171,7 @@ jobs:
             ${{ steps.image.outputs.name }}:${{ github.sha }}
 
       - name: Release JAR
-        uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda
         with:
           tag_name: v${{ needs.build.outputs.version }}
           files: build/libs/Wartale-*.jar
