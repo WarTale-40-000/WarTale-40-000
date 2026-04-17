@@ -58,8 +58,17 @@ public class DecrementAmmoInteraction extends SimpleInstantInteraction {
     }
 
     ItemStack newItemStack =
-        itemStack.withMetadata(
-            WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, currentAmmoAmount - 1);
+        itemStack
+            .withMetadata(
+                WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, currentAmmoAmount - 1)
+            .withMetadata(
+                WeaponMetadataKey.MAG_SIZE.key(),
+                Codec.INTEGER,
+                itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER))
+            .withMetadata(
+                WeaponMetadataKey.MAG_ID.key(),
+                Codec.STRING,
+                itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_ID.key(), Codec.STRING));
 
     interactionContext
         .getHeldItemContainer()

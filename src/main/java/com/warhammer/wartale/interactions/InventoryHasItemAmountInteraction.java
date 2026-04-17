@@ -82,16 +82,28 @@ public class InventoryHasItemAmountInteraction extends SimpleInstantInteraction 
       return;
     }
     ItemStack newItemStack =
-        itemStack.withMetadata(WeaponMetadataKey.MAG_ID.key(), Codec.STRING, itemId);
+        itemStack
+            .withMetadata(WeaponMetadataKey.MAG_ID.key(), Codec.STRING, itemId)
+            .withMetadata(
+                WeaponMetadataKey.CURRENT_AMMO.key(),
+                Codec.INTEGER,
+                itemStack.getFromMetadataOrNull(
+                    WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER))
+            .withMetadata(
+                WeaponMetadataKey.MAG_SIZE.key(),
+                Codec.INTEGER,
+                itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER));
+
     interactionContext
         .getHeldItemContainer()
         .setItemStackForSlot(interactionContext.getHeldItemSlot(), newItemStack);
+    interactionContext.setHeldItem(newItemStack);
 
     CombinedItemContainer inventory =
         InventoryComponent.getCombined(commandBuffer, ref, InventoryComponent.HOTBAR_FIRST);
     int itemCount = inventory.countItemStacks(stack -> itemId.equals(stack.getItemId()));
 
-    if (itemCount < amount) {
+    if (itemCount < this.amount) {
       interactionContext.getState().state = InteractionState.Failed;
     }
   }

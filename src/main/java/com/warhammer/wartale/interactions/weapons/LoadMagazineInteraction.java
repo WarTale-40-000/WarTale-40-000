@@ -59,11 +59,8 @@ public class LoadMagazineInteraction extends SimpleInstantInteraction {
 
     ItemStack newItemStack =
         itemStack
-            .withMetadata(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, reloadAmount)
-            .withMetadata(
-                WeaponMetadataKey.MAG_SIZE.key(),
-                Codec.INTEGER,
-                itemStack.getFromMetadataOrNull(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER))
+            .withMetadata(WeaponMetadataKey.CURRENT_AMMO.key(), Codec.INTEGER, this.reloadAmount)
+            .withMetadata(WeaponMetadataKey.MAG_SIZE.key(), Codec.INTEGER, this.reloadAmount)
             .withMetadata(
                 WeaponMetadataKey.MAG_ID.key(),
                 Codec.STRING,

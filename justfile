@@ -18,7 +18,7 @@ setup:
 # Runs the development server with the mod loaded, allowing you to test it in a local environment
 [group('Dev')]
 run:
-    ./gradlew runServer -Ddebug=true -Dhotswap=true
+    ./gradlew runServer -Dhotswap=true
 
 # Update the mod manifest
 [group('Build')]
