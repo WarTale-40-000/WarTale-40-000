@@ -59,7 +59,7 @@
     "LoadBefore": {
         
     },
-    "ServerVersion": "2026.04.16-5a18e075d",
+    "ServerVersion": "2026.04.23-3f4475f43",
     "Main": "com.warhammer.wartale.WartalePlugin",
     "SubPlugins": [
         
