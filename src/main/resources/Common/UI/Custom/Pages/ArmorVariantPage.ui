@@ -1,0 +1,481 @@
+$Common = "../Common.ui";
+
+@SlotSize = 72;
+@VariantSlotSize = 70;
+@VariantGap = 16;
+@ArrowSize = 44;
+@VariantRowInnerWidth = 358;
+@CurrentRowInnerWidth = 170;
+
+@PanelTitleStyle = LabelStyle(
+  FontSize: 15,
+  RenderBold: true,
+  RenderUppercase: true,
+  TextColor: #b4c8c9,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center
+);
+
+@SlotLabelStyle = LabelStyle(
+  FontSize: 14,
+  RenderBold: true,
+  RenderUppercase: true,
+  TextColor: #96a9be,
+  VerticalAlignment: Center
+);
+
+@ArrowLabelStyle = LabelStyle(
+  FontSize: 25,
+  RenderBold: true,
+  TextColor: #bfcdd5,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center
+);
+
+@CarouselArrowButton = Button {
+  @ArrowText = "<";
+
+  Anchor: (Width: @ArrowSize, Vertical: 13, Right: 12);
+  HitTestVisible: true;
+  Disabled: false;
+  Style: $Common.@SecondaryButtonStyle;
+
+  Label {
+    Anchor: (Full: 0);
+    Text: @ArrowText;
+    Style: @ArrowLabelStyle;
+  }
+};
+
+Group #ArmorVariantPage {
+  Anchor: (Full: 0);
+  LayoutMode: CenterMiddle;
+  Background: #000000(0.45);
+
+  $Common.@DecoratedContainer #ArmorVariantContainer {
+    @CloseButton = true;
+    @ContentPadding = Padding(Full: 20);
+
+    Anchor: (Width: 800, Height: 580);
+
+    #Title {
+      $Common.@Title #ArmorVariantTitle {
+        @Text = "ARMOR VARIANTS";
+        Anchor: (Full: 0);
+      }
+    }
+
+    #Content {
+      LayoutMode: CenterMiddle;
+
+      Group #Body {
+        Anchor: (Width: 648, Height: 462);
+        LayoutMode: Left;
+
+        $Common.@SimpleContainer #CurrentArmorPanel {
+          Anchor: (Width: 220, Right: 18);
+          LayoutMode: Top;
+          Padding: (Full: 14);
+
+          Label #CurrentArmorPanelTitle {
+            Anchor: (Height: 32, Bottom: 10);
+            Text: "CURRENT ARMOR";
+            Style: @PanelTitleStyle;
+          }
+
+          Group #CurrentHelmetRow {
+            Anchor: (Height: 86, Bottom: 10);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @CurrentRowInnerWidth, Height: @SlotSize);
+              LayoutMode: Left;
+
+              ItemSlotButton #CurrentHelmetButton {
+                Anchor: (Width: @SlotSize, Height: @SlotSize, Right: 14);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #CurrentHelmetIcon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              Label #CurrentHelmetLabel {
+                Anchor: (Width: 84, Height: @SlotSize);
+                Text: "Helmet";
+                Style: @SlotLabelStyle;
+              }
+            }
+          }
+
+          Group #CurrentChestRow {
+            Anchor: (Height: 86, Bottom: 10);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @CurrentRowInnerWidth, Height: @SlotSize);
+              LayoutMode: Left;
+
+              ItemSlotButton #CurrentChestButton {
+                Anchor: (Width: @SlotSize, Height: @SlotSize, Right: 14);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #CurrentChestIcon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              Label #CurrentChestLabel {
+                Anchor: (Width: 84, Height: @SlotSize);
+                Text: "Chest";
+                Style: @SlotLabelStyle;
+              }
+            }
+          }
+
+          Group #CurrentHandsRow {
+            Anchor: (Height: 86, Bottom: 10);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @CurrentRowInnerWidth, Height: @SlotSize);
+              LayoutMode: Left;
+
+              ItemSlotButton #CurrentHandsButton {
+                Anchor: (Width: @SlotSize, Height: @SlotSize, Right: 14);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #CurrentHandsIcon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              Label #CurrentHandsLabel {
+                Anchor: (Width: 84, Height: @SlotSize);
+                Text: "Hands";
+                Style: @SlotLabelStyle;
+              }
+            }
+          }
+
+          Group #CurrentLegsRow {
+            Anchor: (Height: 86);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @CurrentRowInnerWidth, Height: @SlotSize);
+              LayoutMode: Left;
+
+              ItemSlotButton #CurrentLegsButton {
+                Anchor: (Width: @SlotSize, Height: @SlotSize, Right: 14);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #CurrentLegsIcon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              Label #CurrentLegsLabel {
+                Anchor: (Width: 84, Height: @SlotSize);
+                Text: "Legs";
+                Style: @SlotLabelStyle;
+              }
+            }
+          }
+        }
+
+        $Common.@SimpleContainer #VariantCarouselPanel {
+          Anchor: (Width: 410);
+          LayoutMode: Top;
+          Padding: (Full: 16);
+
+          Label #VariantCarouselTitle {
+            Anchor: (Height: 32, Bottom: 12);
+            Text: "AVAILABLE VARIANTS";
+            Style: @PanelTitleStyle;
+          }
+
+          Group #HelmetVariantRow {
+            Anchor: (Height: 86, Bottom: 14);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @VariantRowInnerWidth, Height: @VariantSlotSize);
+              LayoutMode: Left;
+
+              @CarouselArrowButton #HelmetPrevButton {
+                @ArrowText = "<";
+              }
+
+              ItemSlotButton #HelmetVariant1Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #HelmetVariant1Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #HelmetVariant2Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #HelmetVariant2Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #HelmetVariant3Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #HelmetVariant3Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              @CarouselArrowButton #HelmetNextButton {
+                @ArrowText = ">";
+                Anchor: (Width: @ArrowSize, Vertical: 13);
+              }
+            }
+          }
+
+          Group #ChestVariantRow {
+            Anchor: (Height: 86, Bottom: 14);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @VariantRowInnerWidth, Height: @VariantSlotSize);
+              LayoutMode: Left;
+
+              @CarouselArrowButton #ChestPrevButton {
+                @ArrowText = "<";
+              }
+
+              ItemSlotButton #ChestVariant1Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #ChestVariant1Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #ChestVariant2Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #ChestVariant2Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #ChestVariant3Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #ChestVariant3Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              @CarouselArrowButton #ChestNextButton {
+                @ArrowText = ">";
+                Anchor: (Width: @ArrowSize, Vertical: 13);
+              }
+            }
+          }
+
+          Group #HandsVariantRow {
+            Anchor: (Height: 86, Bottom: 14);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @VariantRowInnerWidth, Height: @VariantSlotSize);
+              LayoutMode: Left;
+
+              @CarouselArrowButton #HandsPrevButton {
+                @ArrowText = "<";
+              }
+
+              ItemSlotButton #HandsVariant1Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #HandsVariant1Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #HandsVariant2Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #HandsVariant2Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #HandsVariant3Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #HandsVariant3Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              @CarouselArrowButton #HandsNextButton {
+                @ArrowText = ">";
+                Anchor: (Width: @ArrowSize, Vertical: 13);
+              }
+            }
+          }
+
+          Group #LegsVariantRow {
+            Anchor: (Height: 86);
+            LayoutMode: CenterMiddle;
+
+            Group {
+              Anchor: (Width: @VariantRowInnerWidth, Height: @VariantSlotSize);
+              LayoutMode: Left;
+
+              @CarouselArrowButton #LegsPrevButton {
+                @ArrowText = "<";
+              }
+
+              ItemSlotButton #LegsVariant1Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #LegsVariant1Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #LegsVariant2Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #LegsVariant2Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              ItemSlotButton #LegsVariant3Button {
+                Anchor: (Width: @VariantSlotSize, Height: @VariantSlotSize, Right: @VariantGap);
+                HitTestVisible: true;
+                Disabled: false;
+                Style: $Common.@TertiaryButtonStyle;
+                Padding: (Full: 7);
+
+                ItemIcon #LegsVariant3Icon {
+                  Anchor: (Full: 0);
+                  ItemId: "";
+                  Visible: false;
+                  ShowItemTooltip: false;
+                }
+              }
+
+              @CarouselArrowButton #LegsNextButton {
+                @ArrowText = ">";
+                Anchor: (Width: @ArrowSize, Vertical: 13);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
