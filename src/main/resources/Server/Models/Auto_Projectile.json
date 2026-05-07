@@ -1,0 +1,53 @@
+{
+  "Model": "Items/Projectiles/Projectile.blockymodel",
+  "Texture": "Items/Projectiles/Projectile_default.png",
+  "HitBox": {
+    "Max": {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1
+    },
+    "Min": {
+      "X": -0.1,
+      "Y": -0.1,
+      "Z": -0.1
+    }
+  },
+  "MinScale": 0.7,
+  "MaxScale": 0.7,
+  "AnimationSets": {
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Animation": "Items/Animations/Spin_Roll/Spin_Roll_Left.blockyanim",
+          "BlendingDuration": 0
+        }
+      ]
+    }
+  },
+  "Particles": [
+    {
+      "Color": "#ffae00",
+      "SystemId": "RifleShooting_Impact",
+      "TargetNodeName": "",
+      "Scale": 2
+    },
+    {
+      "SystemId": "Gun_Impact",
+      "Color": "#621500",
+      "Scale": 2
+    }
+  ],
+  "Trails": [
+    {
+      "TrailId": "Fire_Trap_Fire",
+      "TargetNodeName": "Origin_Item"
+    }
+  ],
+  "DefaultAttachments": [
+    {
+      "Model": "Items/Projectiles/Items/Bullet/Bullet_Blunderbuss.blockymodel",
+      "Texture": "Items/Projectiles/Items/Bullet/Bullet_Blunderbuss_Texture.png"
+    }
+  ]
+}
