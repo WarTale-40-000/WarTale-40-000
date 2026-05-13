@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'com.azuredoom.hytale-tools' version '1.0.25'
+    id 'com.azuredoom.hytale-tools' version '1.0.26'
     id 'checkstyle'
     id 'com.diffplug.spotless' version '8.4.0'
 }
