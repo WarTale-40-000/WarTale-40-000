@@ -16,6 +16,6 @@ public class PlayerEventHandler {
     if (playerRef == null || player == null) return;
 
     WartaleHUD hud = new WartaleHUD(playerRef);
-    player.getHudManager().setCustomHud(playerRef, hud);
+    player.getHudManager().addCustomHud(playerRef, hud);
   }
 }
