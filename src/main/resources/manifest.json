@@ -59,7 +59,7 @@
     "LoadBefore": {
         
     },
-    "ServerVersion": "0.5.0-pre.8",
+    "ServerVersion": ">=0.5.1",
     "Main": "com.warhammer.wartale.WartalePlugin",
     "UpdateChecker": {
         "CurseForge": ""

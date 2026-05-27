@@ -37,11 +37,12 @@ public class HudTickingSystem extends EntityTickingSystem<EntityStore> {
 
     UUID playerId = playerRef.getUuid();
 
-    WartaleHUD hud = (WartaleHUD) player.getHudManager().getCustomHud();
+    WartaleHUD hud = (WartaleHUD) player.getHudManager().getCustomHud(WartaleHUD.HUD_ID);
     if (hud == null) return;
 
     // Determine ammo state
-    ItemStack heldItem = player.getInventory().getItemInHand();
+    ItemStack heldItem =
+        InventoryComponent.getItemInHand(commandBuffer, chunk.getReferenceTo(index));
     boolean hasAmmo = false;
     String display = "";
     String displayName;

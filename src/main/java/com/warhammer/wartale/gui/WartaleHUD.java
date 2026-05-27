@@ -7,8 +7,10 @@ import javax.annotation.Nonnull;
 
 public class WartaleHUD extends CustomUIHud {
 
+  public static final String HUD_ID = "wartale_hud";
+
   public WartaleHUD(@Nonnull PlayerRef playerRef) {
-    super(playerRef);
+    super(playerRef, HUD_ID);
   }
 
   @Override
