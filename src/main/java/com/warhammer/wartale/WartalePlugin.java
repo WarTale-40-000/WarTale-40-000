@@ -19,6 +19,7 @@ import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
 import com.warhammer.wartale.globalEvents.GiveMasteryExperienceEvent;
 import com.warhammer.wartale.globalEvents.LevelUpMasteryEvent;
 import com.warhammer.wartale.interactions.InventoryHasItemAmountInteraction;
+import com.warhammer.wartale.interactions.OpenArmorVariantPageInteraction;
 import com.warhammer.wartale.interactions.weapons.DecrementAmmoInteraction;
 import com.warhammer.wartale.interactions.weapons.LoadMagazineInteraction;
 import com.warhammer.wartale.interactions.weapons.ShootInteraction;
@@ -70,6 +71,11 @@ public class WartalePlugin extends JavaPlugin {
             .register("InventoryHasItemAmount",
                       InventoryHasItemAmountInteraction.class,
                       InventoryHasItemAmountInteraction.CODEC);
+        this.getCodecRegistry(Interaction.CODEC)
+                .register("OpenArmorVariants",
+                        OpenArmorVariantPageInteraction.class,
+                        OpenArmorVariantPageInteraction.CODEC);
+
         //Global events
         this.getEventRegistry().registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
         this.getEventRegistry().register(GiveMasteryExperienceEvent.class, new GiveMasteryExperienceHandler());
