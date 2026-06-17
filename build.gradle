@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'com.azuredoom.hytale-tools' version '1.0.32'
     id 'checkstyle'
-    id 'com.diffplug.spotless' version '8.5.1'
+    id 'com.diffplug.spotless' version '8.7.0'
 }
 
 java {
