@@ -67,7 +67,7 @@
         "Weight": 1
       }
     ],
-    "HitboxType": "Bench_Architect",
+    "HitboxType": "Bench_Salvage",
     "VariantRotation": "NESW",
     "Bench": {
       "Type": "StructuralCrafting",
