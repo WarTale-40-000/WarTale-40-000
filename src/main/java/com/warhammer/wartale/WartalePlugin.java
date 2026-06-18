@@ -8,6 +8,8 @@ import com.hypixel.hytale.server.core.event.events.player.AddPlayerToWorldEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.warhammer.wartale.assets.armorVariants.ArmorVariantStore;
+import com.warhammer.wartale.commands.armorvariants.ArmorVariantBaseCommand;
 import com.warhammer.wartale.commands.masteries.MasteryBaseCommand;
 import com.warhammer.wartale.components.EntityLevelComponent;
 import com.warhammer.wartale.components.masteries.weapons.BoltpistolMasteryComponent;
@@ -17,6 +19,7 @@ import com.warhammer.wartale.eventHandlers.PlayerEventHandler;
 import com.warhammer.wartale.globalEvents.GiveMasteryExperienceEvent;
 import com.warhammer.wartale.globalEvents.LevelUpMasteryEvent;
 import com.warhammer.wartale.interactions.InventoryHasItemAmountInteraction;
+import com.warhammer.wartale.interactions.OpenArmorVariantPageInteraction;
 import com.warhammer.wartale.interactions.weapons.DecrementAmmoInteraction;
 import com.warhammer.wartale.interactions.weapons.LoadMagazineInteraction;
 import com.warhammer.wartale.interactions.weapons.ShootInteraction;
@@ -30,12 +33,16 @@ import javax.annotation.Nonnull;
 public class WartalePlugin extends JavaPlugin {
 
   public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+
   private static WartalePlugin instance;
+
   private AssetEditorPackBridge assetEditorBridge;
 
   public WartalePlugin(@Nonnull JavaPluginInit init) {
     super(init);
+
     instance = this;
+
     LOGGER.atInfo().log("Initializing Wartale...");
   }
 
@@ -53,26 +60,40 @@ public class WartalePlugin extends JavaPlugin {
                 .enableEarlyAssetPackOrdering(true)
                 .verboseLogging(true)
                 .build());
+
     assetEditorBridge.registerEarlyAssetPackOrderingHook();
 
     // Interactions
     this.getCodecRegistry(Interaction.CODEC)
         .register("Interaction_Weapon_Shoot", ShootInteraction.class, ShootInteraction.CODEC);
+
     this.getCodecRegistry(Interaction.CODEC)
         .register("DecrementAmmo", DecrementAmmoInteraction.class, DecrementAmmoInteraction.CODEC);
+
     this.getCodecRegistry(Interaction.CODEC)
         .register("LoadMagazine", LoadMagazineInteraction.class, LoadMagazineInteraction.CODEC);
+
     this.getCodecRegistry(Interaction.CODEC)
         .register(
             "InventoryHasItemAmount",
             InventoryHasItemAmountInteraction.class,
             InventoryHasItemAmountInteraction.CODEC);
+
+    this.getCodecRegistry(Interaction.CODEC)
+        .register(
+            "OpenArmorVariants",
+            OpenArmorVariantPageInteraction.class,
+            OpenArmorVariantPageInteraction.CODEC);
+
     // Global events
     this.getEventRegistry()
         .registerGlobal(AddPlayerToWorldEvent.class, PlayerEventHandler::onAddPlayerToWorld);
+
     this.getEventRegistry()
         .register(GiveMasteryExperienceEvent.class, new GiveMasteryExperienceHandler());
+
     this.getEventRegistry().register(LevelUpMasteryEvent.class, new LevelUpMasteryHandler<>());
+
     // Systems
     this.getEntityStoreRegistry().registerSystem(new HudTickingSystem());
     this.getEntityStoreRegistry().registerSystem(new PlayerJoinSystem());
@@ -84,6 +105,7 @@ public class WartalePlugin extends JavaPlugin {
         this.getEntityStoreRegistry()
             .registerComponent(
                 EntityLevelComponent.class, "EntityLevelComponent", EntityLevelComponent.CODEC);
+
     EntityLevelComponent.setComponentType(entityLevelType);
 
     // Masteries
@@ -91,6 +113,10 @@ public class WartalePlugin extends JavaPlugin {
 
     // Commands
     this.getCommandRegistry().registerCommand(new MasteryBaseCommand());
+    this.getCommandRegistry().registerCommand(new ArmorVariantBaseCommand());
+
+    // Assets
+    this.getAssetRegistry().register(ArmorVariantStore.create());
   }
 
   @Override
@@ -98,6 +124,7 @@ public class WartalePlugin extends JavaPlugin {
     if (assetEditorBridge != null) {
       assetEditorBridge.ensureAssetEditorPackVisible();
     }
+
     LOGGER.atInfo().log("Wartale started.");
   }
 
@@ -108,14 +135,16 @@ public class WartalePlugin extends JavaPlugin {
 
   private void registerMasteries() {
     // Boltpistol Mastery
-    var boltpistolMasteryComponentComponentType =
+    var boltpistolMasteryComponentType =
         this.getEntityStoreRegistry()
             .registerComponent(
                 BoltpistolMasteryComponent.class,
                 "BoltpistolMastery",
                 BoltpistolMasteryComponent.CODEC);
-    BoltpistolMasteryComponent.setComponentType(boltpistolMasteryComponentComponentType);
+
+    BoltpistolMasteryComponent.setComponentType(boltpistolMasteryComponentType);
+
     ItemMasteryMappingTable.registerFromWeaponTierMap(
-        new BoltpistolMasteryComponent(), boltpistolMasteryComponentComponentType);
+        new BoltpistolMasteryComponent(), boltpistolMasteryComponentType);
   }
 }

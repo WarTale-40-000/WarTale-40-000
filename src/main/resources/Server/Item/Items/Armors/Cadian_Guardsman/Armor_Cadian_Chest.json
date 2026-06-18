@@ -46,7 +46,7 @@
         "Categories": [
           "Cadian_Workbench_Armor"
         ],
-        "RequiredTierLevel": 2
+        "RequiredTierLevel": 0
       }
     ],
     "KnowledgeRequired": false,
@@ -107,5 +107,11 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Cadian_Chest_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Cadian_Chest_Type"
+    }
+  ]
 }

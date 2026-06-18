@@ -1,0 +1,109 @@
+{
+  "TranslationProperties": {
+    "Name": "Cadian Chestplate"
+  },
+  "Quality": "Uncommon",
+  "ItemLevel": 20,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Armor_Heavy",
+  "Categories": [
+    "Items.Armors"
+  ],
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Chest.png",
+  "IconProperties": {
+    "Scale": 0.45,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -61
+    ]
+  },
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_ChestV2.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_Chest_Texture.png",
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Variant1"
+        ],
+        "RequiredTierLevel": 0
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Cadian_Chest",
+        "ResourceTypeId": "Cadian_Chest_Type"
+      }
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    }
+  },
+  "Armor": {
+    "ArmorSlot": "Chest",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "Overtop",
+      "Cape"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.13,
+          "CalculationType": "Percent"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.13,
+          "CalculationType": "Percent"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "Amount": 20,
+          "CalculationType": "Additive"
+        }
+      ]
+    }
+  },
+  "MaxDurability": 110,
+  "DurabilityLossOnHit": 0.5,
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Iron"
+    ]
+  },
+  "Set": "Cadian_Chest_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Cadian_Chest_Type"
+    }
+  ]
+}
