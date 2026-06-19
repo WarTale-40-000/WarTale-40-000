@@ -103,5 +103,11 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Cadian_Hands_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Cadian_Hands_Type"
+    }
+  ]
 }

@@ -95,5 +95,11 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Cadian_Legs_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Cadian_Legs_Type"
+    }
+  ]
 }

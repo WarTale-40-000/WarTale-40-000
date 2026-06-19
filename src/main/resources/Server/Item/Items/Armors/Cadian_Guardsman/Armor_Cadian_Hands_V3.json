@@ -1,36 +1,11 @@
 {
+  "Parent": "Armor_Cadian_Hands",
   "TranslationProperties": {
-    "Name": "Cadian_Gauntlets"
-  },
-  "Quality": "Uncommon",
-  "ItemLevel": 20,
-  "PlayerAnimationsId": "Block",
-  "ItemSoundSetId": "ISS_Armor_Heavy",
-  "Categories": [
-    "Items.Armors"
-  ],
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Hands.png",
-  "IconProperties": {
-    "Rotation": [
-      22.5,
-      45,
-      22.5
-    ],
-    "Scale": 0.92,
-    "Translation": [
-      15,
-      -33
-    ]
+    "Name": "Cadian_Gauntlets 2"
   },
   "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_HandsV3.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_Hands_TextureV2.png",
   "Recipe": {
-    "Input": [
-      {
-        "ItemId": "Armor_Cadian_Hands",
-        "Quantity": 1
-      }
-    ],
     "BenchRequirement": [
       {
         "Id": "Styling",
@@ -42,58 +17,12 @@
       }
     ],
     "KnowledgeRequired": false,
-    "TimeSeconds": 0
-  },
-  "Interactions": {
-    "Primary": {
-      "Interactions": [
-        {
-          "Type": "EquipItem"
-        }
-      ]
-    },
-    "Secondary": {
-      "Interactions": [
-        {
-          "Type": "EquipItem"
-        }
-      ]
-    }
-  },
-  "Armor": {
-    "ArmorSlot": "Hands",
-    "BaseDamageResistance": 0,
-    "DamageResistance": {
-      "Physical": [
-        {
-          "Amount": 0.05,
-          "CalculationType": "Percent"
-        }
-      ],
-      "Projectile": [
-        {
-          "Amount": 0.05,
-          "CalculationType": "Percent"
-        }
-      ]
-    },
-    "StatModifiers": {
-      "Health": [
-        {
-          "Amount": 5,
-          "CalculationType": "Additive"
-        }
-      ]
-    }
-  },
-  "MaxDurability": 110,
-  "DurabilityLossOnHit": 0.5,
-  "Tags": {
-    "Type": [
-      "Armor"
-    ],
-    "Family": [
-      "Iron"
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Cadian_Hands",
+        "ResourceTypeId": "Cadian_Hands_Type"
+      }
     ]
   }
 }
