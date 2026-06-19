@@ -103,5 +103,11 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Sirdar_Hands_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Sirdar_Hands_Type"
+    }
+  ]
 }
