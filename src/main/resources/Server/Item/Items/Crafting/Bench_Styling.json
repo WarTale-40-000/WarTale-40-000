@@ -72,13 +72,8 @@
     "Bench": {
       "Type": "StructuralCrafting",
       "Id": "Styling",
-      "AllowBlockGroupCycling": true,
+      "AllowBlockGroupCycling": false,
       "AlwaysShowInventoryHints": true,
-      "HeaderCategories": [
-        "WoodPlanks",
-        "OrnatePlanks",
-        "DecorativePlanks"
-      ],
       "LocalOpenSoundEventId": "SFX_Workbench_Open",
       "LocalCloseSoundEventId": "SFX_Workbench_Close",
       "CompletedSoundEventId": "SFX_Workbench_Craft",
@@ -90,6 +85,7 @@
         "Variant3"
       ]
     },
+
     "BlockEntity": {
       "Components": {
         "BenchBlock": {}

@@ -109,5 +109,11 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Sirdar_Head_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Sirdar_Head_Type"
+    }
+  ]
 }
