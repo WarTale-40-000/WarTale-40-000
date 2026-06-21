@@ -7,17 +7,17 @@
     "Parent": "Handgun",
     "Animations": {
       "Shoot": {
-        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot.blockyanim",
-        "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_Moving.blockyanim",
+        "ThirdPerson": "Characters/Animations/Items/Weapons/Range/Autogun/Shoot_AutoGun.blockyanim",
+        "ThirdPersonMoving": "Characters/Animations/Items/Weapons/Range/Autogun/Shoot_AutoGun.blockyanim",
         "FirstPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_FPS.blockyanim",
         "Speed": 1,
         "BlendingDuration": 0,
         "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
       },
       "Reload": {
-        "ThirdPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
+        "ThirdPerson": "Characters/Animations/Items/Weapons/Range/Autogun/Reload_AutoGun.blockyanim",
+        "ThirdPersonMoving": "Characters/Animations/Items/Weapons/Range/Autogun/Reload_AutoGun.blockyanim",
         "FirstPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload_FPS.blockyanim",
-        "ThirdPersonMoving": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload.blockyanim",
         "Speed": 3.34,
         "Looping": true,
         "BlendingDuration": 0.1,
