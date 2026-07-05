@@ -612,24 +612,6 @@
       "shapeStretch": [],
       "shapeVisible": [],
       "shapeUvOffset": []
-    },
-    "Handle": {
-      "position": [
-        {
-          "time": 0,
-          "delta": {"x": -16, "y": 28, "z": 9},
-          "interpolationType": "linear"
-        },
-        {
-          "time": 170,
-          "delta": {"x": -16, "y": 28, "z": 9},
-          "interpolationType": "linear"
-        }
-      ],
-      "orientation": [],
-      "shapeStretch": [],
-      "shapeVisible": [],
-      "shapeUvOffset": []
     }
   }
 }
