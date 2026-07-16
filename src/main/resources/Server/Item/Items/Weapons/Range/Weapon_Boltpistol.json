@@ -6,6 +6,27 @@
   "Model": "Resources/Items/Warhammer/Weapons/Boltpistol/Weapon_Boltpistol.blockymodel",
   "Texture": "Resources/Items/Warhammer/Weapons/Boltpistol/Boltpistol_Texture.png",
   "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Boltpistol.png",
+  "PlayerAnimationsId": {
+    "Parent": "Handgun",
+    "Animations": {
+      "Shoot": {
+        "ThirdPerson": "Characters/Animations/Items/Weapons/Range/Boltpistol/Shoot_BoltPistol.blockyanim",
+        "ThirdPersonMoving": "Characters/Animations/Items/Weapons/Range/Boltpistol/Shoot_BoltPistol.blockyanim",
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Handgun/Attacks/Shoot/Shoot_FPS.blockyanim",
+        "Speed": 1,
+        "BlendingDuration": 0,
+        "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+      },
+      "Reload": {
+        "ThirdPerson": "Characters/Animations/Items/Weapons/Range/Boltpistol/Reload_BoltPistol.blockyanim",
+        "ThirdPersonMoving": "Characters/Animations/Items/Weapons/Range/Boltpistol/Reload_BoltPistol.blockyanim",
+        "FirstPerson": "Characters/Animations/Items/Main_Handed/Crossbow/Reload/Reload_FPS.blockyanim",
+        "Speed": 1,
+        "BlendingDuration": 0.1,
+        "ThirdPersonFace": "Characters/Animations/Expressions/Frown.blockyanim"
+      }
+    }
+  },
   "IconProperties": {
     "Scale": 0.7,
     "Rotation": [
