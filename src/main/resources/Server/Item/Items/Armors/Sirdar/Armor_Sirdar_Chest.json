@@ -107,5 +107,11 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Sirdar_Chest_Type",
+  "ResourceTypes": [
+    {
+      "Id": "Sirdar_Chest_Type"
+    }
+  ]
 }
