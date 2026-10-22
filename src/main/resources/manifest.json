@@ -56,9 +56,6 @@
     "OptionalDependencies": {
         
     },
-    "LoadBefore": {
-        
-    },
     "ServerVersion": ">=0.7.3",
     "Main": "com.warhammer.wartale.WartalePlugin",
     "UpdateChecker": {
