@@ -30,7 +30,7 @@
         }
       ]
     },
-    "Ability3": "Reload_Autopistol"
+    "Secondary": "Reload_Autopistol"
   },
   "Recipe": {
     "Input": [

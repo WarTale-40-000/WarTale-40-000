@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "Cadian_Gauntlets"
+    "Name": "Cadian Gauntlets"
   },
   "Quality": "Uncommon",
   "ItemLevel": 20,
@@ -103,5 +103,6 @@
     "Family": [
       "Iron"
     ]
-  }
+  },
+  "Set": "Cadian_Hands_Type"
 }
