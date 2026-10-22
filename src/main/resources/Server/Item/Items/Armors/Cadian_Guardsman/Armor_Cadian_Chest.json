@@ -108,10 +108,5 @@
       "Iron"
     ]
   },
-  "Set": "Cadian_Chest_Type",
-  "ResourceTypes": [
-    {
-      "Id": "Cadian_Chest_Type"
-    }
-  ]
+  "Set": "Cadian_Chest_Type"
 }

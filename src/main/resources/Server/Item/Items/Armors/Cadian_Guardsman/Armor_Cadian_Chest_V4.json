@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Cadian_Chest",
   "TranslationProperties": {
-    "Name": "Cadian Chestplate 3"
+    "Name": "Cadian Chestplate V4"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_ChestV4.png",
   "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_ChestV4.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_Chest_TextureV2.png",
   "Recipe": {

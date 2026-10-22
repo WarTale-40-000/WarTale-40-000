@@ -1,11 +1,10 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Bench_Builders.name",
-    "Description": "server.items.Bench_Builders.description"
+    "Name": "Armor Styling Servitor"
   },
   "ItemLevel": 2,
   "MaxStack": 1,
-  "Icon": "Icons/ItemsGenerated/Bench_Architects.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Crafting/Bench_Servoskull.png",
   "Categories": [
     "Furniture.Benches"
   ],
@@ -85,7 +84,6 @@
         "Variant3"
       ]
     },
-
     "BlockEntity": {
       "Components": {
         "BenchBlock": {}
@@ -107,6 +105,9 @@
     },
     "BlockSoundSetId": "Stone",
     "PhysicalMaterialId": "Stone",
-    "CustomModelScale": 0.6
+    "CustomModelScale": 0.6,
+    "Interactions": {
+      "Use": "OpenArmorVariants"
+    }
   }
 }

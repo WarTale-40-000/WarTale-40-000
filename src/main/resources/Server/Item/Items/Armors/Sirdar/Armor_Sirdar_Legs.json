@@ -96,10 +96,5 @@
       "Iron"
     ]
   },
-  "Set": "Sirdar_Legs_Type",
-  "ResourceTypes": [
-    {
-      "Id": "Sirdar_Legs_Type"
-    }
-  ]
+  "Set": "Sirdar_Legs_Type"
 }

@@ -29,7 +29,7 @@
         "Cooldown": 0.15
       }
     },
-    "Ability3": "Reload_Auto"
+    "Secondary": "Reload_Auto"
   },
   "Recipe": {
     "BenchRequirement": [

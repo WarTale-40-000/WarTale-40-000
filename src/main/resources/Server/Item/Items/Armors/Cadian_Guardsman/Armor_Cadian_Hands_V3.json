@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Cadian_Hands",
   "TranslationProperties": {
-    "Name": "Cadian_Gauntlets 2"
+    "Name": "Cadian Gauntlets V3"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_HandsV3.png",
   "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_HandsV3.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_Hands_TextureV2.png",
   "Recipe": {

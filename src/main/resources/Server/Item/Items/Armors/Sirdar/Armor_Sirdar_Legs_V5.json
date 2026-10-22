@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Sirdar_Legs",
   "TranslationProperties": {
-    "Name": "Sirdar Greaves 4"
+    "Name": "Sirdar Greaves V5"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_LegsV5.png",
   "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Legs/Armor_Sirdar_LegsV5.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Legs/Armor_Sirdar_Legs_Texture_Shredded.png",
   "Recipe": {

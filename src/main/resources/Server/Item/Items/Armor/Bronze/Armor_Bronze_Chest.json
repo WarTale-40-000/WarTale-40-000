@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Armor_Bronze_Chest.name"
+  },
+  "Parent": "Armor_Iron_Chest",
+  "ItemLevel": 25,
+  "Icon": "Icons/ItemsGenerated/Armor_Bronze_Chest.png",
+  "Model": "Items/Armors/Bronze/Chest.blockymodel",
+  "Texture": "Items/Armors/Bronze/Chest_Texture.png",
+  "Recipe": {
+    "TimeSeconds": 2,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Bronze",
+        "Quantity": 6
+      },
+      {
+        "ResourceTypeId": "Wood_Trunk",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Leather_Light",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "TODO",
+        "Type": "Crafting",
+        "Categories": [
+          "Armor_Chest"
+        ]
+      }
+    ],
+    "KnowledgeRequired": true
+  },
+  "Armor": {
+    "ArmorSlot": "Chest",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "Overtop"
+    ],
+    "StatModifiers": {
+      "Health": [
+        {
+          "Amount": 17,
+          "CalculationType": "Additive"
+        }
+      ]
+    },
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.09,
+          "CalculationType": "Percent"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.09,
+          "CalculationType": "Percent"
+        }
+      ]
+    }
+  },
+  "MaxDurability": 200,
+  "DurabilityLossOnHit": 1,
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Bronze"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Armor_Heavy",
+  "Quality": "Uncommon",
+  "ResourceTypes": [
+    {
+      "Id": "Bone"
+    }
+  ]
+}
