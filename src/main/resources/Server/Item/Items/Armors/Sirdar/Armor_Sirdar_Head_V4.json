@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Sirdar_Head",
   "TranslationProperties": {
-    "Name": "Sirdar Helmet 3"
+    "Name": "Sirdar Helmet V4"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_HeadV4.png",
   "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Head/Armor_Sirdar_HeadV4.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Head/Armor_Sirdar_Head_Texture_Headless.png",
   "Recipe": {

@@ -30,7 +30,7 @@
         }
       ]
     },
-    "Ability3": "Reload_Bolt"
+    "Secondary": "Reload_Bolt"
   },
   "Recipe": {
     "Input": [

@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Cadian_Legs",
   "TranslationProperties": {
-    "Name": "Cadian Greaves 1"
+    "Name": "Cadian Greaves V2"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_LegsV2.png",
   "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Legs/Armor_Cadian_LegsV2.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Legs/Armor_Cadian_Legs_Texture.png",
   "Recipe": {

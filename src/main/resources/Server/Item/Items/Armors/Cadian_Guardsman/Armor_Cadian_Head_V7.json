@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Cadian_Head",
   "TranslationProperties": {
-    "Name": "Cadian Helmet 5"
+    "Name": "Cadian Helmet V6"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_HeadV7.png",
   "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Head/Armor_Cadian_HeadV7.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Head/Armor_Cadian_Head_TextureHeadless.png",
   "Recipe": {

@@ -104,10 +104,5 @@
       "Iron"
     ]
   },
-  "Set": "Sirdar_Hands_Type",
-  "ResourceTypes": [
-    {
-      "Id": "Sirdar_Hands_Type"
-    }
-  ]
+  "Set": "Sirdar_Hands_Type"
 }

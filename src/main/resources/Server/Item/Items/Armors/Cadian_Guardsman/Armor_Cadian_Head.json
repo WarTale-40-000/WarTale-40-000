@@ -110,10 +110,5 @@
       "Iron"
     ]
   },
-  "Set": "Cadian_Head_Type",
-  "ResourceTypes": [
-    {
-      "Id": "Cadian_Head_Type"
-    }
-  ]
+  "Set": "Cadian_Head_Type"
 }

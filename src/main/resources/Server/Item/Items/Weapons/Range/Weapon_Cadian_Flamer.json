@@ -10,7 +10,7 @@
   "Texture": "Resources/Items/Warhammer/Weapons/Cadian Flamer/Cadian_Flamer_Texture.png",
   "Interactions": {
     "Primary": "Weapon_BloodPact_Flamer_Primary",
-    "Ability3": "Weapon_BloodPact_Flamer_Ability3"
+    "Secondary": "Weapon_BloodPact_Flamer_Ability3"
   },
   "InteractionVars": {
     "Flamethrower_Damage": {

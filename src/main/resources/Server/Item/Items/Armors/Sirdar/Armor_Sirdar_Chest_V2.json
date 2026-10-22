@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Sirdar_Chest",
   "TranslationProperties": {
-    "Name": "Sirdar Chestplate 1"
+    "Name": "Sirdar Chestplate V2"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_ChestV2.png",
   "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Chest/Armor_Sirdar_ChestV2.blockymodel",
   "Texture": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Chest/Armor_Sirdar_Chest_Texture_Spiked.png",
   "Recipe": {

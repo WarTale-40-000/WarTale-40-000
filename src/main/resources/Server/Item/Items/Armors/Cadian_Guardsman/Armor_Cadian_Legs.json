@@ -96,10 +96,5 @@
       "Iron"
     ]
   },
-  "Set": "Cadian_Legs_Type",
-  "ResourceTypes": [
-    {
-      "Id": "Cadian_Legs_Type"
-    }
-  ]
+  "Set": "Cadian_Legs_Type"
 }

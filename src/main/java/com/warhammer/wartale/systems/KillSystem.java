@@ -7,6 +7,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathComponent;
@@ -80,9 +81,12 @@ public class KillSystem extends DeathSystems.OnDeathSystem {
 
   private ComponentType<EntityStore, ? extends BaseMasteryComponent> getMasteryComponentType(
       @Nonnull Player player) {
-    ItemStack itemStack = player.getInventory().getItemInHand();
-    if (itemStack == null) return null;
-    String weaponID = itemStack.getItem().getId();
+
+    // Determine item in hand
+    ItemStack heldItem = InventoryComponent.getItemInHand(player.toHolder());
+    if (heldItem == null) return null;
+
+    String weaponID = heldItem.getItem().getId();
 
     return ItemMasteryMappingTable.getMasteryTypeFromItemId(weaponID);
   }

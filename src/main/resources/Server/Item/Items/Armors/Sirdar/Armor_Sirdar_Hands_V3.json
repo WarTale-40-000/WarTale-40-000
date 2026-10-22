@@ -1,8 +1,9 @@
 {
   "Parent": "Armor_Sirdar_Hands",
   "TranslationProperties": {
-    "Name": "Sirdar Gauntlets 2"
+    "Name": "Sirdar Gauntlets V3"
   },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_HandsV3.png",
   "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Hands/Armor_Sirdar_HandsV3.blockymodel",
   "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Hands_Texture.png",
   "Recipe": {
