@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
 
       - name: Get project version
         id: version
@@ -30,7 +30,7 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
 
       - name: Set up JDK 25
-        uses: actions/setup-java@ad2b38190b15e4d6bdf0c97fb4fca8412226d287
+        uses: actions/setup-java@0f481fcb613427c0f801b606911222b5b6f3083a
         with:
           java-version: "25"
           distribution: "temurin"
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
 
       - name: Download JAR artifact
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
@@ -110,7 +110,7 @@ jobs:
 
       - name: Cache Hytale assets
         id: cache-hytale
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
           path: hytale-home
           key: hytale-assets-pre-release-${{ steps.hytale-version.outputs.version }}
@@ -157,7 +157,7 @@ jobs:
         uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a
         with:
           context: .
           file: ./Dockerfile
@@ -171,7 +171,7 @@ jobs:
             ${{ steps.image.outputs.name }}:${{ github.sha }}
 
       - name: Release JAR
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228
         with:
           tag_name: v${{ needs.build.outputs.version }}
           files: build/libs/Wartale-*.jar
