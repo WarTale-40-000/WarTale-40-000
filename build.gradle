@@ -26,6 +26,10 @@ hytaleTools {
     patchline = project.patchline.toString()
 }
 
+jar {
+    archiveVersion = "${version}+${hytale_version}"
+}
+
 checkstyle {
     toolVersion = '13.4.0'
     configFile = file("config/checkstyle.xml")

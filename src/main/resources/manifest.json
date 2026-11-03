@@ -1,7 +1,7 @@
 {
     "Group": "com.warhammer.wartale",
     "Name": "WarTale-40-000",
-    "Version": "0.1.0-alpha",
+    "Version": "1.0.0",
     "Description": "Wartale 40k mod adds Warhammer 40k themed content to Hytale.",
     "Authors": [
         {
@@ -56,9 +56,9 @@
     "OptionalDependencies": {
         
     },
-    "ServerVersion": ">=0.7.3",
+    "ServerVersion": ">=0.7.5",
     "Main": "com.warhammer.wartale.WartalePlugin",
     "UpdateChecker": {
-        "CurseForge": ""
+        "CurseForge": "1780015"
     }
 }
