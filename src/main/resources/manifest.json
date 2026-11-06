@@ -56,7 +56,7 @@
     "OptionalDependencies": {
         
     },
-    "ServerVersion": ">=0.7.5",
+    "ServerVersion": ">=0.7.6",
     "Main": "com.warhammer.wartale.WartalePlugin",
     "UpdateChecker": {
         "CurseForge": "1780015"
