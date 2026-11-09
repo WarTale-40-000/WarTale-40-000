@@ -148,8 +148,6 @@ src/main/resources/
 |   |   |   |   |   |-- {BaseName}.png
 |   |   |   |   |-- Consumables/
 |   |   |   |   |   |-- {BaseName}.png
-|   |   |-- Weapons/
-|   |   |   |-- {BaseName}.png              (HUD weapon icon)
 |   |   |-- CraftingCategories/
 |   |   |   |-- {BenchBaseName}/
 |   |   |   |   |-- {BaseName}.png          (category tab icon inside a bench)
@@ -160,7 +158,10 @@ src/main/resources/
 |   |-- UI/
 |       |-- Custom/
 |           |-- HUD/
-|               |-- {HudName}.ui
+|           |   |-- {HudName}.ui
+|           |-- Icons/
+|               |-- Weapons/
+|                   |-- {BaseName}.png      (HUD weapon icon)
 |
 |-- Server/
     |-- Item/
@@ -206,7 +207,7 @@ Server/Item/Items/Weapons/Range/Weapon_BloodPact_Boltpistol.json
 Common/Resources/Items/Warhammer/Weapons/Weapon_BloodPact_Boltpistol/Weapon_BloodPact_Boltpistol.blockymodel
 Common/Resources/Items/Warhammer/Weapons/Weapon_BloodPact_Boltpistol/Weapon_BloodPact_Boltpistol_Texture.png
 Common/Icons/ItemsGenerated/Warhammer/Weapons/Weapon_BloodPact_Boltpistol.png
-Common/Icons/Weapons/Weapon_BloodPact_Boltpistol.png
+Common/UI/Custom/Icons/Weapons/Weapon_BloodPact_Boltpistol.png
 ```
 
 ---
@@ -334,12 +335,14 @@ Common/UI/Custom/HUD/{HudName}.ui
 Example: `WartaleHUD.ui`
 
 The `weaponId` string interpolated in `WartaleHUD.java` to build the HUD icon path must be the full base name of the
-weapon so the resolved path is consistent:
+weapon. The UI references are relative to `Common/UI/Custom/`:
 
 ```
 Icons/Weapons/Weapon_Boltpistol.png
 Icons/Weapons/Weapon_BloodPact_Boltpistol.png
 ```
+
+The corresponding files live under `Common/UI/Custom/Icons/Weapons/` in the resource tree.
 
 ---
 
@@ -352,7 +355,7 @@ When adding a new item, verify every line of this checklist before opening a pul
 - [ ] A folder named `{BaseName}` exists under the correct `Common/Resources/Items/Warhammer/...` subdirectory.
 - [ ] Inside that folder, `{BaseName}.blockymodel` and `{BaseName}_Texture.png` both exist.
 - [ ] `Common/Icons/ItemsGenerated/Warhammer/{Category}/[FactionName/]{BaseName}.png` exists.
-- [ ] If the item is a weapon, `Common/Icons/Weapons/{BaseName}.png` also exists for the HUD.
+- [ ] If the item is a weapon, `Common/UI/Custom/Icons/Weapons/{BaseName}.png` also exists for the HUD.
 - [ ] If the item appears in a crafting bench category, `Common/Icons/CraftingCategories/{BenchBaseName}/{BaseName}.png`
   exists.
 - [ ] All path fields in the JSON (`Model`, `Texture`, `Icon`, and any `Animation`) resolve to files that actually exist
