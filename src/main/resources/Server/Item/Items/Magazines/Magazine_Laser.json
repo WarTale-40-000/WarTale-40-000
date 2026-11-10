@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "Las Magazine"
+    "Name": "Lascell"
   },
   "Parent": "Magazine_Template",
   "Model": "Resources/Items/Warhammer/Magazines/Magazine_Laser/Ammo_Laser.blockymodel",
@@ -22,7 +22,7 @@
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 1
       },
       {
@@ -46,5 +46,6 @@
         "RequiredTierLevel": 2
       }
     ]
-  }
+  },
+  "Quality": "Uncommon"
 }

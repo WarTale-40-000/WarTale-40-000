@@ -27,16 +27,12 @@
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 17
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 18
       },
       {
         "ItemId": "Ingredient_Leather_Medium",
         "Quantity": 3
-      },
-      {
-        "ItemId": "Ingredient_Ceramite_Bar",
-        "Quantity": 6
       }
     ],
     "BenchRequirement": [
@@ -78,13 +74,13 @@
     "DamageResistance": {
       "Physical": [
         {
-          "Amount": 0.13,
+          "Amount": 0.1,
           "CalculationType": "Percent"
         }
       ],
       "Projectile": [
         {
-          "Amount": 0.13,
+          "Amount": 0.1,
           "CalculationType": "Percent"
         }
       ]

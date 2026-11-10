@@ -1,0 +1,57 @@
+{
+  "TranslationProperties": {
+    "Name": "Recon Lasgun"
+  },
+  "Parent": "Weapon_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/Recon_Lasgun/Weapon_Reconlasgun.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Recon_Lasgun/Weapon_Reconlasgun_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Reconlasgun.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      10,
+      -34
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.2
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_ReconLaser"
+        }
+      ]
+    },
+    "Secondary": "Reload_ReconLaser"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 20
+      },
+      {
+        "ItemId": "Ingredient_Circuitry",
+        "Quantity": 10
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Guns"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ]
+  },
+  "Quality": "Uncommon"
+}

@@ -1,0 +1,65 @@
+{
+  "TranslationProperties": {
+    "Name": "Melta Gun"
+  },
+  "Parent": "Weapon_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Meltagun/Weapon_Meltagun_Bloodpact.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Meltagun/Weapon_Meltagun_Bloodpact_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Meltagun_Bloodpact.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      -26,
+      -116
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.5
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_Laser"
+        }
+      ]
+    },
+    "Secondary": "Reload_Laser"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 18
+      },
+      {
+        "ItemId": "Ingredient_Circuitry",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Fire_Essence",
+        "Quantity": 15
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Guns"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
+  },
+  "Quality": "Rare"
+}

@@ -138,7 +138,7 @@
     "Parent": "Weapon_Powersword",
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 9
       },
       {
@@ -146,7 +146,7 @@
         "Quantity": 4
       },
       {
-        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "ItemId": "Ingredient_Circuitry",
         "Quantity": 6
       }
     ],
@@ -159,5 +159,6 @@
         "RequiredTierLevel": 3
       }
     ]
-  }
+  },
+  "Quality": "Rare"
 }

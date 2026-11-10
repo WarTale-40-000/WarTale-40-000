@@ -32,7 +32,7 @@
     ],
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 5
       },
       {
@@ -40,5 +40,6 @@
         "Quantity": 2
       }
     ]
-  }
+  },
+  "Quality": "Common"
 }

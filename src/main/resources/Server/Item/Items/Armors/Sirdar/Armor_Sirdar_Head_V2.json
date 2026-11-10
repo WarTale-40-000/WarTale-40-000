@@ -3,9 +3,9 @@
   "TranslationProperties": {
     "Name": "Sirdar Helmet V2"
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_HeadV2.png",
-  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Head/Armor_Sirdar_HeadV2.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Head/Armor_Sirdar_Head_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_Head_Shieldy.png",
+  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Head/Armor_Sirdar_Head_Shieldy.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Head_Texture.png",
   "Recipe": {
     "BenchRequirement": [
       {

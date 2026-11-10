@@ -3,9 +3,9 @@
   "TranslationProperties": {
     "Name": "Sirdar Chestplate V2"
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_ChestV2.png",
-  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Chest/Armor_Sirdar_ChestV2.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Chest/Armor_Sirdar_Chest_Texture_Spiked.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_Chest_Lessarmor.png",
+  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Chest/Armor_Sirdar_Chest_Lessarmor.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Chest_Texture.png",
   "Recipe": {
     "BenchRequirement": [
       {

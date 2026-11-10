@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "Plasma Cell"
+  },
+  "Parent": "Magazine_Template",
+  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Plasma/Ammo_Plasmatank.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Plasma/Ammo_Plasmatank_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Ammo_Plasmatank.png",
+  "IconProperties": {
+    "Scale": 1.6,
+    "Rotation": [
+      45,
+      90,
+      0
+    ],
+    "Translation": [
+      -52,
+      -18
+    ]
+  },
+  "MaxStack": 20,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 60
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Magazines"
+        ],
+        "RequiredTierLevel": 3
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Magazines"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
+  },
+  "Quality": "Rare"
+}

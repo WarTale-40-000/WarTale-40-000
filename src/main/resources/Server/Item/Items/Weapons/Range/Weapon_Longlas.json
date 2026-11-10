@@ -1,0 +1,57 @@
+{
+  "TranslationProperties": {
+    "Name": "Longlas"
+  },
+  "Parent": "Weapon_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/Longlas/Weapon_Longlas.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Longlas/Weapon_Longlas_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Longlaser.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      10,
+      -34
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 1.4
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_Laser"
+        }
+      ]
+    },
+    "Secondary": "Reload_LongLaser"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 24
+      },
+      {
+        "ItemId": "Ingredient_Circuitry",
+        "Quantity": 7
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Guns"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ]
+  },
+  "Quality": "Uncommon"
+}

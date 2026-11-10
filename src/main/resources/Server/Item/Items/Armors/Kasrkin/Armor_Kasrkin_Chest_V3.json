@@ -1,0 +1,29 @@
+{
+  "Parent": "Armor_Sirdar_Chest",
+  "TranslationProperties": {
+    "Name": "Kasrkin Chestplate V3"
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Kasrkin/Armor_Kasrkin_Chest_Heavy.png",
+  "Model": "Resources/Items/Warhammer/Variants/Kasrkin/Armor_Kasrkin_Chest/Armor_Kasrkin_Chest_Heavy.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Variants/Kasrkin/Armor_Kasrkin_Chest/Armor_Kasrkin_Chest_Heavy.png",
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Variant1"
+        ],
+        "RequiredTierLevel": 0
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Sirdar_Chest",
+        "ResourceTypeId": "Sirdar_Chest_Type"
+      }
+    ]
+  }
+}

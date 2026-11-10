@@ -3,9 +3,9 @@
   "TranslationProperties": {
     "Name": "Cadian Greaves V3"
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_LegsV3.png",
-  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Legs/Armor_Cadian_LegsV3.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Legs/Armor_Cadian_Legs_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Legs_Pulledsleeves.png",
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Legs/Armor_Cadian_Legs_Pulledsleeves.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Legs_Texture.png",
   "Recipe": {
     "BenchRequirement": [
       {

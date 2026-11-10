@@ -3,9 +3,9 @@
   "TranslationProperties": {
     "Name": "Cadian Helmet V3"
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_HeadV3.png",
-  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Head/Armor_Cadian_HeadV3.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Head/Armor_Cadian_Head_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Head_Whiteshield.png",
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Head/Armor_Cadian_Head_Whiteshield.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Head_Texture.png",
   "Recipe": {
     "BenchRequirement": [
       {

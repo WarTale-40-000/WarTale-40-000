@@ -41,21 +41,19 @@
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 1
-      },
-      {
-        "ItemId": "Ingredient_Bar_Cobalt",
+        "ItemId": "Ingredient_Unrefined_Ceramite",
         "Quantity": 1
       }
     ],
     "BenchRequirement": [
       {
-        "Id": "Alloy_Furnace",
+        "Id": "Furnace",
         "Categories": [
           "Simple_Alloys"
-        ]
+        ],
+        "Type": "Processing"
       }
-    ]
+    ],
+    "TimeSeconds": 19
   }
 }

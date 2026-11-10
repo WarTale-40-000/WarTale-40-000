@@ -21,11 +21,11 @@
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 22
       },
       {
-        "ItemId": "Ingredient_Warped_Ceramite_Bar",
+        "ItemId": "Ingredient_Circuitry",
         "Quantity": 8
       }
     ],
@@ -38,5 +38,6 @@
         "RequiredTierLevel": 2
       }
     ]
-  }
+  },
+  "Quality": "Uncommon"
 }

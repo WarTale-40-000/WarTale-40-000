@@ -15,16 +15,12 @@
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 12
       },
       {
         "ItemId": "Ingredient_Leather_Medium",
         "Quantity": 3
-      },
-      {
-        "ItemId": "Ingredient_Ceramite_Bar",
-        "Quantity": 4
       }
     ],
     "BenchRequirement": [
@@ -33,8 +29,7 @@
         "Type": "Crafting",
         "Categories": [
           "Cadian_Workbench_Armor"
-        ],
-        "RequiredTierLevel": 2
+        ]
       }
     ],
     "KnowledgeRequired": false,

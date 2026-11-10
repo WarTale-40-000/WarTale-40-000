@@ -1,0 +1,29 @@
+{
+  "Parent": "Armor_Sirdar_Head",
+  "TranslationProperties": {
+    "Name": "Kasrkin Helmet V2"
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Kasrkin/Armor_Kasrkin_Head_Aquillaless.png",
+  "Model": "Resources/Items/Warhammer/Variants/Kasrkin/Armor_Kasrkin_Head/Armor_Kasrkin_Head_Aquillaless.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Kasrkin/Armor_Kasrkin_Head_Texture.png",
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Variant1"
+        ],
+        "RequiredTierLevel": 0
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Sirdar_Head",
+        "ResourceTypeId": "Sirdar_Head_Type"
+      }
+    ]
+  }
+}

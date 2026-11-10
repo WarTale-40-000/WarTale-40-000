@@ -1,0 +1,61 @@
+{
+  "TranslationProperties": {
+    "Name": "Hot-Shot Lasgun"
+  },
+  "Parent": "Weapon_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Hotshot_Lasgun/Weapon_Hellgun_Bloodpact.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Hotshot_Lasgun/Weapon_Hellgun_Bloodpact_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Hellgun_Bloodpact.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      22,
+      -31
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.5
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_Laser"
+        }
+      ]
+    },
+    "Secondary": "Reload_HotshotLaser"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 20
+      },
+      {
+        "ItemId": "Ingredient_Circuitry",
+        "Quantity": 12
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Guns"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
+  },
+  "Quality": "Rare"
+}

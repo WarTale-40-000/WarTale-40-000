@@ -22,11 +22,11 @@
     "TimeSeconds": 3.5,
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
-        "Quantity": 6
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 8
       },
       {
-        "ItemId": "Ingredient_Ceramite_Bar",
+        "ItemId": "Ingredient_Circuitry",
         "Quantity": 6
       },
       {
@@ -196,5 +196,6 @@
         "Chainsword_Vortex_Spin_PlayerEffect"
       ]
     }
-  }
+  },
+  "Quality": "Uncommon"
 }

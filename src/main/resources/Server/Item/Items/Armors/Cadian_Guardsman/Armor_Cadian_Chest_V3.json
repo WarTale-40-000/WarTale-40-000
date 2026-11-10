@@ -3,9 +3,9 @@
   "TranslationProperties": {
     "Name": "Cadian Chestplate V3"
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_ChestV3.png",
-  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_ChestV3.blockymodel",
-  "Texture": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_Chest_TextureV2.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Chest_Noshoulders.png",
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Chest/Armor_Cadian_Chest_Noshoulders.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Chest_Texture.png",
   "Recipe": {
     "BenchRequirement": [
       {

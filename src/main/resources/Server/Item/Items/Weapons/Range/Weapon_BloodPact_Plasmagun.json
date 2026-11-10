@@ -1,0 +1,65 @@
+{
+  "TranslationProperties": {
+    "Name": "Plasmagun"
+  },
+  "Parent": "Weapon_Rifle_Template",
+  "Model": "Resources/Items/Warhammer/Weapons/BloodPact_Plasmagun/Weapon_Plasmagun_BloodPact.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/BloodPact_Plasmagun/Weapon_Plasmagun_BloodPact.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Plasmagun_BloodPact.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      315,
+      90,
+      0
+    ],
+    "Translation": [
+      19,
+      -66
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.65
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_Plasma"
+        }
+      ]
+    },
+    "Secondary": "Reload_Plasma"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 17
+      },
+      {
+        "ItemId": "Ingredient_Circuitry",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence_Concentrated",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Guns"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ]
+  },
+  "Quality": "Rare"
+}

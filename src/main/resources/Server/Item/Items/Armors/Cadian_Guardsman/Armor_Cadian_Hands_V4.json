@@ -1,0 +1,29 @@
+{
+  "Parent": "Armor_Cadian_Hands",
+  "TranslationProperties": {
+    "Name": "Cadian Gauntlets V3"
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Cadian_Guardsman/Armor_Cadian_Hands_Shortsleevesgloves.png",
+  "Model": "Resources/Items/Warhammer/Variants/Cadian/Armor_Cadian_Hands/Armor_Cadian_Hands_Shortsleevesgloves.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Cadian_Guardsman/Armor_Cadian_Hands_Texture.png",
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Variant1"
+        ],
+        "RequiredTierLevel": 0
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Cadian_Hands",
+        "ResourceTypeId": "Cadian_Hands_Type"
+      }
+    ]
+  }
+}

@@ -88,16 +88,16 @@
           "UpgradeRequirement": {
             "Material": [
               {
-                "ItemId": "Ingredient_Ceramite_Bar",
-                "Quantity": 12
+                "ItemId": "Ingredient_Plasteel",
+                "Quantity": 31
               },
               {
-                "ItemId": "Ingredient_Bar_Iron",
-                "Quantity": 10
-              },
-              {
-                "Quantity": 5,
+                "Quantity": 7,
                 "ItemId": "Ingredient_Leather_Medium"
+              },
+              {
+                "ItemId": "Ingredient_Circuitry",
+                "Quantity": 12
               }
             ],
             "TimeSeconds": 10
@@ -111,7 +111,7 @@
                 "Quantity": 25
               },
               {
-                "ItemId": "Ingredient_Bar_Iron",
+                "ItemId": "Ingredient_Plasteel",
                 "Quantity": 30
               },
               {

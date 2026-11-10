@@ -1,0 +1,49 @@
+{
+  "TranslationProperties": {
+    "Name": "Melta Tank"
+  },
+  "Parent": "Magazine_Template",
+  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Melta/Ammo_Meltatank.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Melta/Ammo_Meltatank_Texture.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Ammo_Meltatank.png",
+  "IconProperties": {
+    "Scale": 2,
+    "Rotation": [
+      45,
+      38,
+      0
+    ],
+    "Translation": [
+      0,
+      0
+    ]
+  },
+  "MaxStack": 20,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fire_Essence",
+        "Quantity": 10
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Magazines"
+        ]
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Magazines"
+        ]
+      }
+    ]
+  },
+  "Quality": "Rare"
+}

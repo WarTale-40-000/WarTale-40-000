@@ -35,7 +35,7 @@
   "Recipe": {
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 12
       },
       {
@@ -51,5 +51,6 @@
         ]
       }
     ]
-  }
+  },
+  "Quality": "Common"
 }

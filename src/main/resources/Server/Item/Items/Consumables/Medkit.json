@@ -111,8 +111,8 @@
     ],
     "Input": [
       {
-        "ItemId": "Ingredient_Ceramite_Bar",
-        "Quantity": 3
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 4
       },
       {
         "Quantity": 6,

@@ -1,0 +1,28 @@
+{
+  "Model": "Items/Projectiles/Items/Bullet/Plasma_Projectile.blockymodel",
+  "Texture": "Items/Projectiles/Items/Bullet/Plasma_Projectile_Texture.png",
+  "HitBox": {
+    "Max": {
+      "X": 0.05,
+      "Y": 0.05,
+      "Z": 0.05
+    },
+    "Min": {
+      "X": -0.05,
+      "Y": -0.05,
+      "Z": -0.05
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "AnimationSets": {
+    "FlyIdle": {
+      "Animations": [
+        {
+          "Speed": 2,
+          "Animation": "Items/Animations/Spin_Roll/Spin_Roll_Right.blockyanim"
+        }
+      ]
+    }
+  }
+}

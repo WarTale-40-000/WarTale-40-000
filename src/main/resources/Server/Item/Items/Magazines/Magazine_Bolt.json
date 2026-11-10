@@ -18,7 +18,7 @@
       -2
     ]
   },
-  "MaxStack": 130,
+  "MaxStack": 20,
   "Recipe": {
     "Input": [
       {
@@ -46,5 +46,6 @@
         ]
       }
     ]
-  }
+  },
+  "Quality": "Rare"
 }

@@ -3,8 +3,8 @@
   "TranslationProperties": {
     "Name": "Sirdar Gauntlets V2"
   },
-  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_HandsV2.png",
-  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Hands/Armor_Sirdar_HandsV2.blockymodel",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_Hands_FixedGloves.png",
+  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Hands/Armor_Sirdar_Hands_FixedGloves.blockymodel",
   "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Hands_Texture.png",
   "Recipe": {
     "BenchRequirement": [

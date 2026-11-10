@@ -1,0 +1,29 @@
+{
+  "Parent": "Armor_Sirdar_Chest",
+  "TranslationProperties": {
+    "Name": "Kasrkin Chestplate V2"
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Kasrkin/Armor_Kasrkin_Aquilla.png",
+  "Model": "Resources/Items/Warhammer/Variants/Kasrkin/Armor_Kasrkin_Chest/Armor_Kasrkin_Aquilla.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Kasrkin/Armor_Kasrkin_Chest_Texture.png",
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Variant1"
+        ],
+        "RequiredTierLevel": 0
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Sirdar_Chest",
+        "ResourceTypeId": "Sirdar_Chest_Type"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "Overcharged Lascell"
+  },
+  "Parent": "Magazine_Template",
+  "Model": "Resources/Items/Warhammer/Magazines/Magazine_Hotshot/Ammo_OverchargedLascell.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Magazines/Magazine_Hotshot/Ammo_OverchargedLascell.png",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Magazines/Ammo_OverchargedLascell.png",
+  "IconProperties": {
+    "Scale": 1.6,
+    "Rotation": [
+      45,
+      90,
+      0
+    ],
+    "Translation": [
+      -19,
+      -21
+    ]
+  },
+  "MaxStack": 20,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 40
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "Categories": [
+          "Cadian_Workbench_Magazines"
+        ],
+        "RequiredTierLevel": 2
+      },
+      {
+        "Id": "BloodPact_Workbench",
+        "Categories": [
+          "BloodPact_Workbench_Magazines"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ]
+  },
+  "Quality": "Rare"
+}

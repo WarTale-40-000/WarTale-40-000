@@ -1,0 +1,61 @@
+{
+  "TranslationProperties": {
+    "Name": "Hot-Shot Laspistol"
+  },
+  "Parent": "Weapon_Gun_Template",
+  "Icon": "Icons/ItemsGenerated/Warhammer/Weapons/Weapon_Hellpistol_Cadian.png",
+  "IconProperties": {
+    "Scale": 0.6,
+    "Rotation": [
+      313,
+      90,
+      0
+    ],
+    "Translation": [
+      30,
+      -20
+    ]
+  },
+  "Interactions": {
+    "Primary": {
+      "Cooldown": {
+        "Id": "Shoot",
+        "Cooldown": 0.5
+      },
+      "Interactions": [
+        {
+          "Parent": "Interaction_Shoot_Laser"
+        }
+      ]
+    },
+    "Secondary": "Reload_HotshotLaserpistol"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Ceramite_Bar",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Plasteel",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Circuitry",
+        "Quantity": 7
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Cadian_Workbench",
+        "RequiredTierLevel": 3,
+        "Categories": [
+          "Cadian_Workbench_Guns"
+        ]
+      }
+    ]
+  },
+  "Quality": "Rare",
+  "Model": "Resources/Items/Warhammer/Weapons/Hotshot_Laspistol/Weapon_Hellpistol.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Weapons/Hotshot_Laspistol/Weapon_Hellpistol_Texture.png"
+}

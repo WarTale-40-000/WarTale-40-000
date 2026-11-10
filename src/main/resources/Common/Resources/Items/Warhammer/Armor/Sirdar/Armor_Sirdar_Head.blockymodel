@@ -1571,6 +1571,90 @@
                 },
                 {
                   "id": "33",
+                  "name": "cube--C3",
+                  "position": {"x": -42.83452, "y": 4.87868, "z": 8},
+                  "orientation": {"x": -0.2706, "y": -0.65328, "z": -0.2706, "w": 0.65328},
+                  "shape": {
+                    "type": "quad",
+                    "offset": {"x": -9.5, "y": 43.0061, "z": -36.92031},
+                    "stretch": {"x": 1, "y": 1, "z": 1},
+                    "settings": {
+                      "isPiece": false,
+                      "size": {"x": 19, "y": 9},
+                      "normal": "+Z",
+                      "isStaticBox": true
+                    },
+                    "textureLayout": {
+                      "front": {
+                        "offset": {"x": 140, "y": 60},
+                        "mirror": {"x": true, "y": false},
+                        "angle": 0
+                      }
+                    },
+                    "unwrapMode": "custom",
+                    "visible": true,
+                    "doubleSided": true,
+                    "shadingMode": "flat"
+                  }
+                },
+                {
+                  "id": "34",
+                  "name": "cube--C4",
+                  "position": {"x": 0, "y": -9.5, "z": -0.5},
+                  "orientation": {"x": 0, "y": 0.70711, "z": 0, "w": 0.70711},
+                  "shape": {
+                    "type": "quad",
+                    "offset": {"x": 0.5, "y": 22.5, "z": 0},
+                    "stretch": {"x": 1, "y": 1, "z": 1},
+                    "settings": {
+                      "isPiece": false,
+                      "size": {"x": 19, "y": 9},
+                      "normal": "+Z",
+                      "isStaticBox": true
+                    },
+                    "textureLayout": {
+                      "front": {
+                        "offset": {"x": 121, "y": 60},
+                        "mirror": {"x": false, "y": false},
+                        "angle": 0
+                      }
+                    },
+                    "unwrapMode": "custom",
+                    "visible": true,
+                    "doubleSided": true,
+                    "shadingMode": "flat"
+                  }
+                },
+                {
+                  "id": "35",
+                  "name": "cube--C5",
+                  "position": {"x": 42.83452, "y": 4.87868, "z": 8},
+                  "orientation": {"x": -0.2706, "y": 0.65328, "z": 0.2706, "w": 0.65328},
+                  "shape": {
+                    "type": "quad",
+                    "offset": {"x": 9.5, "y": 43.0061, "z": -36.92031},
+                    "stretch": {"x": 1, "y": 1, "z": 1},
+                    "settings": {
+                      "isPiece": false,
+                      "size": {"x": 19, "y": 9},
+                      "normal": "+Z",
+                      "isStaticBox": true
+                    },
+                    "textureLayout": {
+                      "front": {
+                        "offset": {"x": 121, "y": 60},
+                        "mirror": {"x": false, "y": false},
+                        "angle": 0
+                      }
+                    },
+                    "unwrapMode": "custom",
+                    "visible": true,
+                    "doubleSided": true,
+                    "shadingMode": "flat"
+                  }
+                },
+                {
+                  "id": "36",
                   "name": "Skull2",
                   "position": {"x": -0.53189, "y": 0.24366, "z": 18.5},
                   "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -1621,7 +1705,7 @@
                   },
                   "children": [
                     {
-                      "id": "34",
+                      "id": "37",
                       "name": "R-skull--C1",
                       "position": {"x": -0.5, "y": -2.5, "z": 0},
                       "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -1677,7 +1761,7 @@
               ]
             },
             {
-              "id": "35",
+              "id": "38",
               "name": "BloodMask2",
               "position": {"x": -6.5, "y": 16.5, "z": 16},
               "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
@@ -1696,7 +1780,7 @@
               },
               "children": [
                 {
-                  "id": "36",
+                  "id": "39",
                   "name": "BloodMask--C1",
                   "position": {"x": 7.5, "y": 3, "z": 3},
                   "orientation": {"x": 0, "y": -0.0654, "z": 0, "w": 0.99786},

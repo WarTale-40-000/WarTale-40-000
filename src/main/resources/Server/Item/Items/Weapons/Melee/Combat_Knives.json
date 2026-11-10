@@ -19,7 +19,7 @@
     ],
     "Input": [
       {
-        "ItemId": "Ingredient_Bar_Iron",
+        "ItemId": "Ingredient_Plasteel",
         "Quantity": 4
       },
       {
@@ -425,5 +425,6 @@
     }
   },
   "MaxDurability": 120,
-  "DurabilityLossOnHit": 0.1
+  "DurabilityLossOnHit": 0.1,
+  "Quality": "Common"
 }

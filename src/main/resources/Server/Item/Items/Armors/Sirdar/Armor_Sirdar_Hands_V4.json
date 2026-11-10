@@ -1,0 +1,29 @@
+{
+  "Parent": "Armor_Sirdar_Hands",
+  "TranslationProperties": {
+    "Name": "Sirdar Gauntlets V4"
+  },
+  "Icon": "Icons/ItemsGenerated/Warhammer/Armors/Sirdar/Armor_Sirdar_Hands_Kindaarmored.png",
+  "Model": "Resources/Items/Warhammer/Variants/Sirdar/Armor_Sirdar_Hands/Armor_Sirdar_Hands_Kindaarmored.blockymodel",
+  "Texture": "Resources/Items/Warhammer/Armor/Sirdar/Armor_Sirdar_Hands_Texture.png",
+  "Recipe": {
+    "BenchRequirement": [
+      {
+        "Id": "Styling",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Variant1"
+        ],
+        "RequiredTierLevel": 0
+      }
+    ],
+    "KnowledgeRequired": false,
+    "TimeSeconds": 0,
+    "Input": [
+      {
+        "ItemId": "Armor_Sirdar_Hands",
+        "ResourceTypeId": "Sirdar_Hands_Type"
+      }
+    ]
+  }
+}
